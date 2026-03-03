@@ -1,0 +1,61 @@
+// _variables.scss
+// Bootstrap variable overrides — maps raw palette tokens to Bootstrap's semantic vars.
+// Raw palette variables ($brand-*, $neutral-*, $state-*) are provided by _tokens.scss
+// via the _default.scss import chain. Do NOT @import "tokens" here.
+
+// Bootstrap primary theme color mapping
+$primary:   $brand-500;
+$secondary: $neutral-600;
+$success:   $state-success;
+$info:      $state-info;
+$warning:   $state-warning;
+$danger:    $state-error;
+$light:     $neutral-100;
+$dark:      $brand-900;
+
+// Body defaults (light mode)
+$body-bg:    $neutral-0;
+$body-color: $neutral-800;
+
+// Links
+$link-color:            $brand-500;
+$link-hover-color:      $brand-700;
+$link-decoration:       none;
+$link-hover-decoration: underline;
+
+// Enable features
+$enable-responsive-font-sizes: true;
+$enable-shadows:    false;
+$enable-gradients:  false;
+$enable-caret:      true;
+$enable-rtl:        true;
+$enable-css-logical-properties: true;
+
+// Border
+$border-color: $neutral-200;
+$border-radius: 0.375rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.5rem;
+
+// Shadows (compile-time defaults for Bootstrap)
+$box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$box-shadow:    0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+// Aspect ratios (preserved from original)
+$aspect-ratios: (
+  "1x1": 100%,
+  "2x1": calc(1 / 2 * 100%),
+  "3x1": calc(1 / 3 * 100%),
+  "4x1": calc(1 / 4 * 100%),
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+);
+
+// Extended palette — semantic aliases mapping raw tokens
+$footer-bg:       $brand-900;
+$footer-text:     $neutral-300;
+$cta-color:       $brand-500;
+$cta-hover:       $brand-700;
+$hero-overlay:    rgba($brand-900, 0.5);

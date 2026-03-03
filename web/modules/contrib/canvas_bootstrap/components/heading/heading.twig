@@ -1,0 +1,11 @@
+{% set classes = [
+    'heading',
+    'heading--' ~ level,
+    alinment,
+  text_color != 'none' ? text_color : '',
+  custom_class|default(''),
+] %}
+
+<{{ level }}{{ attributes.addClass(classes|filter(v => v)) }}>
+  {{ text }}
+</{{ level }}>

@@ -1,0 +1,7 @@
+name: alch-demo-local-dev
+type: drupal
+docroot: web
+php_version: "8.3"
+database:
+  type: mysql
+  version: "8.0"

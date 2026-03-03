@@ -1,0 +1,14 @@
+{
+  "name": "canvas-code-component-sync",
+  "description": "Lists all Canvas code components (JavaScriptComponent entities), shows internal vs exposed status, verifies corresponding Component entities exist, and checks config export sync state.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-09",
+  "deprecated": false,
+  "deprecated_reason": null
+}

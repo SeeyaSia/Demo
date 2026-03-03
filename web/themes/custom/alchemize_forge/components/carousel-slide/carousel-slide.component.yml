@@ -1,0 +1,28 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json
+
+name: Carousel slide
+description: A single slide for the Hero Carousel. Provides a full-bleed background image with title and stat metadata exposed via data attributes for the parent carousel to read.
+type: component
+status: experimental
+group: Canvas Bootstrap
+
+props:
+  type: object
+  required:
+    - title
+  properties:
+    title:
+      type: string
+      title: Title
+      description: Slide title displayed in the carousel info bar.
+      examples:
+        - "Digital Transformation"
+    stat:
+      type: string
+      title: Stat
+      description: A metric or statistic for this slide (e.g., "98% Client Retention").
+    background_image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: Background Image
+      description: Full-bleed background image for this slide.
+      type: object

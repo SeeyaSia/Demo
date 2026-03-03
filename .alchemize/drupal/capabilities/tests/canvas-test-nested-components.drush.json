@@ -1,0 +1,15 @@
+{
+  "name": "canvas-test-nested-components",
+  "description": "Tests deep component nesting: Row/Column/Card grid (4 levels), Accordion container/items (3 levels), and Wrapper/Row/Column/Wrapper/Heading chain (5 levels). Verifies parent/slot relationships survive save/load round-trip, validation passes, and rendering works for all nesting depths.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "Active default theme SDC components (wrapper, heading, paragraph, button, row, column, card, link, accordion, accordion-container) are available",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_developer",
+  "created_date": "2026-02-14",
+  "deprecated": false,
+  "deprecated_reason": null
+}

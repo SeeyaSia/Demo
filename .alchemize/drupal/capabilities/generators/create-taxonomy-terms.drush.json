@@ -1,0 +1,17 @@
+{
+  "name": "create-taxonomy-terms",
+  "description": "Creates taxonomy terms in a vocabulary. Skips terms that already exist (matched by name). Useful for seeding tag/category vocabularies with initial terms.",
+  "parameters": [
+    {"name": "VOCABULARY", "description": "Vocabulary machine name (e.g., tags)", "default": "tags"},
+    {"name": "TERMS", "description": "Comma-separated list of term names to create", "default": "Technology,Design,Business,Health,Science,Travel"}
+  ],
+  "preconditions": [
+    "The vocabulary exists",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-22",
+  "deprecated": false,
+  "deprecated_reason": null
+}

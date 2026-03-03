@@ -1,0 +1,16 @@
+{
+  "name": "canvas-test-run-all",
+  "description": "Orchestrates the full Canvas test suite: runs canvas-test-page-building, canvas-test-nested-components, canvas-test-content-template, canvas-test-per-content-editing, and canvas-build-page (regression). Reports pass/fail status for each test and overall summary.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "Test scripts are in capabilities/tests/ and generator scripts in capabilities/generators/",
+    "Active default theme SDC components are available",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_developer",
+  "created_date": "2026-02-14",
+  "deprecated": false,
+  "deprecated_reason": null
+}

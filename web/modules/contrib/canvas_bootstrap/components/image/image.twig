@@ -1,0 +1,163 @@
+{# Canvas Bootstrap Image Component #}
+
+{# 1. Initialize the container classes array #}
+{% set width_class = width_class|default('w-100') %}
+{% set height_class = height_class|default('none') %}
+{% set container_classes = [] %}
+{% if width_class != 'none' %}
+  {% set container_classes = container_classes|merge([width_class]) %}
+{% endif %}
+{% if height_class != 'none' %}
+  {% set container_classes = container_classes|merge([height_class]) %}
+{% endif %}
+
+{# 2. Define Bootstrap Ratio (aspect ratio) mapping #}
+{% set size_classes = {
+  '16:9': 'ratio ratio-16x9',
+  '4:3': 'ratio ratio-4x3',
+  '1:1': 'ratio ratio-1x1'
+} %}
+
+{# Apply the aspect ratio class if a valid size is provided #}
+{% if size_classes[size] is defined %}
+  {% set container_classes = container_classes|merge([size_classes[size]]) %}
+{% endif %}
+
+{# 3. Handle Border Radius (Rounding) #}
+{% if radius is not empty %}
+  {# overflow-hidden ensures the image doesn't bleed past the rounded corners #}
+  {% set container_classes = container_classes|merge(['overflow-hidden']) %}
+
+  {% set radius_classes = {
+    'small': 'rounded-1',
+    'large': 'rounded-3',
+    'extra-large': 'rounded-4'
+  } %}
+
+  {% if radius_classes[radius] is defined %}
+    {% set container_classes = container_classes|merge([radius_classes[radius]]) %}
+  {% endif %}
+{% endif %}
+
+{# 4. Render the Figure #}
+{% set figure_classes = [
+  margin_all,
+  margin_top,
+  margin_bottom,
+  margin_start,
+  margin_end,
+  margin_x,
+  margin_y,
+  padding_all,
+  padding_top,
+  padding_bottom,
+  padding_start,
+  padding_end,
+  padding_x,
+  padding_y,
+  margin_all_sm != 'none' ? margin_all_sm : '',
+  margin_top_sm != 'none' ? margin_top_sm : '',
+  margin_bottom_sm != 'none' ? margin_bottom_sm : '',
+  margin_start_sm != 'none' ? margin_start_sm : '',
+  margin_end_sm != 'none' ? margin_end_sm : '',
+  margin_x_sm != 'none' ? margin_x_sm : '',
+  margin_y_sm != 'none' ? margin_y_sm : '',
+  padding_all_sm != 'none' ? padding_all_sm : '',
+  padding_top_sm != 'none' ? padding_top_sm : '',
+  padding_bottom_sm != 'none' ? padding_bottom_sm : '',
+  padding_start_sm != 'none' ? padding_start_sm : '',
+  padding_end_sm != 'none' ? padding_end_sm : '',
+  padding_x_sm != 'none' ? padding_x_sm : '',
+  padding_y_sm != 'none' ? padding_y_sm : '',
+  margin_all_md != 'none' ? margin_all_md : '',
+  margin_top_md != 'none' ? margin_top_md : '',
+  margin_bottom_md != 'none' ? margin_bottom_md : '',
+  margin_start_md != 'none' ? margin_start_md : '',
+  margin_end_md != 'none' ? margin_end_md : '',
+  margin_x_md != 'none' ? margin_x_md : '',
+  margin_y_md != 'none' ? margin_y_md : '',
+  padding_all_md != 'none' ? padding_all_md : '',
+  padding_top_md != 'none' ? padding_top_md : '',
+  padding_bottom_md != 'none' ? padding_bottom_md : '',
+  padding_start_md != 'none' ? padding_start_md : '',
+  padding_end_md != 'none' ? padding_end_md : '',
+  padding_x_md != 'none' ? padding_x_md : '',
+  padding_y_md != 'none' ? padding_y_md : '',
+  margin_all_lg != 'none' ? margin_all_lg : '',
+  margin_top_lg != 'none' ? margin_top_lg : '',
+  margin_bottom_lg != 'none' ? margin_bottom_lg : '',
+  margin_start_lg != 'none' ? margin_start_lg : '',
+  margin_end_lg != 'none' ? margin_end_lg : '',
+  margin_x_lg != 'none' ? margin_x_lg : '',
+  margin_y_lg != 'none' ? margin_y_lg : '',
+  padding_all_lg != 'none' ? padding_all_lg : '',
+  padding_top_lg != 'none' ? padding_top_lg : '',
+  padding_bottom_lg != 'none' ? padding_bottom_lg : '',
+  padding_start_lg != 'none' ? padding_start_lg : '',
+  padding_end_lg != 'none' ? padding_end_lg : '',
+  padding_x_lg != 'none' ? padding_x_lg : '',
+  padding_y_lg != 'none' ? padding_y_lg : '',
+  margin_all_xl != 'none' ? margin_all_xl : '',
+  margin_top_xl != 'none' ? margin_top_xl : '',
+  margin_bottom_xl != 'none' ? margin_bottom_xl : '',
+  margin_start_xl != 'none' ? margin_start_xl : '',
+  margin_end_xl != 'none' ? margin_end_xl : '',
+  margin_x_xl != 'none' ? margin_x_xl : '',
+  margin_y_xl != 'none' ? margin_y_xl : '',
+  padding_all_xl != 'none' ? padding_all_xl : '',
+  padding_top_xl != 'none' ? padding_top_xl : '',
+  padding_bottom_xl != 'none' ? padding_bottom_xl : '',
+  padding_start_xl != 'none' ? padding_start_xl : '',
+  padding_end_xl != 'none' ? padding_end_xl : '',
+  padding_x_xl != 'none' ? padding_x_xl : '',
+  padding_y_xl != 'none' ? padding_y_xl : '',
+  margin_all_xxl != 'none' ? margin_all_xxl : '',
+  margin_top_xxl != 'none' ? margin_top_xxl : '',
+  margin_bottom_xxl != 'none' ? margin_bottom_xxl : '',
+  margin_start_xxl != 'none' ? margin_start_xxl : '',
+  margin_end_xxl != 'none' ? margin_end_xxl : '',
+  margin_x_xxl != 'none' ? margin_x_xxl : '',
+  margin_y_xxl != 'none' ? margin_y_xxl : '',
+  padding_all_xxl != 'none' ? padding_all_xxl : '',
+  padding_top_xxl != 'none' ? padding_top_xxl : '',
+  padding_bottom_xxl != 'none' ? padding_bottom_xxl : '',
+  padding_start_xxl != 'none' ? padding_start_xxl : '',
+  padding_end_xxl != 'none' ? padding_end_xxl : '',
+  padding_x_xxl != 'none' ? padding_x_xxl : '',
+  padding_y_xxl != 'none' ? padding_y_xxl : '',
+  custom_class|default(''),
+]|filter(v => v) %}
+<figure class="{{ figure_classes|join(' ')|trim }}">
+  {# Join the array into a space-separated string of classes #}
+  <div class="{{ container_classes|join(' ') }}">
+
+    {# If a URL is provided, wrap the image in a link #}
+    {% if url is not empty %}
+      <a href="{{ url }}" class="d-block">
+        {% include 'canvas:image' ignore missing with {
+          src: media.src,
+          alt: media.alt,
+          class: 'img-fluid w-100 h-100 object-fit-cover',
+          width: media.width,
+          height: media.height
+        } only %}
+      </a>
+    {% else %}
+      {# Standard image output without link #}
+      {% include 'canvas:image' ignore missing with {
+        src: media.src,
+        alt: media.alt,
+        class: 'img-fluid w-100 h-100 object-fit-cover',
+        width: media.width,
+        height: media.height
+      } only %}
+    {% endif %}
+  </div>
+
+  {# 5. Optional Caption #}
+  {% if caption %}
+    <figcaption class="mt-2 text-muted small">
+      {{ caption }}
+    </figcaption>
+  {% endif %}
+</figure>

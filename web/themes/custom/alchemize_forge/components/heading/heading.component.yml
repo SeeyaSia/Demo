@@ -1,0 +1,172 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: Heading
+status: experimental
+group: Canvas Bootstrap
+
+props:
+  type: object
+  required:
+    - text
+    - level
+  properties:
+    text:
+      type: string
+      title: Text
+      examples:
+        - 'This is a heading'
+
+    level:
+      type: string
+      title: Heading level
+      default: h2
+      enum:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      meta:enum:
+        h1: "H1"
+        h2: "H2"
+        h3: "H3"
+        h4: "H4"
+        h5: "H5"
+        h6: "H6"
+      examples:
+        - h1
+        - h2
+        - h3
+    
+    preset:
+      type: string
+      title: Preset
+      description: Quick style preset. Applies a curated combination of size, weight, and transform. Individual props below can still override.
+      default: none
+      enum:
+        - none
+        - hero
+        - section-title
+        - card-title
+        - subtle
+        - uppercase-label
+      meta:enum:
+        none: "None (manual)"
+        hero: "Hero — display-4, bold"
+        section-title: "Section Title — display-6, semibold, center"
+        card-title: "Card Title — h5 size, semibold"
+        subtle: "Subtle — light weight, muted"
+        uppercase-label: "Label — uppercase, small, semibold, muted"
+
+    alignment:
+      type: string
+      title: Alignment
+      default: text-start
+      enum:
+        - text-start
+        - text-center
+        - text-end
+      meta:enum:
+        text-start: "Left"
+        text-center: "Center"
+        text-end: "Right"
+      examples:
+        - text-start
+        - text-center
+        - text-end
+
+    display_size:
+      type: string
+      title: Display size
+      description: Override visual size independent of semantic heading level.
+      default: none
+      enum:
+        - none
+        - display-1
+        - display-2
+        - display-3
+        - display-4
+        - display-5
+        - display-6
+        - fs-1
+        - fs-2
+        - fs-3
+        - fs-4
+        - fs-5
+        - fs-6
+      meta:enum:
+        none: "Default"
+        display-1: "Display 1 (largest)"
+        display-2: "Display 2"
+        display-3: "Display 3"
+        display-4: "Display 4"
+        display-5: "Display 5"
+        display-6: "Display 6"
+        fs-1: "Font size 1"
+        fs-2: "Font size 2"
+        fs-3: "Font size 3"
+        fs-4: "Font size 4"
+        fs-5: "Font size 5"
+        fs-6: "Font size 6 (smallest)"
+
+    font_weight:
+      type: string
+      title: Font weight
+      default: none
+      enum:
+        - none
+        - fw-light
+        - fw-normal
+        - fw-semibold
+        - fw-bold
+      meta:enum:
+        none: "Default"
+        fw-light: "Light"
+        fw-normal: "Normal"
+        fw-semibold: "Semibold"
+        fw-bold: "Bold"
+
+    text_transform:
+      type: string
+      title: Text transform
+      default: none
+      enum:
+        - none
+        - text-uppercase
+        - text-lowercase
+        - text-capitalize
+      meta:enum:
+        none: "None"
+        text-uppercase: "UPPERCASE"
+        text-lowercase: "lowercase"
+        text-capitalize: "Capitalize"
+
+    text_color:
+      type: string
+      title: Text color
+      default: none
+      enum:
+        - text-primary
+        - text-secondary
+        - text-success
+        - text-danger
+        - text-warning
+        - text-info
+        - text-light
+        - text-dark
+        - text-body
+        - text-muted
+        - text-white
+      meta:enum:
+        text-primary: "Text-primary"
+        text-secondary: "Text-secondary"
+        text-success: "Text-success"
+        text-danger: "Text-danger"
+        text-warning: "Text-warning"
+        text-info: "Text-info"
+        text-light: "Text-light"
+        text-dark: "Text-dark"
+        text-body: "Text-body"
+        text-muted: "Text-muted"
+        text-white: "Text-white"

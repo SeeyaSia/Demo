@@ -1,0 +1,326 @@
+// scss/global/_header.scss
+// Site header: transparent overlay on hero, solid on scroll, shrink on scroll-down.
+//
+// Three states controlled by JS classes on .site-header:
+//   1. Default          — transparent bg, white text, full-size logo (70px)
+//   2. --scrolled       — solid white bg, dark text, full-size logo (70px)
+//   3. --scrolled --shrunk — solid white bg, dark text, compact logo (50px)
+//
+// Structure: .site-header > .container > .site-header__inner (flex row)
+//   children: __logo, __toggle (mobile), __nav (contains menu + CTA)
+
+// ---------------------------------------------------------------------------
+// Sizing tokens
+// ---------------------------------------------------------------------------
+$header-height-full:  80px;
+$header-height-shrunk: 60px;
+$logo-height-full:    70px;
+$logo-height-shrunk:  50px;
+
+// Vertical padding is derived: (header - logo) / 2
+// Full:  (80 - 70) / 2 = 5px
+// Shrunk: (60 - 50) / 2 = 5px
+
+// ---------------------------------------------------------------------------
+// Base — transparent, full-size (overlays hero)
+// ---------------------------------------------------------------------------
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background-color: $brand-900;
+  border-bottom: none;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+// Push page content below the fixed header.
+#main-wrapper {
+  padding-top: $header-height-full;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 5px 0;
+  transition: padding 0.3s ease;
+}
+
+// ---------------------------------------------------------------------------
+// Logo — two images overlaid, swapped via opacity for smooth transitions.
+// Both images are always in the DOM; position:absolute on the dark variant
+// keeps them stacked. opacity handles the crossfade.
+// ---------------------------------------------------------------------------
+
+.site-header__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+
+  img {
+    height: $logo-height-full;
+    width: auto;
+    transition: height 0.3s ease, opacity 0.3s ease;
+  }
+
+  // Light logo — visible by default (transparent header)
+  .site-header__logo-light {
+    opacity: 1;
+  }
+
+  // Dark logo — hidden, overlaid on top
+  .site-header__logo-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// STATE: --scrolled (solid bg, dark text, full-size logo)
+// ---------------------------------------------------------------------------
+
+.site-header.site-header--scrolled {
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+
+  // Crossfade to dark logo
+  .site-header__logo-light {
+    opacity: 0;
+  }
+  .site-header__logo-dark {
+    opacity: 1;
+  }
+
+  .nav-link {
+    color: var(--color-text-secondary);
+    &:hover,
+    &.is-active {
+      color: var(--color-text-primary);
+    }
+
+    &.is-active::after {
+      background-color: var(--color-text-primary);
+    }
+  }
+
+  .site-header__toggle-icon,
+  .site-header__toggle-icon::before,
+  .site-header__toggle-icon::after {
+    background-color: var(--color-text-primary);
+  }
+
+  .site-header__cta {
+    background-color: $brand-900;
+    border-color: $brand-900;
+    color: $neutral-0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// STATE: --shrunk (compact — stacks with --scrolled)
+// ---------------------------------------------------------------------------
+
+.site-header.site-header--shrunk {
+  .site-header__logo img {
+    height: $logo-height-shrunk;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Nav
+// ---------------------------------------------------------------------------
+
+.site-header__nav {
+  flex-shrink: 0;
+
+  // The menu block renders a <ul class="nav navbar-nav">
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .nav-link {
+    color: rgba($neutral-0, 0.85);
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    @include transition-fast(color);
+
+    &:hover,
+    &.is-active {
+      color: $neutral-0;
+    }
+
+    &.is-active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      right: 1rem;
+      height: 2px;
+      background-color: $neutral-0;
+    }
+  }
+}
+
+// CTA button — pill-shaped
+.site-header__cta {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: $brand-900;
+  border: 2px solid $brand-900;
+  color: $neutral-0;
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+
+  &:hover {
+    background-color: lighten($brand-900, 10%);
+    border-color: lighten($brand-900, 10%);
+    color: $neutral-0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Hamburger toggle — visible only on mobile via d-lg-none in Twig
+// ---------------------------------------------------------------------------
+
+.site-header__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.site-header__toggle-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: $neutral-0;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: $neutral-0;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+  }
+  &::before { top: -7px; }
+  &::after  { top: 7px; }
+}
+
+// Open state — transform hamburger into X
+.site-header__toggle[aria-expanded="true"] {
+  .site-header__toggle-icon {
+    background-color: transparent;
+    &::before { transform: rotate(45deg); top: 0; }
+    &::after  { transform: rotate(-45deg); top: 0; }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Mobile nav panel
+// ---------------------------------------------------------------------------
+
+@media (max-width: 991.98px) {
+  .site-header__inner {
+    flex-wrap: wrap;
+  }
+
+  .site-header__nav {
+    display: none;
+    width: 100%;
+    order: 3;
+    padding: 1rem 0;
+    border-top: 1px solid rgba($neutral-0, 0.15);
+
+    &--open {
+      display: block;
+    }
+
+    // Stack nav links vertically on mobile
+    .navbar-nav,
+    .nav {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .nav-link {
+      padding: 0.75rem 0;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba($neutral-0, 0.1);
+    }
+  }
+
+  // Scrolled mobile — solid bg, dark text in mobile panel
+  .site-header.site-header--scrolled .site-header__nav {
+    border-top-color: var(--color-border-subtle);
+    .nav-link {
+      border-bottom-color: var(--color-border-subtle);
+    }
+  }
+
+  // CTA button — full-width at bottom of mobile nav panel
+  .site-header__cta {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Desktop: ensure nav displays inline and CTA is pushed right
+// ---------------------------------------------------------------------------
+
+@media (min-width: 992px) {
+  .site-header__nav {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .site-header__cta {
+    margin-left: auto;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Admin toolbar offset — push header below Drupal's fixed toolbar
+// ---------------------------------------------------------------------------
+
+$toolbar-height: 80px;
+
+.toolbar-horizontal.toolbar-fixed {
+  .site-header {
+    top: $toolbar-height;
+  }
+}

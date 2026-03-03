@@ -1,0 +1,80 @@
+{#
+/**
+ * @file
+ * Template for the Hero Carousel component.
+ *
+ * Renders a full-viewport hero section with crossfade slide transitions,
+ * optional overlay heading, and a bottom info bar with slide title/stat
+ * and navigation controls.
+ *
+ * Available variables:
+ * - heading: (string) Optional overlay heading text.
+ * - subheading: (string) Optional overlay subheading text.
+ * - auto_rotate_interval: (integer) Ms between auto-transitions (0 = disabled).
+ *
+ * Available blocks:
+ * - slides: The area where Carousel Slide components should be placed.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set carousel_id = 'hero-carousel-' ~ random() %}
+{% set interval = auto_rotate_interval|default(5000) %}
+
+<section{{ attributes.addClass('hero-carousel').setAttribute('id', carousel_id) }}
+  data-auto-rotate="{{ interval }}"
+>
+  {# Slide container — direct child of root so Canvas slot detection works.
+     Canvas maps the slot drop zone to the parent element of {% block %},
+     so the block must be a direct child of the component root element. #}
+  {% block slides %}
+    {# Carousel Slide components are placed here via Canvas editor #}
+  {% endblock %}
+
+  {# Gradient overlay from bottom #}
+  <div class="hero-carousel__gradient"></div>
+
+  {# Content overlay — optional heading/subheading #}
+  {% if heading or subheading %}
+    <div class="hero-carousel__content">
+      <div class="container">
+        {% if heading %}
+          <h1 class="hero-carousel__heading">{{ heading }}</h1>
+        {% endif %}
+        {% if subheading %}
+          <p class="hero-carousel__subheading">{{ subheading }}</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {# Bottom info bar — populated by JS from slide data attributes #}
+  <div class="hero-carousel__bar">
+    <div class="container">
+      <div class="hero-carousel__bar-inner">
+        <div class="hero-carousel__info">
+          <span class="hero-carousel__slide-title"></span>
+          <span class="hero-carousel__slide-stat"></span>
+        </div>
+        <div class="hero-carousel__nav">
+          <button type="button" class="hero-carousel__prev" aria-label="Previous slide">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <span class="hero-carousel__counter">
+            <span class="hero-carousel__current">1</span>
+            <span class="hero-carousel__separator">/</span>
+            <span class="hero-carousel__total">1</span>
+          </span>
+          <button type="button" class="hero-carousel__next" aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

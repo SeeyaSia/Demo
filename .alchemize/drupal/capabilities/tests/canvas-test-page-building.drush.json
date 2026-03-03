@@ -1,0 +1,15 @@
+{
+  "name": "canvas-test-page-building",
+  "description": "Tests Canvas Page entity workflow: creation, component placement (heading, paragraph, button, blockquote, image, link), tree round-trip verification, validation, and rendering. Exercises the full save path including components with empty media (ComputedUrlWithQueryString fix).",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "Active default theme SDC components are available",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_developer",
+  "created_date": "2026-02-14",
+  "deprecated": false,
+  "deprecated_reason": null
+}

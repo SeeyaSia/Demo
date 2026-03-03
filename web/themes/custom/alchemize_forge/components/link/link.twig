@@ -1,0 +1,29 @@
+{% set attributes = attributes|default(create_attribute()) %}
+{% set url = url|default('#') %}
+{% set label = text|default('Link') %}
+{% set aria_label = aria_label|default('') %}
+{% set target = target|default('same') %}
+{% set as_button = as_button|default(false) %}
+{% set stretched_link = stretched_link|default(false) %}
+{% set button_variant = button_variant|default('primary') %}
+{% set width_class = width_class|default('none') %}
+{% set base_button_class = as_button ? ('btn btn-' ~ button_variant) : '' %}
+{% set extra_classes = as_button ? (button_classes|default('')) : (link_classes|default('')) %}
+{% set classes = [
+  base_button_class,
+  extra_classes,
+  width_class != 'none' ? width_class : '',
+  stretched_link ? 'stretched-link' : '',
+]|filter(v => v) %}
+{% set target_attr = target == 'new' ? '_blank' : '_self' %}
+{% set needs_rel = target == 'new' %}
+
+<a
+  href="{{ url }}"
+  {{ attributes.addClass(classes) }}
+  target="{{ target_attr }}"
+  {% if needs_rel %}rel="noopener noreferrer"{% endif %}
+  {% if aria_label %}aria-label="{{ aria_label }}"{% endif %}
+>
+  {{ label }}
+</a>

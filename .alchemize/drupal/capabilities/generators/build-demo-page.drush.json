@@ -1,0 +1,16 @@
+{
+  "name": "build-demo-page",
+  "description": "Builds the 'Alchemize Forge Demo' page — a polished 6-section showcase demonstrating the full preset system. Uses all wrapper presets (hero-dark, light-section, content-section, cta-banner), heading presets (hero, section-title, card-title), paragraph presets (lead, caption), card presets (elevated, dark), and individual prop overrides alongside presets. Most comprehensive preset example in the project.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "ContentTemplate 'node.page.full' exists with 'field_canvas_body' exposed slot",
+    "Active default theme has SDC components registered in Canvas",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-28",
+  "deprecated": false,
+  "deprecated_reason": null
+}

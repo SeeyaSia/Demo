@@ -1,0 +1,16 @@
+{
+  "name": "update-article-content-template",
+  "description": "Updates the Article ContentTemplate (node.article.full) with an exposed slot for per-content editing. Restructures the template tree: keeps Heading (linked to title) and Image (linked to field_image) as root-level template-locked components, adds a Wrapper component whose 'content' slot is configured as the exposed slot, and removes the static Paragraph component (body content belongs in per-entity slot).",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "ContentTemplate 'node.article.full' exists and is enabled",
+    "Active default theme SDC components (wrapper, heading, image) are available",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_developer",
+  "created_date": "2026-02-12",
+  "deprecated": false,
+  "deprecated_reason": null
+}

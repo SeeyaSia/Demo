@@ -1,0 +1,22 @@
+uuid: 8b6d589a-6b0e-4a79-958b-1861c1d73f0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: Qtcaue59Ity5nZ2_axJtNJxscKycvLShA3EybL_fHYk
+id: alchemize_forge_help
+theme: alchemize_forge
+region: content
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

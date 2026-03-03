@@ -1,0 +1,14 @@
+{
+  "name": "canvas-setup-overview",
+  "description": "Full Canvas environment diagnostic: theme, components, PageRegions, ContentTemplates, Canvas Pages, and OAuth status. Run this first when debugging Canvas issues.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-15",
+  "deprecated": false,
+  "deprecated_reason": null
+}

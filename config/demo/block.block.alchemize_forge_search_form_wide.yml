@@ -1,0 +1,23 @@
+uuid: 0ae515f6-3941-47cb-8ba4-5a1c351a9c84
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: jyiAmHRlUhSK8mO04JyGs_CQLL5VCKOy1irN8-gXN6Q
+id: alchemize_forge_search_form_wide
+theme: alchemize_forge
+region: none
+weight: -6
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

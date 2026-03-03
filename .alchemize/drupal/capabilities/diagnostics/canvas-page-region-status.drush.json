@@ -1,0 +1,14 @@
+{
+  "name": "canvas-page-region-status",
+  "description": "Shows Canvas PageRegion configuration: which theme regions have PageRegion entities, whether Canvas or Block Layout is active, and which regions have populated component trees.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-09",
+  "deprecated": false,
+  "deprecated_reason": null
+}

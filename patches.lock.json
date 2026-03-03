@@ -1,0 +1,17 @@
+{
+    "_hash": "b499d6aff24948c7830c07ba808ac604ba21e754de8bfc42e429e4c4187826e7",
+    "patches": {
+        "drupal/core": [
+            {
+                "package": "drupal/core",
+                "description": "#2605218: Views Block Display skips preBlockBuild() on AJAX rebuild",
+                "url": "https://www.drupal.org/files/issues/2026-01-15/2605218-143.diff",
+                "sha256": "7939643779b6c24fb1ea4ebaaebdf36b0a44bfa6bc1ceabf48c9b4b9368689f4",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

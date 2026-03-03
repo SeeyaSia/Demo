@@ -1,0 +1,10 @@
+uuid: 35b7dab7-527d-48b1-8622-7b0c3197b2ba
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alchemize_forge
+id: alchemize_forge.breadcrumb
+region: breadcrumb
+theme: alchemize_forge
+component_tree: {  }

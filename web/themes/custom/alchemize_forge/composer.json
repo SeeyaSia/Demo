@@ -1,0 +1,10 @@
+{
+	"name": "drupal/alchemize_forge",
+	"type": "drupal-theme",
+  "description": "Starter sub-theme for Bootstrap Forge (based on Barrio Theme) using SASS and Bootstrap 5.",
+	"homepage": "http://drupal.org/project/alchemize_forge",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"drupal/bootstrap_barrio": "^5.1"
+	}
+}

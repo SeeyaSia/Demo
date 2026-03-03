@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Alchemize Forge's theme implementation to display a single page.
+ *
+ * Transparent header overlay on hero, solid on scroll.
+ * Dark multi-column footer with logo and legal links.
+ *
+ * @see bootstrap_barrio/templates/layout/page.html.twig
+ * @see \Drupal\canvas\Plugin\DisplayVariant\CanvasPageVariant
+ */
+#}
+
+<div id="page-wrapper">
+  <div id="page">
+    <header id="header" class="site-header" role="banner" aria-label="{{ 'Site header'|t }}">
+      <div class="container">
+        <div class="site-header__inner">
+          <a href="{{ path('<front>') }}" rel="home" class="site-header__logo">
+            <img src="{{ base_path ~ directory ~ '/images/logo-dark.png' }}" alt="{{ 'Home'|t }}" class="site-header__logo-light" />
+            <img src="{{ base_path ~ directory ~ '/logo.png' }}" alt="{{ 'Home'|t }}" class="site-header__logo-dark" />
+          </a>
+          <button class="site-header__toggle d-lg-none" aria-label="{{ 'Toggle menu'|t }}" aria-expanded="false" aria-controls="site-nav">
+            <span class="site-header__toggle-icon"></span>
+          </button>
+          <nav id="site-nav" class="site-header__nav" aria-label="{{ 'Main navigation'|t }}">
+            {{ drupal_block('system_menu_block:main', wrapper=false) }}
+            <a href="/contact" class="btn site-header__cta">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div id="main-wrapper" class="layout-main-wrapper clearfix">
+      {% block content %}
+        <div id="main" class="{{ container }}">
+          {{ drupal_block('local_tasks_block', wrapper=false) }}
+          {{ drupal_block('local_actions_block', wrapper=false) }}
+          <div class="row row-offcanvas row-offcanvas-left clearfix">
+              <main{{ content_attributes }}>
+                <section class="section">
+                  <a href="#main-content" id="main-content" tabindex="-1"></a>
+                  {{ page.content }}
+                </section>
+              </main>
+          </div>
+        </div>
+      {% endblock %}
+    </div>
+
+    <footer class="site-footer site-footer--dark">
+      {% block footer %}
+        <div class="{{ container }}">
+          <div class="site-footer__top">
+            <div class="site-footer__divider"></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="site-footer__nav">
+                {{ drupal_block('system_menu_block:footer', wrapper=false) }}
+              </div>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="site-footer__social">LinkedIn <span aria-hidden="true">&nearr;</span></a>
+            </div>
+          </div>
+          <div class="site-footer__bottom">
+            <span>&copy; {{ "now"|date("Y") }} {{ site_name|default('Site Name') }}. All Rights Reserved</span>
+            <div class="site-footer__legal">
+              <a href="/privacy-policy">Privacy Policy</a>
+              <a href="/accessibility">Accessibility Policy</a>
+            </div>
+          </div>
+        </div>
+      {% endblock %}
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+# Dependencies
+vendor
+vendor/*
+
+# Drupal files
+web/files
+web/sites/*/files
+!web/sites/default/files/.htaccess
+web/sites/*/private
+web/sites/*/files-private
+web/sites/*/settings.local.php
+web/sites/services.dev.yml
+
+# Database snapshots
+dbs
+dbs/*
+drush
+drush/*
+
+# Secrets / local config
+.env
+.ddev/oauth-keys/
+
+# IDE / OS
+.vscode
+.idea
+.DS_Store
+*.css.map
+*.js.map
+
+# Node
+node_modules

@@ -1,0 +1,45 @@
+{
+  "name": "alchemize_forge",
+  "version": "5.1.0",
+  "description": "Barrio SASS implementation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js js/bootstrap.bundle.min.js 2>/dev/null || true",
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=development",
+    "watch": "webpack --watch --mode=development",
+    "clean": "rm -rf css/*.css css/*.css.map",
+    "build:full": "bash scripts/build.sh"
+  },
+  "keywords": [
+    "SASS",
+    "Bootstrap",
+    "Drupal",
+    "Barrio"
+  ],
+  "author": "@hatuhay",
+  "license": "MIT",
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.3.0",
+    "bootstrap-icons": "^1.11.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "css-loader": "^7.1.2",
+    "glob": "^13.0.0",
+    "mini-css-extract-plugin": "^2.10.0",
+    "postcss": "^8.5.6",
+    "postcss-inline-svg": "^4.1.0",
+    "postcss-loader": "^8.2.0",
+    "postcss-pxtorem": "^5.1.1",
+    "postcss-use-logical": "^0.1.5",
+    "sass": "^1.77.6",
+    "sass-loader": "^16.0.6",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-remove-empty-scripts": "^1.1.1"
+  }
+}

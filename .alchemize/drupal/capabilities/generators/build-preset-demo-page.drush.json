@@ -1,0 +1,16 @@
+{
+  "name": "build-preset-demo-page",
+  "description": "Builds the Preset Showcase page (/node/6) — a living reference of all wrapper, heading, paragraph, and card presets. Programmatically generates every preset variant to demonstrate how preset keys map to .role-* and .preset-* SCSS classes. Re-run after theme/preset changes to keep the showcase current.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "ContentTemplate 'node.page.full' exists with 'field_canvas_body' exposed slot",
+    "Active default theme has SDC components registered in Canvas",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-28",
+  "deprecated": false,
+  "deprecated_reason": null
+}

@@ -1,0 +1,4 @@
+component_instance_form:
+  css:
+    theme:
+      css/component-instance-form.css: {}

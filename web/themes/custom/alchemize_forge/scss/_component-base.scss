@@ -1,0 +1,24 @@
+// _component-base.scss
+// Variables-and-mixins-only import for SDC component SCSS files.
+// Unlike _default.scss this does NOT import _semantic.scss, so it emits
+// zero CSS on its own — safe to @import in every component without
+// duplicating :root custom properties.
+
+// 1. Bootstrap functions (required first)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Raw palette tokens (SCSS variables only)
+@import "tokens";
+
+// 3. Custom variable overrides (maps tokens → Bootstrap vars)
+@import "variables";
+@import "typography";
+
+// 4. Bootstrap variables, maps & mixins
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// 5. Custom mixins (elevation, transition — uses semantic tokens via CSS vars)
+@import "mixins";

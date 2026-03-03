@@ -1,0 +1,14 @@
+{
+  "name": "canvas-oauth-setup",
+  "description": "Checks Canvas OAuth setup for CLI integration. Verifies canvas_oauth and simple_oauth modules, RSA key configuration, OAuth consumers, scopes, and outputs CLI configuration values.",
+  "parameters": [],
+  "preconditions": [
+    "DDEV is running",
+    "Drupal is bootstrapped"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-09",
+  "deprecated": false,
+  "deprecated_reason": null
+}

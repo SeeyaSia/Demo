@@ -1,0 +1,21 @@
+uuid: 24333a72-cc87-4ba2-8a63-256020a11f90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_canvas_body
+    - node.type.page
+  module:
+    - canvas
+id: node.page.field_canvas_body
+field_name: field_canvas_body
+entity_type: node
+bundle: page
+label: 'Canvas Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: component_tree

@@ -1,0 +1,29 @@
+{% set figure_classes = [
+  alignment|default('text-start'),
+] %}
+{% set italic = italic|default(false) %}
+{% set opacity = opacity|default('none') %}
+{% set text_color = text_color|default('none') %}
+{% set blockquote_classes = [
+  'blockquote',
+  blockquote_class|default(''),
+  italic ? 'fst-italic' : '',
+  opacity != 'none' ? opacity : '',
+  text_color != 'none' ? text_color : '',
+]|filter(v => v) %}
+
+{% set blockquote_classes = blockquote_classes|merge([custom_class|default('')]) %}
+<figure{{ attributes.addClass(figure_classes) }}>
+  <blockquote class="{{ blockquote_classes|join(' ')|trim }}">
+    <p>{{ text }}</p>
+  </blockquote>
+
+  {% if footer or cite %}
+    <figcaption class="blockquote-footer {{ footer_class|default('') }}">
+      {{ footer }}
+      {% if cite %}
+        <cite title="{{ cite }}">{{ cite }}</cite>
+      {% endif %}
+    </figcaption>
+  {% endif %}
+</figure>

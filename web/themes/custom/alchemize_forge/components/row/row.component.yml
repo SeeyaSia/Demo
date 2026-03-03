@@ -1,0 +1,491 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: Row
+description: A Bootstrap row wrapper with configurable gap.
+type: component
+status: experimental
+group: Canvas Bootstrap
+
+props:
+  type: object
+  properties:
+    gap:
+      type: string
+      title: Gap
+      description: Bootstrap gap utility for the row.
+      enum:
+        - g-0
+        - g-1
+        - g-2
+        - g-3
+        - g-4
+        - g-5
+      meta:enum:
+        g-0: "G-0"
+        g-1: "G-1"
+        g-2: "G-2"
+        g-3: "G-3"
+        g-4: "G-4"
+        g-5: "G-5"
+    gap_sm:
+      type: string
+      title: Gap (sm)
+      description: Bootstrap gap utility for the row.
+      enum:
+        - g-sm-0
+        - g-sm-1
+        - g-sm-2
+        - g-sm-3
+        - g-sm-4
+        - g-sm-5
+      meta:enum:
+        g-sm-0: "G-sm-0"
+        g-sm-1: "G-sm-1"
+        g-sm-2: "G-sm-2"
+        g-sm-3: "G-sm-3"
+        g-sm-4: "G-sm-4"
+        g-sm-5: "G-sm-5"
+    gap_md:
+      type: string
+      title: Gap (md)
+      description: Bootstrap gap utility for the row.
+      enum:
+        - g-md-0
+        - g-md-1
+        - g-md-2
+        - g-md-3
+        - g-md-4
+        - g-md-5
+      meta:enum:
+        g-md-0: "G-md-0"
+        g-md-1: "G-md-1"
+        g-md-2: "G-md-2"
+        g-md-3: "G-md-3"
+        g-md-4: "G-md-4"
+        g-md-5: "G-md-5"
+    gap_lg:
+      type: string
+      title: Gap (lg)
+      description: Bootstrap gap utility for the row.
+      enum:
+        - g-lg-0
+        - g-lg-1
+        - g-lg-2
+        - g-lg-3
+        - g-lg-4
+        - g-lg-5
+      meta:enum:
+        g-lg-0: "G-lg-0"
+        g-lg-1: "G-lg-1"
+        g-lg-2: "G-lg-2"
+        g-lg-3: "G-lg-3"
+        g-lg-4: "G-lg-4"
+        g-lg-5: "G-lg-5"
+    gap_xl:
+      type: string
+      title: Gap (xl)
+      description: Bootstrap gap utility for the row.
+      enum:
+        - g-xl-0
+        - g-xl-1
+        - g-xl-2
+        - g-xl-3
+        - g-xl-4
+        - g-xl-5
+      meta:enum:
+        g-xl-0: "G-xl-0"
+        g-xl-1: "G-xl-1"
+        g-xl-2: "G-xl-2"
+        g-xl-3: "G-xl-3"
+        g-xl-4: "G-xl-4"
+        g-xl-5: "G-xl-5"
+    gap_xxl:
+      type: string
+      title: Gap (xxl)
+      description: Bootstrap gap utility for the row.
+      enum:
+        - g-xxl-0
+        - g-xxl-1
+        - g-xxl-2
+        - g-xxl-3
+        - g-xxl-4
+        - g-xxl-5
+      meta:enum:
+        g-xxl-0: "G-xxl-0"
+        g-xxl-1: "G-xxl-1"
+        g-xxl-2: "G-xxl-2"
+        g-xxl-3: "G-xxl-3"
+        g-xxl-4: "G-xxl-4"
+        g-xxl-5: "G-xxl-5"
+    gap_x:
+      type: string
+      title: Gap X
+      description: Bootstrap horizontal gap utility for the row.
+      enum:
+        - gx-0
+        - gx-1
+        - gx-2
+        - gx-3
+        - gx-4
+        - gx-5
+      meta:enum:
+        gx-0: "Gx-0"
+        gx-1: "Gx-1"
+        gx-2: "Gx-2"
+        gx-3: "Gx-3"
+        gx-4: "Gx-4"
+        gx-5: "Gx-5"
+    gap_x_sm:
+      type: string
+      title: Gap X (sm)
+      description: Bootstrap horizontal gap utility for the row.
+      enum:
+        - gx-sm-0
+        - gx-sm-1
+        - gx-sm-2
+        - gx-sm-3
+        - gx-sm-4
+        - gx-sm-5
+      meta:enum:
+        gx-sm-0: "Gx-sm-0"
+        gx-sm-1: "Gx-sm-1"
+        gx-sm-2: "Gx-sm-2"
+        gx-sm-3: "Gx-sm-3"
+        gx-sm-4: "Gx-sm-4"
+        gx-sm-5: "Gx-sm-5"
+    gap_x_md:
+      type: string
+      title: Gap X (md)
+      description: Bootstrap horizontal gap utility for the row.
+      enum:
+        - gx-md-0
+        - gx-md-1
+        - gx-md-2
+        - gx-md-3
+        - gx-md-4
+        - gx-md-5
+      meta:enum:
+        gx-md-0: "Gx-md-0"
+        gx-md-1: "Gx-md-1"
+        gx-md-2: "Gx-md-2"
+        gx-md-3: "Gx-md-3"
+        gx-md-4: "Gx-md-4"
+        gx-md-5: "Gx-md-5"
+    gap_x_lg:
+      type: string
+      title: Gap X (lg)
+      description: Bootstrap horizontal gap utility for the row.
+      enum:
+        - gx-lg-0
+        - gx-lg-1
+        - gx-lg-2
+        - gx-lg-3
+        - gx-lg-4
+        - gx-lg-5
+      meta:enum:
+        gx-lg-0: "Gx-lg-0"
+        gx-lg-1: "Gx-lg-1"
+        gx-lg-2: "Gx-lg-2"
+        gx-lg-3: "Gx-lg-3"
+        gx-lg-4: "Gx-lg-4"
+        gx-lg-5: "Gx-lg-5"
+    gap_x_xl:
+      type: string
+      title: Gap X (xl)
+      description: Bootstrap horizontal gap utility for the row.
+      enum:
+        - gx-xl-0
+        - gx-xl-1
+        - gx-xl-2
+        - gx-xl-3
+        - gx-xl-4
+        - gx-xl-5
+      meta:enum:
+        gx-xl-0: "Gx-xl-0"
+        gx-xl-1: "Gx-xl-1"
+        gx-xl-2: "Gx-xl-2"
+        gx-xl-3: "Gx-xl-3"
+        gx-xl-4: "Gx-xl-4"
+        gx-xl-5: "Gx-xl-5"
+    gap_x_xxl:
+      type: string
+      title: Gap X (xxl)
+      description: Bootstrap horizontal gap utility for the row.
+      enum:
+        - gx-xxl-0
+        - gx-xxl-1
+        - gx-xxl-2
+        - gx-xxl-3
+        - gx-xxl-4
+        - gx-xxl-5
+      meta:enum:
+        gx-xxl-0: "Gx-xxl-0"
+        gx-xxl-1: "Gx-xxl-1"
+        gx-xxl-2: "Gx-xxl-2"
+        gx-xxl-3: "Gx-xxl-3"
+        gx-xxl-4: "Gx-xxl-4"
+        gx-xxl-5: "Gx-xxl-5"
+    gap_y:
+      type: string
+      title: Gap Y
+      description: Bootstrap vertical gap utility for the row.
+      enum:
+        - gy-0
+        - gy-1
+        - gy-2
+        - gy-3
+        - gy-4
+        - gy-5
+      meta:enum:
+        gy-0: "Gy-0"
+        gy-1: "Gy-1"
+        gy-2: "Gy-2"
+        gy-3: "Gy-3"
+        gy-4: "Gy-4"
+        gy-5: "Gy-5"
+    gap_y_sm:
+      type: string
+      title: Gap Y (sm)
+      description: Bootstrap vertical gap utility for the row.
+      enum:
+        - gy-sm-0
+        - gy-sm-1
+        - gy-sm-2
+        - gy-sm-3
+        - gy-sm-4
+        - gy-sm-5
+      meta:enum:
+        gy-sm-0: "Gy-sm-0"
+        gy-sm-1: "Gy-sm-1"
+        gy-sm-2: "Gy-sm-2"
+        gy-sm-3: "Gy-sm-3"
+        gy-sm-4: "Gy-sm-4"
+        gy-sm-5: "Gy-sm-5"
+    gap_y_md:
+      type: string
+      title: Gap Y (md)
+      description: Bootstrap vertical gap utility for the row.
+      enum:
+        - gy-md-0
+        - gy-md-1
+        - gy-md-2
+        - gy-md-3
+        - gy-md-4
+        - gy-md-5
+      meta:enum:
+        gy-md-0: "Gy-md-0"
+        gy-md-1: "Gy-md-1"
+        gy-md-2: "Gy-md-2"
+        gy-md-3: "Gy-md-3"
+        gy-md-4: "Gy-md-4"
+        gy-md-5: "Gy-md-5"
+    gap_y_lg:
+      type: string
+      title: Gap Y (lg)
+      description: Bootstrap vertical gap utility for the row.
+      enum:
+        - gy-lg-0
+        - gy-lg-1
+        - gy-lg-2
+        - gy-lg-3
+        - gy-lg-4
+        - gy-lg-5
+      meta:enum:
+        gy-lg-0: "Gy-lg-0"
+        gy-lg-1: "Gy-lg-1"
+        gy-lg-2: "Gy-lg-2"
+        gy-lg-3: "Gy-lg-3"
+        gy-lg-4: "Gy-lg-4"
+        gy-lg-5: "Gy-lg-5"
+    gap_y_xl:
+      type: string
+      title: Gap Y (xl)
+      description: Bootstrap vertical gap utility for the row.
+      enum:
+        - gy-xl-0
+        - gy-xl-1
+        - gy-xl-2
+        - gy-xl-3
+        - gy-xl-4
+        - gy-xl-5
+      meta:enum:
+        gy-xl-0: "Gy-xl-0"
+        gy-xl-1: "Gy-xl-1"
+        gy-xl-2: "Gy-xl-2"
+        gy-xl-3: "Gy-xl-3"
+        gy-xl-4: "Gy-xl-4"
+        gy-xl-5: "Gy-xl-5"
+    gap_y_xxl:
+      type: string
+      title: Gap Y (xxl)
+      description: Bootstrap vertical gap utility for the row.
+      enum:
+        - gy-xxl-0
+        - gy-xxl-1
+        - gy-xxl-2
+        - gy-xxl-3
+        - gy-xxl-4
+        - gy-xxl-5
+      meta:enum:
+        gy-xxl-0: "Gy-xxl-0"
+        gy-xxl-1: "Gy-xxl-1"
+        gy-xxl-2: "Gy-xxl-2"
+        gy-xxl-3: "Gy-xxl-3"
+        gy-xxl-4: "Gy-xxl-4"
+        gy-xxl-5: "Gy-xxl-5"
+    row_cols:
+      type: string
+      title: Row columns
+      description: Bootstrap row-cols utility for the row.
+      enum:
+        - row-cols-1
+        - row-cols-2
+        - row-cols-3
+        - row-cols-4
+        - row-cols-5
+        - row-cols-6
+      meta:enum:
+        row-cols-1: "Row-cols-1"
+        row-cols-2: "Row-cols-2"
+        row-cols-3: "Row-cols-3"
+        row-cols-4: "Row-cols-4"
+        row-cols-5: "Row-cols-5"
+        row-cols-6: "Row-cols-6"
+    row_cols_sm:
+      type: string
+      title: Row columns (sm)
+      description: Bootstrap row-cols utility for the row.
+      enum:
+        - row-cols-sm-1
+        - row-cols-sm-2
+        - row-cols-sm-3
+        - row-cols-sm-4
+        - row-cols-sm-5
+        - row-cols-sm-6
+      meta:enum:
+        row-cols-sm-1: "Row-cols-sm-1"
+        row-cols-sm-2: "Row-cols-sm-2"
+        row-cols-sm-3: "Row-cols-sm-3"
+        row-cols-sm-4: "Row-cols-sm-4"
+        row-cols-sm-5: "Row-cols-sm-5"
+        row-cols-sm-6: "Row-cols-sm-6"
+    row_cols_md:
+      type: string
+      title: Row columns (md)
+      description: Bootstrap row-cols utility for the row.
+      enum:
+        - row-cols-md-1
+        - row-cols-md-2
+        - row-cols-md-3
+        - row-cols-md-4
+        - row-cols-md-5
+        - row-cols-md-6
+      meta:enum:
+        row-cols-md-1: "Row-cols-md-1"
+        row-cols-md-2: "Row-cols-md-2"
+        row-cols-md-3: "Row-cols-md-3"
+        row-cols-md-4: "Row-cols-md-4"
+        row-cols-md-5: "Row-cols-md-5"
+        row-cols-md-6: "Row-cols-md-6"
+    row_cols_lg:
+      type: string
+      title: Row columns (lg)
+      description: Bootstrap row-cols utility for the row.
+      enum:
+        - row-cols-lg-1
+        - row-cols-lg-2
+        - row-cols-lg-3
+        - row-cols-lg-4
+        - row-cols-lg-5
+        - row-cols-lg-6
+      meta:enum:
+        row-cols-lg-1: "Row-cols-lg-1"
+        row-cols-lg-2: "Row-cols-lg-2"
+        row-cols-lg-3: "Row-cols-lg-3"
+        row-cols-lg-4: "Row-cols-lg-4"
+        row-cols-lg-5: "Row-cols-lg-5"
+        row-cols-lg-6: "Row-cols-lg-6"
+    row_cols_xl:
+      type: string
+      title: Row columns (xl)
+      description: Bootstrap row-cols utility for the row.
+      enum:
+        - row-cols-xl-1
+        - row-cols-xl-2
+        - row-cols-xl-3
+        - row-cols-xl-4
+        - row-cols-xl-5
+        - row-cols-xl-6
+      meta:enum:
+        row-cols-xl-1: "Row-cols-xl-1"
+        row-cols-xl-2: "Row-cols-xl-2"
+        row-cols-xl-3: "Row-cols-xl-3"
+        row-cols-xl-4: "Row-cols-xl-4"
+        row-cols-xl-5: "Row-cols-xl-5"
+        row-cols-xl-6: "Row-cols-xl-6"
+    row_cols_xxl:
+      type: string
+      title: Row columns (xxl)
+      description: Bootstrap row-cols utility for the row.
+      enum:
+        - row-cols-xxl-1
+        - row-cols-xxl-2
+        - row-cols-xxl-3
+        - row-cols-xxl-4
+        - row-cols-xxl-5
+        - row-cols-xxl-6
+      meta:enum:
+        row-cols-xxl-1: "Row-cols-xxl-1"
+        row-cols-xxl-2: "Row-cols-xxl-2"
+        row-cols-xxl-3: "Row-cols-xxl-3"
+        row-cols-xxl-4: "Row-cols-xxl-4"
+        row-cols-xxl-5: "Row-cols-xxl-5"
+        row-cols-xxl-6: "Row-cols-xxl-6"
+
+slots:
+  row:
+    title: Row
+    required: true
+    description: Column components
+
+canvas_bootstrap:
+  ui_groups:
+    Gaps:
+      weight: 10
+      groups:
+        All gaps:
+          weight: 0
+          fields:
+            - gap
+            - gap_sm
+            - gap_md
+            - gap_lg
+            - gap_xl
+            - gap_xxl
+        Horizontal gaps:
+          weight: 10
+          fields:
+            - gap_x
+            - gap_x_sm
+            - gap_x_md
+            - gap_x_lg
+            - gap_x_xl
+            - gap_x_xxl
+        Vertical gaps:
+          weight: 20
+          fields:
+            - gap_y
+            - gap_y_sm
+            - gap_y_md
+            - gap_y_lg
+            - gap_y_xl
+            - gap_y_xxl
+    Columns:
+      weight: 20
+      fields:
+        - row_cols
+        - row_cols_sm
+        - row_cols_md
+        - row_cols_lg
+        - row_cols_xl
+        - row_cols_xxl

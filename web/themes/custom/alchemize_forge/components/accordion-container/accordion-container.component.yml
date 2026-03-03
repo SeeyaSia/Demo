@@ -1,0 +1,21 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json
+
+name: Accordion container
+description: A wrapper component for grouping multiple accordion items with optional "flush" styling.
+type: component
+status: experimental
+group: Canvas Bootstrap
+
+props:
+  type: object
+  properties:
+    flush:
+      type: boolean
+      title: Flush accordion
+      description: Remove default background, borders, and rounded corners.
+      default: false
+
+slots:
+  accordion_content:
+    title: Accordion items
+    description: Add accordion item components here

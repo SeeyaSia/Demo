@@ -1,0 +1,22 @@
+uuid: f6942785-4776-474d-90cf-482182e169a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: dd2LH0dTkV4onXMYJt35kBJG95nbVlkFg0CLg2vha5I
+id: alchemize_forge_powered
+theme: alchemize_forge
+region: footer_fifth
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

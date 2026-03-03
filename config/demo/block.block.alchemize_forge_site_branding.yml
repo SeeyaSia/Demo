@@ -1,0 +1,25 @@
+uuid: bcd3a691-8e15-4080-bbca-2f4a3b1e939d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: G3WqUTuyhP_Lk8VbYRIVyBSs58UBMb_kqYJFXU1gF3M
+id: alchemize_forge_site_branding
+theme: alchemize_forge
+region: none
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,17 @@
+{
+  "name": "canvas-test-content-template",
+  "description": "Tests ContentTemplate config entity lifecycle: loading, component tree structure, exposed slot configuration and validation (empty passes, filled rejected), template rendering standalone, auto-save round-trip, and the ValidExposedSlotConstraintValidator.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "ContentTemplate 'node.article.full' exists",
+    "Active default theme SDC components are available",
+    "At least one article node exists for preview rendering",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_developer",
+  "created_date": "2026-02-14",
+  "deprecated": false,
+  "deprecated_reason": null
+}

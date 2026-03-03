@@ -1,0 +1,91 @@
+// _semantic.scss
+// Semantic design tokens as CSS custom properties.
+// Light mode defaults on :root, dark mode overrides via Bootstrap's color-mode() mixin.
+// This file must be imported AFTER Bootstrap variables/maps/mixins are loaded.
+
+:root,
+[data-bs-theme="light"] {
+  // Backgrounds
+  --color-bg-page:       #{$neutral-0};
+  --color-bg-surface:    #{$neutral-0};
+  --color-bg-elevated:   #{$neutral-50};
+  --color-bg-muted:      #{$neutral-100};
+
+  // Text — primary is #0A0028 (darkest), secondary is body text #1F1F3D
+  --color-text-primary:   #{$neutral-800};
+  --color-text-secondary: #{$neutral-600};
+  --color-text-muted:     #{$neutral-400};
+  --color-text-inverse:   #{$neutral-0};
+
+  // Borders
+  --color-border-default: #{$neutral-200};
+  --color-border-subtle:  #{$neutral-100};
+  --color-border-strong:  #{$neutral-300};
+
+  // Brand
+  --color-brand-primary:  #{$brand-500};
+  --color-brand-hover:    #{$brand-700};
+  --color-brand-muted:    #{$brand-100};
+  --color-brand-contrast: #{$neutral-0};
+
+  // Extended palette
+  --color-footer-bg:     #{$footer-bg};
+  --color-footer-text:   #{$footer-text};
+  --color-section-alt:   #{$neutral-100};
+  --color-cta:           #{$cta-color};
+  --color-cta-hover:     #{$cta-hover};
+  --color-hero-overlay:  #{$hero-overlay};
+
+  // Shadows
+  --shadow-sm:  0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  // Motion
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+  --transition-slow: 300ms ease;
+}
+
+@include color-mode(dark) {
+  // Backgrounds
+  --color-bg-page:       #{$neutral-900};
+  --color-bg-surface:    #{$neutral-800};
+  --color-bg-elevated:   #{$neutral-700};
+  --color-bg-muted:      #{$neutral-800};
+
+  // Text
+  --color-text-primary:   #{$neutral-50};
+  --color-text-secondary: #{$neutral-400};
+  --color-text-muted:     #{$neutral-500};
+  --color-text-inverse:   #{$neutral-900};
+
+  // Borders
+  --color-border-default: #{$neutral-700};
+  --color-border-subtle:  #{$neutral-800};
+  --color-border-strong:  #{$neutral-600};
+
+  // Brand
+  --color-brand-primary:  #{$brand-400};
+  --color-brand-hover:    #{$brand-300};
+  --color-brand-muted:    #{$brand-900};
+  --color-brand-contrast: #{$neutral-0};
+
+  // Shadows
+  --shadow-sm:  0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+
+  // Bootstrap utility variable remapping.
+  --bs-white-rgb:     #{red($neutral-800)}, #{green($neutral-800)}, #{blue($neutral-800)};
+  --bs-light-rgb:     #{red($neutral-700)}, #{green($neutral-700)}, #{blue($neutral-700)};
+  --bs-dark-rgb:      #{red($neutral-50)}, #{green($neutral-50)}, #{blue($neutral-50)};
+  --bs-dark:          #{$neutral-50};
+  --bs-light:         #{$neutral-700};
+
+  // Body defaults
+  --bs-body-color:     #{$neutral-50};
+  --bs-body-color-rgb: #{red($neutral-50)}, #{green($neutral-50)}, #{blue($neutral-50)};
+  --bs-body-bg:        #{$neutral-900};
+  --bs-body-bg-rgb:    #{red($neutral-900)}, #{green($neutral-900)}, #{blue($neutral-900)};
+}

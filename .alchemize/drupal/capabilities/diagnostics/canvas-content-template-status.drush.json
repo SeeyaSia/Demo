@@ -1,0 +1,14 @@
+{
+  "name": "canvas-content-template-status",
+  "description": "Reports on all Canvas ContentTemplate config entities: status, component tree size, exposed slots, field_component_tree presence, and validation results.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-15",
+  "deprecated": false,
+  "deprecated_reason": null
+}

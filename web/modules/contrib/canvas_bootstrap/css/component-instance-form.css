@@ -1,0 +1,10 @@
+drupal-html-fragment > [data-state="closed"] > :not(button)[data-state="closed"] {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 5s  ease-in;
+}
+
+drupal-html-fragment > [data-state="open"] > :not(button)[data-state="open"] {
+  max-height: 2000px;
+  transition: max-height 5s ease-in;
+}

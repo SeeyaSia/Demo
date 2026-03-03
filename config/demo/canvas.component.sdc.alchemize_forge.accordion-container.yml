@@ -1,0 +1,29 @@
+uuid: 5547f139-a151-4317-a04a-79249c8cce05
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alchemize_forge
+active_version: b3f3f33771e09cd8
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        flush:
+          required: false
+          field_type: boolean
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: boolean_checkbox
+          default_value: null
+          expression: ℹ︎boolean␟value
+    fallback_metadata:
+      slot_definitions:
+        accordion_content:
+          title: 'Accordion items'
+          description: 'Add accordion item components here'
+label: 'Accordion container'
+id: sdc.alchemize_forge.accordion-container
+provider: alchemize_forge
+source: sdc
+source_local_id: 'alchemize_forge:accordion-container'

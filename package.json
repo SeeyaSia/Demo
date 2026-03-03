@@ -1,0 +1,16 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "A **Canvas-first Drupal 11** site built on Bootstrap 5 via the Alchemize Forge custom theme. Canvas provides visual page building with drag-and-drop SDC components, content templates with per-content slot editing, and site-wide page regions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@drupal-canvas/cli": "^0.6.2"
+  }
+}

@@ -1,0 +1,316 @@
+{% set attributes = attributes|default(create_attribute()) %}
+{% set image_rounding = image_rounding|default('') %}
+{% set image_wrapper_class = image_wrapper_class|default('') %}
+{% set reverse_order = reverse_order|default(false) %}
+{% set show_header = show_header ?? true %}
+{% set show_image = show_image ?? true %}
+{% set show_footer = show_footer ?? true %}
+{% set border_color = border_color|default('none') %}
+{% set bg_color = bg_color|default('none') %}
+{% set card_header = card_header|default('') %}
+{% set card_image = card_image|default('') %}
+{% set card_body = card_body|default('') %}
+{% set card_footer = card_footer|default('') %}
+
+{% set header_slot %}
+  {% block card_header %}{% endblock %}
+{% endset %}
+{% set image_slot %}
+  {% block card_image %}{% endblock %}
+{% endset %}
+{% set body_slot %}
+  {% block card_body %}{% endblock %}
+{% endset %}
+{% set footer_slot %}
+  {% block card_footer %}{% endblock %}
+{% endset %}
+
+{% set header_output = header_slot|trim != '' ? header_slot : card_header %}
+{% set image_output = image_slot|trim != '' ? image_slot : card_image %}
+{% set body_output = body_slot|trim != '' ? body_slot : card_body %}
+{% set footer_output = footer_slot|trim != '' ? footer_slot : card_footer %}
+
+{% set has_header = show_header %}
+{% set has_image = show_image %}
+{% set has_body = true %}
+{% set has_footer = show_footer %}
+
+{% set image_rounding_type_class = '' %}
+{% if image_rounding == 'card-img-top' %}
+  {% set image_rounding_type_class = 'card-image-rounding-top' %}
+{% elseif image_rounding == 'card-img-bottom' %}
+  {% set image_rounding_type_class = 'card-image-rounding-bottom' %}
+{% endif %}
+
+{% set _preset = preset|default('none') %}
+
+{# Preset class maps — each preset references a single semantic class
+   defined in scss/_layout-presets.scss. Visual treatment (shadows, borders,
+   backgrounds, radii) comes from brand tokens, not scattered Bootstrap
+   utilities. Individual prop overrides (Bootstrap utilities with !important)
+   reliably win over preset classes (normal specificity). #}
+{% set preset_classes = {
+  'elevated': ['preset-card-elevated'],
+  'bordered': ['preset-card-bordered'],
+  'dark':     ['preset-card-dark'],
+  'flat':     ['preset-card-flat'],
+  'glass':    ['preset-card-glass'],
+} %}
+
+{% set _preset_list = preset_classes[_preset]|default([]) %}
+
+{% set card_classes = [
+  'card',
+  position == 'relative' ? 'position-relative' : (position == 'absolute' ? 'position-absolute' : ''),
+  shadow is defined and shadow != 'none' ? shadow : '',
+  card_rounding != 'none' ? card_rounding : '',
+  border_color != 'none' ? border_color : '',
+  bg_color != 'none' ? bg_color : '',
+  card_class|default(''),
+]|merge(_preset_list)|filter(v => v) %}
+
+{% set header_classes = ['card-header', header_class|default('')] %}
+
+{% set body_classes = ['card-body', 'h-100', body_class|default('')] %}
+
+{% set footer_classes = ['card-footer', footer_class|default('')] %}
+
+{% set body_justify_content = body_justify_content|default('none') %}
+{% set body_justify_content_sm = body_justify_content_sm|default('none') %}
+{% set body_justify_content_md = body_justify_content_md|default('none') %}
+{% set body_justify_content_lg = body_justify_content_lg|default('none') %}
+{% set body_justify_content_xl = body_justify_content_xl|default('none') %}
+{% set body_justify_content_xxl = body_justify_content_xxl|default('none') %}
+{% set body_align_items = body_align_items|default('none') %}
+{% set body_align_items_sm = body_align_items_sm|default('none') %}
+{% set body_align_items_md = body_align_items_md|default('none') %}
+{% set body_align_items_lg = body_align_items_lg|default('none') %}
+{% set body_align_items_xl = body_align_items_xl|default('none') %}
+{% set body_align_items_xxl = body_align_items_xxl|default('none') %}
+
+{% set body_flex_classes = [] %}
+{% set card_orientation = body_orientation|default('none') %}
+{% set card_orientation_sm = body_orientation_sm|default('none') %}
+{% set card_orientation_md = body_orientation_md|default('none') %}
+{% set card_orientation_lg = body_orientation_lg|default('none') %}
+{% set card_orientation_xl = body_orientation_xl|default('none') %}
+{% set card_orientation_xxl = body_orientation_xxl|default('none') %}
+{% set card_orientation_base = card_orientation != 'none' ? card_orientation : 'vertical' %}
+{% set card_orientation_classes = [
+  'card-orient-base-' ~ card_orientation_base,
+  card_orientation_sm != 'none' ? 'card-orient-sm-' ~ card_orientation_sm : '',
+  card_orientation_md != 'none' ? 'card-orient-md-' ~ card_orientation_md : '',
+  card_orientation_lg != 'none' ? 'card-orient-lg-' ~ card_orientation_lg : '',
+  card_orientation_xl != 'none' ? 'card-orient-xl-' ~ card_orientation_xl : '',
+  card_orientation_xxl != 'none' ? 'card-orient-xxl-' ~ card_orientation_xxl : '',
+]|filter(v => v) %}
+
+{% if card_orientation_classes|length > 0 %}
+  {% set card_classes = card_classes|merge(card_orientation_classes) %}
+{% endif %}
+
+{% if body_justify_content != 'none' or body_align_items != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge(['d-flex', 'flex-column']) %}
+{% endif %}
+{% if body_justify_content != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_justify_content]) %}
+{% endif %}
+{% if body_align_items != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_align_items]) %}
+{% endif %}
+
+{% if body_justify_content_sm != 'none' or body_align_items_sm != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge(['d-sm-flex', 'flex-sm-column']) %}
+{% endif %}
+{% if body_justify_content_sm != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_justify_content_sm]) %}
+{% endif %}
+{% if body_align_items_sm != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_align_items_sm]) %}
+{% endif %}
+
+{% if body_justify_content_md != 'none' or body_align_items_md != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge(['d-md-flex', 'flex-md-column']) %}
+{% endif %}
+{% if body_justify_content_md != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_justify_content_md]) %}
+{% endif %}
+{% if body_align_items_md != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_align_items_md]) %}
+{% endif %}
+
+{% if body_justify_content_lg != 'none' or body_align_items_lg != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge(['d-lg-flex', 'flex-lg-column']) %}
+{% endif %}
+{% if body_justify_content_lg != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_justify_content_lg]) %}
+{% endif %}
+{% if body_align_items_lg != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_align_items_lg]) %}
+{% endif %}
+
+{% if body_justify_content_xl != 'none' or body_align_items_xl != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge(['d-xl-flex', 'flex-xl-column']) %}
+{% endif %}
+{% if body_justify_content_xl != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_justify_content_xl]) %}
+{% endif %}
+{% if body_align_items_xl != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_align_items_xl]) %}
+{% endif %}
+
+{% if body_justify_content_xxl != 'none' or body_align_items_xxl != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge(['d-xxl-flex', 'flex-xxl-column']) %}
+{% endif %}
+{% if body_justify_content_xxl != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_justify_content_xxl]) %}
+{% endif %}
+{% if body_align_items_xxl != 'none' %}
+  {% set body_flex_classes = body_flex_classes|merge([body_align_items_xxl]) %}
+{% endif %}
+
+{% if body_flex_classes|length > 0 %}
+  {% set body_classes = body_classes|merge(body_flex_classes) %}
+{% endif %}
+
+{% set media_base_orientation = card_orientation != 'none' ? card_orientation : 'vertical' %}
+{% set media_has_horizontal = 'horizontal' in [
+  media_base_orientation,
+  card_orientation_sm,
+  card_orientation_md,
+  card_orientation_lg,
+  card_orientation_xl,
+  card_orientation_xxl,
+] %}
+
+{% set image_first = not reverse_order %}
+
+<article{{ attributes.addClass(card_classes) }}>
+  {% if has_header %}
+    <div class="{{ header_classes|join(' ')|trim }}">
+      {{ header_output }}
+    </div>
+  {% endif %}
+
+  {% if has_image and has_body and media_has_horizontal %}
+    {% set image_wrapper_classes = ['card-image-wrapper', 'overflow-hidden'] %}
+    {% if image_rounding %}
+      {% set image_wrapper_classes = image_wrapper_classes|merge([image_rounding]) %}
+    {% endif %}
+    {% if image_rounding_type_class %}
+      {% set image_wrapper_classes = image_wrapper_classes|merge([image_rounding_type_class]) %}
+    {% endif %}
+    {% if image_wrapper_class %}
+      {% set image_wrapper_classes = image_wrapper_classes|merge([image_wrapper_class]) %}
+    {% endif %}
+    {% if media_base_orientation == 'horizontal' %}
+      {% set image_wrapper_classes = image_wrapper_classes|merge(['h-100']) %}
+      {% if image_rounding == 'card-img-top' %}
+        {% set image_wrapper_classes = image_wrapper_classes|merge(['rounded-start']) %}
+      {% elseif image_rounding == 'card-img-bottom' %}
+        {% set image_wrapper_classes = image_wrapper_classes|merge(['rounded-end']) %}
+      {% endif %}
+    {% endif %}
+    {% set image_col_classes = [] %}
+    {% set body_col_classes = [] %}
+    {% if media_base_orientation == 'horizontal' %}
+      {% set image_col_classes = image_col_classes|merge(['col-4']) %}
+      {% set body_col_classes = body_col_classes|merge(['col-8']) %}
+    {% else %}
+      {% set image_col_classes = image_col_classes|merge(['col-12']) %}
+      {% set body_col_classes = body_col_classes|merge(['col-12']) %}
+    {% endif %}
+    {% if card_orientation_sm != 'none' %}
+      {% if card_orientation_sm == 'horizontal' %}
+        {% set image_col_classes = image_col_classes|merge(['col-sm-4']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-sm-8']) %}
+      {% else %}
+        {% set image_col_classes = image_col_classes|merge(['col-sm-12']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-sm-12']) %}
+      {% endif %}
+    {% endif %}
+    {% if card_orientation_md != 'none' %}
+      {% if card_orientation_md == 'horizontal' %}
+        {% set image_col_classes = image_col_classes|merge(['col-md-4']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-md-8']) %}
+      {% else %}
+        {% set image_col_classes = image_col_classes|merge(['col-md-12']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-md-12']) %}
+      {% endif %}
+    {% endif %}
+    {% if card_orientation_lg != 'none' %}
+      {% if card_orientation_lg == 'horizontal' %}
+        {% set image_col_classes = image_col_classes|merge(['col-lg-4']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-lg-8']) %}
+      {% else %}
+        {% set image_col_classes = image_col_classes|merge(['col-lg-12']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-lg-12']) %}
+      {% endif %}
+    {% endif %}
+    {% if card_orientation_xl != 'none' %}
+      {% if card_orientation_xl == 'horizontal' %}
+        {% set image_col_classes = image_col_classes|merge(['col-xl-4']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-xl-8']) %}
+      {% else %}
+        {% set image_col_classes = image_col_classes|merge(['col-xl-12']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-xl-12']) %}
+      {% endif %}
+    {% endif %}
+    {% if card_orientation_xxl != 'none' %}
+      {% if card_orientation_xxl == 'horizontal' %}
+        {% set image_col_classes = image_col_classes|merge(['col-xxl-4']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-xxl-8']) %}
+      {% else %}
+        {% set image_col_classes = image_col_classes|merge(['col-xxl-12']) %}
+        {% set body_col_classes = body_col_classes|merge(['col-xxl-12']) %}
+      {% endif %}
+    {% endif %}
+    {% if not image_first %}
+      {% set image_col_classes = image_col_classes|merge(['order-2']) %}
+      {% set body_col_classes = body_col_classes|merge(['order-1']) %}
+    {% endif %}
+    <div class="row g-0">
+      <div class="{{ image_col_classes|join(' ')|trim }}">
+        <div class="{{ image_wrapper_classes|join(' ') }}">
+          {{ image_output }}
+        </div>
+      </div>
+      <div class="{{ body_col_classes|join(' ')|trim }}">
+        <div class="{{ body_classes|join(' ')|trim }}">
+          {{ body_output }}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    {% set vertical_image_wrapper_classes = [
+      'card-image-wrapper',
+      image_rounding,
+      image_rounding_type_class,
+      'overflow-hidden',
+    ] %}
+    {% if image_wrapper_class %}
+      {% set vertical_image_wrapper_classes = vertical_image_wrapper_classes|merge([image_wrapper_class]) %}
+    {% endif %}
+    {% if has_image and image_first %}
+      <div class="{{ vertical_image_wrapper_classes|join(' ')|trim }}">
+        {{ image_output }}
+      </div>
+    {% endif %}
+    {% if has_body %}
+      <div class="{{ body_classes|join(' ')|trim }}">
+        {{ body_output }}
+      </div>
+    {% endif %}
+    {% if has_image and not image_first %}
+      <div class="{{ vertical_image_wrapper_classes|join(' ')|trim }}">
+        {{ image_output }}
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% if has_footer %}
+    <div class="{{ footer_classes|join(' ')|trim }}">
+      {{ footer_output }}
+    </div>
+  {% endif %}
+</article>

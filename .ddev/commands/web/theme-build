@@ -1,0 +1,6 @@
+#!/bin/bash
+## Description: Build theme assets (SCSS → CSS + Bootstrap JS)
+## Usage: theme-build [flags]
+## Flags: [{"Name":"dev","Type":"bool","Usage":"development build with source maps"},{"Name":"watch","Type":"bool","Usage":"watch mode, auto-rebuild on changes"},{"Name":"clean","Type":"bool","Usage":"remove compiled CSS before building"},{"Name":"ci","Type":"bool","Usage":"skip npm install if node_modules exists"}]
+
+bash /var/www/html/web/themes/custom/alchemize_forge/scripts/build.sh "$@"

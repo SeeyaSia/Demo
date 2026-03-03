@@ -1,0 +1,15 @@
+global-styling:
+  version: VERSION
+  js:
+    js/bootstrap.bundle.min.js: { minified: true, weight: -50 }
+    js/barrio.js: {}
+    js/header-scroll.js: {}
+    js/custom.js: {}
+  css:
+    component:
+      css/bootstrap.css: {}
+      css/style.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

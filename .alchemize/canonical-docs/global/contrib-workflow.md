@@ -1,0 +1,283 @@
+# Contributing to Drupal Contrib Modules
+
+## Purpose
+
+Explains how to develop, test, and submit patches/merge requests to upstream Drupal contrib modules — specifically when the project maintains a local integration workspace with multiple issue branches. Read this before starting any contrib work.
+
+## System Overview
+
+The project occasionally needs to fix bugs or add features in contrib modules (e.g. `drupal/canvas`). Instead of patching via `cweagans/composer-patches`, authorized modules are cloned separately, developed against as a Composer path repository, and contributed back upstream via Drupal.org issue forks.
+
+**Key principle:** One integration repo per module. One issue fork remote per issue. Always rebase, never merge.
+
+### When to Use This Workflow
+
+- The module is **explicitly authorized** for direct contrib work (see `global/architecture.md` for the current list).
+- The change is intended for **upstream contribution**, not a private hack.
+- For one-off patches that won't go upstream, use `cweagans/composer-patches` instead (see `global/development-workflow.md`).
+
+---
+
+## Setup
+
+### One-Time: Clone the Module
+
+Clone the module into a dedicated workspace **outside** the Drupal project:
+
+```bash
+git clone git@git.drupal.org:project/<module>.git ~/Projects/drupal-contrib/<module>
+cd ~/Projects/drupal-contrib/<module>
+```
+
+### One-Time: Link via Composer Path Repository
+
+In the Drupal project's `composer.json`, add a path repository pointing to the clone (the DDEV container path, not the host path):
+
+```json
+{
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/var/www/drupal-contrib/<module>",
+      "options": { "symlink": true }
+    }
+  ]
+}
+```
+
+Set the module requirement to use any dev version:
+
+```bash
+ddev composer require drupal/<module>:*@dev
+```
+
+### One-Time: Mount into DDEV
+
+Create `.ddev/docker-compose.<module>-mount.yaml`:
+
+```yaml
+services:
+  web:
+    volumes:
+      - ~/Projects/drupal-contrib/<module>:/var/www/drupal-contrib/<module>
+```
+
+Restart DDEV:
+
+```bash
+ddev restart
+```
+
+### One-Time: Build UI Assets (if applicable)
+
+If the module has a JavaScript UI (e.g. Canvas has `ui/` and `packages/`):
+
+```bash
+cd ~/Projects/drupal-contrib/<module>
+npm install
+npm run build --workspace=ui
+```
+
+After building, clear Drupal cache:
+
+```bash
+ddev drush cr
+```
+
+---
+
+## Per-Issue Workflow
+
+### 1. Create the Issue on Drupal.org
+
+- Write a clear problem statement with steps to reproduce.
+- Set status to **Active**.
+- Click **Create issue fork** — note the auto-generated branch name.
+
+### 2. Add the Issue Fork as a Git Remote
+
+```bash
+cd ~/Projects/drupal-contrib/<module>
+git remote add issue-<number> git@git.drupal.org:issue/<module>-<number>.git
+```
+
+You now have:
+
+```
+origin   → git@git.drupal.org:project/<module>.git  (upstream)
+issue-<number> → git@git.drupal.org:issue/<module>-<number>.git  (fork)
+```
+
+### 3. Create a Local Branch from Latest Upstream
+
+```bash
+git fetch origin
+git checkout -b <number>-short-name origin/1.x
+```
+
+The local branch name does not need to match the fork's auto-generated branch name exactly.
+
+### 4. Implement the Fix
+
+- Keep changes **minimal and focused** — one logical change per issue.
+- Follow Drupal coding standards (backslash-prefixed global functions, Drupal-style `catch` placement, etc.).
+- No unrelated refactors.
+- Add or extend tests where patterns exist in the module's test suite.
+
+### 5. Rebase Before Push
+
+```bash
+git fetch origin
+git rebase origin/1.x
+```
+
+Resolve conflicts if needed. **Never merge** the dev branch into your branch — always rebase.
+
+### 6. Push to the Issue Fork
+
+Push your local branch to the fork's auto-generated branch name:
+
+```bash
+git push issue-<number> <number>-short-name:<fork-auto-generated-branch-name>
+```
+
+### 7. Create the Merge Request
+
+On Drupal.org:
+
+- Click **Compare** on the issue fork.
+- Create an MR targeting `project/<module>` → `1.x` (or whichever dev branch).
+- Set the issue status to **Needs Review**.
+
+### 8. Respond to Review Feedback
+
+If changes are requested:
+
+```bash
+# Make changes, then:
+git add <files>
+git commit -m "Address review: <description>"
+git push issue-<number> <number>-short-name:<fork-auto-generated-branch-name>
+```
+
+No new MR needed — the existing one updates automatically.
+
+### 9. Cleanup After Merge
+
+```bash
+git branch -D <number>-short-name
+git remote remove issue-<number>
+```
+
+---
+
+## Managing Multiple Issue Branches
+
+When contributing several fixes/features to the same module, maintain an **integration branch** that merges all issue branches in dependency order. This lets you test all changes together locally while keeping each issue branch atomic for upstream review.
+
+### Branch Naming Conventions
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| Issue branch (local) | `<issue-number>-short-name` | `3575082-access-check-graceful` |
+| Issue branch (fork) | Auto-generated by Drupal.org | `3575082-componenttreeeditaccesscheck-throws-500` |
+| Integration branch | `local/integration` | `local/integration` |
+| Working branches | `local/<type>/<name>` | `local/fix/optional-field-mapping` |
+
+### Integration Branch Workflow
+
+1. Create the integration branch from the dev branch:
+   ```bash
+   git checkout -b local/integration origin/1.x
+   ```
+
+2. Merge issue branches in dependency order:
+   ```bash
+   git merge <number>-branch-1
+   git merge <number>-branch-2
+   # ... etc
+   ```
+
+3. Resolve merge conflicts by keeping **both** sets of changes (the branches are additive features extracted from the same codebase).
+
+4. Build and test the integrated result:
+   ```bash
+   npm run build --workspace=ui  # if applicable
+   ddev drush cr
+   ddev drush updb -y
+   ```
+
+5. When an issue branch is updated (e.g. after review feedback), re-merge it into integration:
+   ```bash
+   git checkout local/integration
+   git merge <number>-updated-branch
+   ```
+
+### Rebuilding Integration from Scratch
+
+If the integration branch gets too tangled:
+
+```bash
+git checkout -b local/integration-new origin/1.x
+# Merge all branches in order
+git branch -D local/integration
+git branch -m local/integration-new local/integration
+```
+
+---
+
+## Change Surface
+
+| What | Where |
+|------|-------|
+| Module clone | `~/Projects/drupal-contrib/<module>/` |
+| DDEV mount config | `.ddev/docker-compose.<module>-mount.yaml` |
+| Composer path repo | `composer.json` → `repositories` |
+| Patch documentation | `.alchemize/canonical-docs/<module>/patches/` |
+| Issue docs (Drupal.org format) | `<branch-name>.drupal-issue.md` |
+| Technical docs | `<branch-name>.technical.md` |
+
+## Concrete Examples
+
+### Current Authorized Module: Canvas
+
+- **Clone location:** `~/Projects/drupal-contrib/canvas/`
+- **DDEV mount:** `.ddev/docker-compose.canvas-mount.yaml`
+- **Dev branch:** `origin/1.x` (commit `5f8d5ee8` at time of setup)
+- **Composer requirement:** `"drupal/canvas": "*@dev"` with path repo at `/var/www/drupal-contrib/canvas`
+- **UI build:** `cd ~/Projects/drupal-contrib/canvas/ui && npm run build`
+- **17 issue branches** documented in `.alchemize/canonical-docs/canvas/patches/`
+
+---
+
+## Constraints and Tradeoffs
+
+- **Path repo requires DDEV mount.** The Composer symlink points to a container path, so the module must be mounted into DDEV. If the mount breaks, Composer will fail to resolve the dependency.
+- **UI assets must be built manually.** Unlike packaged releases, a raw git clone has no pre-built JS/CSS. After switching branches or rebasing, rebuild (`npm run build --workspace=ui`) and clear Drupal cache.
+- **Database updates may be needed.** Dev branch changes can include schema migrations. Run `ddev drush updb -y` after switching to a branch with new update hooks.
+- **One issue per branch.** Drupal.org expects atomic issue branches. Don't combine multiple fixes into one MR — even if they're related, split them into separate issues.
+- **Rebase, don't merge.** Merging the dev branch into your issue branch creates noisy merge commits that Drupal.org reviewers reject. Always rebase.
+
+## Failure Modes
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| 404 on all JS/CSS assets | UI not built after branch switch | `npm run build --workspace=ui && ddev drush cr` |
+| Composer can't resolve module | DDEV mount missing or path wrong | Check `.ddev/docker-compose.<module>-mount.yaml`, `ddev restart` |
+| `Class not found` errors | Drupal cache stale after file changes | `ddev drush cr` |
+| Schema errors or missing tables | Database updates pending | `ddev drush updb -y` |
+| Merge conflicts in integration | Overlapping changes across branches | Resolve by keeping both sides (additive features) |
+| `final class cannot be mocked` in tests | Drupal service is `final` | Use real class with mocked dependencies, or anonymous class if not `final` |
+| Push rejected by issue fork | Local branch name ≠ fork branch name | Use explicit refspec: `git push <remote> local-name:fork-name` |
+
+## Notes for Future Changes
+
+- If a second module is authorized for contrib work, repeat the one-time setup (clone, path repo, DDEV mount) and create a parallel docs directory under `.alchemize/canonical-docs/<module>/patches/`.
+- When an issue branch is accepted and merged upstream, the corresponding `local/` branch and patch docs can be archived or deleted. Update the integration branch to drop the merged branch.
+- If Drupal.org changes its issue fork workflow (e.g. adopts GitLab-native MRs), the remote-per-issue pattern may simplify to a single fork remote.
+
+## Related Docs
+
+- `global/architecture.md` — Authorized contrib exceptions list
+- `global/development-workflow.md` — Composer patching policy (for non-contrib changes)
+- `.alchemize/canonical-docs/canvas/patches/` — Per-branch issue and technical docs

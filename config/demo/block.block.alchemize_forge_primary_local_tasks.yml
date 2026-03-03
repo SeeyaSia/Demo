@@ -1,0 +1,22 @@
+uuid: 66de2794-9e13-4f6d-91c9-349ac2afcb0b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: RY_qusPtOu57I49mZV0aS67kcsQ5FEcCxM_v2-SuHZI
+id: alchemize_forge_primary_local_tasks
+theme: alchemize_forge
+region: none
+weight: 2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

@@ -1,0 +1,108 @@
+// _typography.scss
+// Typography definitions — SINGLE SOURCE OF TRUTH for fonts and type scale.
+// Onest font loaded via Google Fonts <link> in html.html.twig.
+//
+// This file defines:
+//   1. Font families, weights, line-heights
+//   2. The brand type scale (semantic sizes we own)
+//   3. Bootstrap variable overrides (so Bootstrap consumes our scale)
+//
+// The brand type scale feeds into:
+//   - Bootstrap display/lead/small classes (via variable overrides below)
+//   - Typography role classes in _typography-roles.scss
+//   - SDC component SCSS (via @import "component-base")
+
+// ============================================================
+// FONT FAMILIES
+// ============================================================
+
+$font-family-sans-serif: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-monospace:  'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+// ============================================================
+// FONT SIZING — base scale
+// ============================================================
+
+$font-size-root:  null;
+$font-size-base:  1rem;
+$font-size-xs:    $font-size-base * 0.75;
+$font-size-sm:    $font-size-base * 0.875;
+$font-size-lg:    $font-size-base * 1.125;
+
+// ============================================================
+// FONT WEIGHTS
+// ============================================================
+
+$font-weight-light:    300;
+$font-weight-normal:   400;
+$font-weight-medium:   500;
+$font-weight-semibold: 600;
+$font-weight-bold:     700;
+$font-weight-base:     $font-weight-normal;
+
+// ============================================================
+// LINE HEIGHTS
+// ============================================================
+
+$line-height-base: 1.5;
+$line-height-sm:   1.25;
+$line-height-lg:   1.75;
+
+// ============================================================
+// BRAND TYPE SCALE — semantic sizes we own
+// ============================================================
+// These are the authoritative type sizes for the brand.
+// Bootstrap display/lead/small classes are mapped FROM this scale.
+// Typography role classes reference this scale.
+// SDC component SCSS can reference this scale directly.
+
+$type-scale: (
+  hero:       3.5rem,    // Large hero headlines
+  section:    2.5rem,    // Section titles
+  card:       1.25rem,   // Card/item titles
+  lead:       1.25rem,   // Introductory paragraph text
+  body:       1rem,      // Standard body text (= $font-size-base)
+  caption:    0.875rem,  // Captions, metadata, timestamps
+  fine-print: 0.75rem,   // Legal, disclaimers, footnotes
+  label:      0.875rem,  // Uppercase labels, category markers
+);
+
+// ============================================================
+// HEADING SIZES (standard h1–h6)
+// ============================================================
+
+$h1-font-size: $font-size-base * 2.625;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.5;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+$headings-font-weight: 700;
+$headings-line-height: 1.2;
+
+// ============================================================
+// BOOTSTRAP TYPOGRAPHY OVERRIDES — explicit brand ownership
+// ============================================================
+// These override Bootstrap !default values so Bootstrap classes
+// (.lead, .display-*, .small) use our type scale.
+// Even where values match Bootstrap defaults, declaring them
+// makes the brand the authority, not Bootstrap.
+
+// Display heading sizes — mapped from our type scale
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: map-get($type-scale, hero),
+  5: 3rem,
+  6: map-get($type-scale, section),
+);
+$display-font-weight: $font-weight-light;
+
+// Lead text — mapped from our type scale
+$lead-font-size:   map-get($type-scale, lead);
+$lead-font-weight: $font-weight-light;
+
+// Small text — mapped from our type scale
+$small-font-size:  map-get($type-scale, caption);

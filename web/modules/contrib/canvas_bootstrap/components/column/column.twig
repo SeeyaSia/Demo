@@ -1,0 +1,14 @@
+{% set col_classes = [
+  col ? col : 'col',
+  col_sm != 'none' ? col_sm : '',
+  col_md != 'none' ? col_md : '',
+  col_lg != 'none' ? col_lg : '',
+  col_xl != 'none' ? col_xl : '',
+  col_xxl != 'none' ? col_xxl : '',
+  custom_class|default(''),
+]|filter(v => v) %}
+
+<div class="{{ col_classes|join(' ') }}">
+  {% block column %}{% endblock %}
+</div>
+ 

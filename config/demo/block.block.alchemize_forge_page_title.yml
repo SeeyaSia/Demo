@@ -1,0 +1,20 @@
+uuid: 30a54314-eba8-4a12-854b-cffe4a857865
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: Bjh1k_ys63QVuQWEeUgFxBIYOVJ9tAaRBsZdB4pf3SQ
+id: alchemize_forge_page_title
+theme: alchemize_forge
+region: none
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

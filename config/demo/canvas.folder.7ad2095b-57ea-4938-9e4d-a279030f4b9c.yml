@@ -1,0 +1,9 @@
+uuid: 7ad2095b-57ea-4938-9e4d-a279030f4b9c
+langcode: en
+status: true
+dependencies: {  }
+name: User
+configEntityTypeId: component
+weight: 0
+items:
+  - block.views_block.who_s_new-block_1

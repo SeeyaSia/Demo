@@ -1,0 +1,16 @@
+{
+  "name": "build-component-showcase-page",
+  "description": "PROP API REFERENCE ONLY — not a template for new pages. Creates a full component showcase page demonstrating every individual prop on all 12 SDC components: color palette, typographic scale, button matrix, grid layouts, card variants, accordion, blockquote, images, wrapper/spacing demos, and reference tables. Uses manual Bootstrap utility props (text_color, display_size, bg_color, etc.) intentionally to document what's available. For building new pages, use the preset-based scripts (canvas-build-page, build-demo-page) instead.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "Basic page content type exists with field_canvas_body",
+    "ContentTemplate node.page.full exists and is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-15",
+  "deprecated": false,
+  "deprecated_reason": null
+}

@@ -1,0 +1,24 @@
+{
+  "name": "create-view-listing",
+  "description": "Creates a Drupal View with Block display for listing a content type using a view mode. Optionally adds an exposed taxonomy filter. The Block display makes the View available as a Canvas block component after cache rebuild.",
+  "parameters": [
+    {"name": "VIEW_ID", "description": "Machine name for the View (e.g., article_listing)"},
+    {"name": "VIEW_LABEL", "description": "Human label for the View (e.g., Article Listing)"},
+    {"name": "CONTENT_TYPE", "description": "Content type machine name to list (e.g., article)"},
+    {"name": "VIEW_MODE", "description": "View mode for row rendering (e.g., teaser)", "default": "teaser"},
+    {"name": "ITEMS_PER_PAGE", "description": "Items per page (0 = show all)", "default": "10"},
+    {"name": "EXPOSED_FILTER_FIELD", "description": "Optional: taxonomy reference field machine name for exposed filter (e.g., field_tags)", "default": ""},
+    {"name": "EXPOSED_FILTER_VOCAB", "description": "Optional: taxonomy vocabulary ID for the exposed filter (e.g., tags)", "default": ""}
+  ],
+  "preconditions": [
+    "The content type exists",
+    "The view mode is enabled for the content type",
+    "If using exposed filter: the taxonomy field and vocabulary exist",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-22",
+  "deprecated": false,
+  "deprecated_reason": null
+}

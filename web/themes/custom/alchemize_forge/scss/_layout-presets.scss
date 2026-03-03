@@ -1,0 +1,116 @@
+// _layout-presets.scss
+// Layout preset classes — SINGLE SOURCE OF TRUTH for section/card composition.
+//
+// These define visual composition: background, padding, shadow, border-radius,
+// flex layout, and inherited text color (for dark/light section context).
+//
+// Rules:
+//   - NO typography sizing (no font-size, font-weight, letter-spacing)
+//   - CAN set inherited text color (sections need readable text on their bg)
+//   - All colors reference $brand-* / $neutral-* tokens from _tokens.scss
+//   - All spacing references $spacers map from Bootstrap
+//   - All shadows use elevation mixins from _mixins.scss
+//   - All radii use $border-radius-* from _variables.scss
+//
+// Used by:
+//   - Canvas Twig preset maps (wrapper, card presets → single class)
+//   - SDC Twig templates (can apply preset class for section context)
+//
+// These classes use normal specificity (no !important), so Bootstrap utility
+// overrides (e.g., editor sets text_color or padding_y) reliably win.
+
+// ============================================================
+// SECTION PRESETS (Wrapper component)
+// ============================================================
+
+.preset-section-hero-dark {
+  background-color: $brand-900;
+  color: $neutral-0;
+  text-align: center;
+  padding-block: map-get($spacers, 5);
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacers, 3);
+  align-items: center;
+}
+
+.preset-section-hero-primary {
+  background-color: $primary;
+  color: $neutral-0;
+  text-align: center;
+  padding-block: map-get($spacers, 5);
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacers, 3);
+  align-items: center;
+}
+
+.preset-section-light {
+  background-color: $light;
+  padding-block: map-get($spacers, 5);
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacers, 4);
+}
+
+.preset-section-content {
+  padding-block: map-get($spacers, 5);
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacers, 4);
+}
+
+.preset-section-cta {
+  background-color: $primary;
+  color: $neutral-0;
+  text-align: center;
+  padding-block: map-get($spacers, 5);
+  border-radius: $border-radius-lg * 2;
+  @include elevation-lg;
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacers, 3);
+  align-items: center;
+}
+
+.preset-section-feature-strip {
+  border-top: 1px solid var(--color-border-default);
+  padding-block: map-get($spacers, 5);
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacers, 4);
+}
+
+// ============================================================
+// CARD PRESETS (Card component)
+// ============================================================
+
+.preset-card-elevated {
+  @include elevation-sm;
+  border-radius: $border-radius-lg;
+}
+
+.preset-card-bordered {
+  border: 1px solid $primary;
+  border-radius: $border-radius-lg;
+}
+
+.preset-card-dark {
+  background-color: $brand-900;
+  color: $neutral-0;
+  @include elevation-sm;
+  border-radius: $border-radius-lg;
+}
+
+.preset-card-flat {
+  background-color: $light;
+  border: none;
+  border-radius: $border-radius-lg;
+}
+
+.preset-card-glass {
+  background-color: rgba($neutral-0, 0.75);
+  @include elevation-sm;
+  border: none;
+  border-radius: $border-radius-lg;
+}

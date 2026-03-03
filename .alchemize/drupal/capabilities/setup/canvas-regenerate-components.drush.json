@@ -1,0 +1,14 @@
+{
+  "name": "canvas-regenerate-components",
+  "description": "Forces Canvas to rediscover and regenerate all component config entities. Reports before/after counts, new/removed components, and status changes. Use after theme changes or when components are duplicated/missing.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-09",
+  "deprecated": false,
+  "deprecated_reason": null
+}

@@ -1,0 +1,8 @@
+// image.scss
+// Utility overrides for the Image SDC component.
+
+@import "component-base";
+
+.object-fit-cover {
+  object-fit: cover;
+}

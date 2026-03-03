@@ -1,0 +1,10 @@
+{# Normalize props #}
+{% set button_variant = variant|default('primary') %}
+{% set button_size = size|default('normal') %}
+{% set outline_class = outline ? 'btn-outline-' ~ button_variant : 'btn-' ~ button_variant %}
+{% set size_class = button_size != 'normal' ? 'btn-' ~ button_size : '' %}
+{% set href = url|default('#') %}
+
+<a href="{{ href }}" class="btn {{ outline_class }} {{ size_class }}">
+  {{ text }}
+</a>

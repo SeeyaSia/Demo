@@ -1,0 +1,9 @@
+uuid: 1f454a65-f8a0-4bb8-b720-5095ee03c49d
+langcode: en
+status: true
+dependencies: {  }
+name: Help
+configEntityTypeId: component
+weight: 0
+items:
+  - block.help_block

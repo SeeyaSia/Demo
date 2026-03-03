@@ -1,0 +1,169 @@
+// hero-carousel.scss
+// Visual styling for the Hero Carousel SDC component.
+//
+// SCSS owns: backgrounds, gradients, colors, typography, transitions, z-index.
+// Bootstrap utilities own: external spacing, flex layout (applied via Canvas props).
+
+@import "component-base";
+
+// ============================================================
+// HERO CAROUSEL (parent)
+// ============================================================
+
+.hero-carousel {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background-color: $brand-900;
+
+  // Full-bleed — break out of any parent container.
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  @media (max-width: 991.98px) {
+    height: 450px;
+  }
+
+  @media (max-width: 575.98px) {
+    height: 350px;
+  }
+}
+
+// Gradient overlay — ensures text readability over images.
+.hero-carousel__gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba($brand-900, 0.1) 0%,
+    rgba($brand-900, 0.3) 50%,
+    rgba($brand-900, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+// Content overlay — optional heading/subheading.
+.hero-carousel__content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-60%);
+  z-index: 3;
+  color: $neutral-0;
+  pointer-events: none;
+}
+
+.hero-carousel__heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: $neutral-0;
+  margin-bottom: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 4.5rem;
+  }
+}
+
+.hero-carousel__subheading {
+  font-size: 1.125rem;
+  color: rgba($neutral-0, 0.85);
+  max-width: 600px;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+// Bottom info bar — slide title/stat + navigation.
+.hero-carousel__bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  background-color: rgba($brand-900, 0.6);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba($neutral-0, 0.1);
+}
+
+.hero-carousel__bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.hero-carousel__info {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+}
+
+.hero-carousel__slide-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $neutral-0;
+  letter-spacing: 0.02em;
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+.hero-carousel__slide-stat {
+  font-size: 0.875rem;
+  color: $brand-200;
+  font-weight: 500;
+}
+
+// Navigation controls.
+.hero-carousel__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-carousel__prev,
+.hero-carousel__next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba($neutral-0, 0.3);
+  border-radius: 50%;
+  background: transparent;
+  color: $neutral-0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba($neutral-0, 0.15);
+    border-color: rgba($neutral-0, 0.5);
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+.hero-carousel__counter {
+  font-size: 0.875rem;
+  color: rgba($neutral-0, 0.7);
+  min-width: 3ch;
+  text-align: center;
+}
+
+.hero-carousel__separator {
+  margin: 0 0.125rem;
+}

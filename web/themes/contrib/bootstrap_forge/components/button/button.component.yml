@@ -1,0 +1,83 @@
+"$schema": "https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json"
+name: Button
+description: A Bootstrap button component with variant, outline, and size options.
+type: component
+status: stable
+group: Canvas Bootstrap
+
+props:
+  type: object
+  required:
+    - text
+    - variant
+  properties:
+    text:
+      type: string
+      title: Button text
+      description: The text displayed inside the button
+      examples:
+        - Click me
+
+    url:
+      type: string
+      format: uri-reference
+      title: URL
+      description: Link URL for the button
+      examples:
+        - https://example.com
+
+    variant:
+      type: string
+      title: Style variant
+      description: Bootstrap button variant
+      default: primary
+      enum:
+        - primary
+        - secondary
+        - success
+        - danger
+        - warning
+        - info
+        - light
+        - dark
+      meta:enum:
+        primary: "Primary"
+        secondary: "Secondary"
+        success: "Success"
+        danger: "Danger"
+        warning: "Warning"
+        info: "Info"
+        light: "Light"
+        dark: "Dark"
+      examples:
+        - primary
+        - secondary
+
+    size:
+      type: string
+      title: Button size
+      description: Bootstrap button size
+      default: default
+      enum:
+        - default
+        - sm
+        - lg
+      meta:enum:
+        default: "Default"
+        sm: "Sm"
+        lg: "Lg"
+      examples:
+        - default
+        - sm
+        - lg
+
+    outline:
+      type: boolean
+      title: Outline style
+      description: Whether the button uses outline style
+      default: false
+    custom_class:
+      default: ''
+      description: Additional classes to add to the button.
+      title: Custom classes
+      type: string

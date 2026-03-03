@@ -1,0 +1,14 @@
+{
+  "name": "canvas-component-status",
+  "description": "Lists all Canvas components grouped by source type (SDC, Block, JS), shows enabled/disabled status, and reports on theme-aware deduplication between canvas_bootstrap module and the active default theme.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-09",
+  "deprecated": false,
+  "deprecated_reason": null
+}

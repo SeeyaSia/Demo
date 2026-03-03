@@ -1,0 +1,23 @@
+// _default.scss
+
+// 1. Bootstrap functions (required first)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Raw palette tokens (SCSS variables only)
+@import "tokens";
+
+// 3. Custom variable overrides (maps tokens → Bootstrap vars)
+@import "variables";
+@import "typography";
+
+// 4. Bootstrap variables, maps & mixins
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// 5. Semantic tokens (CSS custom properties, needs Bootstrap mixins for color-mode())
+@import "semantic";
+
+// 6. Custom mixins (elevation, transition — uses semantic tokens)
+@import "mixins";

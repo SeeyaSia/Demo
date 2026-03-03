@@ -1,0 +1,20 @@
+{
+  "name": "create-test-articles",
+  "description": "Creates test article nodes with body text, taxonomy tags, and placeholder images. Each article gets a random subset of tags and a unique placeholder image downloaded from picsum.photos. Useful for populating a demo site with sample content for listing pages.",
+  "parameters": [
+    {"name": "COUNT", "description": "Number of articles to create", "default": "6"},
+    {"name": "TAG_VOCAB", "description": "Taxonomy vocabulary to pull tags from", "default": "tags"},
+    {"name": "IMAGES", "description": "Set to '0' to skip placeholder image download", "default": "1"}
+  ],
+  "preconditions": [
+    "The 'article' content type exists",
+    "The taxonomy vocabulary exists with terms",
+    "DDEV is running",
+    "Internet access is available (for placeholder image downloads)"
+  ],
+  "idempotent": false,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-22",
+  "deprecated": false,
+  "deprecated_reason": null
+}

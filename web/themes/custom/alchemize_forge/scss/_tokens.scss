@@ -1,0 +1,44 @@
+// _tokens.scss
+// Raw palette definitions — SCSS variables only.
+// These are compile-time values used by _variables.scss and _semantic.scss.
+// Never use these directly in components — use semantic tokens or Bootstrap vars.
+
+// Brand Blue Scale (10 steps)
+// Primary #2246FA, dark #000D4D, medium #001EB2
+$brand-50:  #EBF0FF;
+$brand-100: #D0DBFF;
+$brand-200: #A3B5FF;
+$brand-300: #768FFF;
+$brand-400: #4969FF;
+$brand-500: #2246FA;
+$brand-600: #1A38D4;
+$brand-700: #132BAE;
+$brand-800: #001EB2;
+$brand-900: #000D4D;
+
+// Neutral Scale (12 steps)
+// Body text: #1F1F3D, dark text: #0A0028
+$neutral-0:    #FFFFFF;
+$neutral-50:   #F8FAFC;
+$neutral-100:  #F5F5FA;
+$neutral-200:  #E2E8F0;
+$neutral-300:  #CBD5E1;
+$neutral-400:  #94A3B8;
+$neutral-500:  #64748B;
+$neutral-600:  #475569;
+$neutral-700:  #334155;
+$neutral-800:  #1F1F3D;
+$neutral-900:  #0A0028;
+$neutral-1000: #020617;
+
+// State Colors
+$state-success: #22C55E;
+$state-warning: #F59E0B;
+$state-error:   #EF4444;
+$state-info:    #3B82F6;
+
+// Note: No one-off color aliases here.
+// Use the brand and neutral scales directly:
+//   Brand dark  → $brand-900 (#000D4D)
+//   Brand mid   → $brand-800 (#001EB2)
+//   Section alt → $neutral-100 (#F5F5FA)

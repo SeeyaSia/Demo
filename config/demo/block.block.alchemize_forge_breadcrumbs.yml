@@ -1,0 +1,22 @@
+uuid: 055bd6c1-6790-4bc1-aaa0-eaebb790b2fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: D-w6UPrvspHOXjiMqK3RuRov0WaZCXOlaYbMr4N44iw
+id: alchemize_forge_breadcrumbs
+theme: alchemize_forge
+region: none
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

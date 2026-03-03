@@ -1,0 +1,547 @@
+---
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: Card
+status: experimental
+group: Canvas Bootstrap
+description: Bootstrap card with optional header, image, body, and footer slots.
+
+type: component
+
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+      title: Attributes
+      description: Card wrapper attributes.
+    preset:
+      type: string
+      title: Preset
+      description: Quick style preset. Applies shadow, rounding, and color. Individual props can still override.
+      default: none
+      enum:
+        - none
+        - elevated
+        - bordered
+        - dark
+        - flat
+        - glass
+      meta:enum:
+        none: "None (manual)"
+        elevated: "Elevated — shadow, rounded"
+        bordered: "Bordered — primary border, rounded"
+        dark: "Dark — dark bg, white text"
+        flat: "Flat — light bg, no shadow"
+        glass: "Glass — semi-transparent, shadow"
+    show_header:
+      type: boolean
+      title: Show header
+      description: Toggle rendering of the card header slot.
+      default: true
+      examples: [true]
+    show_image:
+      type: boolean
+      title: Show image
+      description: Toggle rendering of the card image slot.
+      default: true
+      examples: [true]
+    show_footer:
+      type: boolean
+      title: Show footer
+      description: Toggle rendering of the card footer slot.
+      default: true
+      examples: [true]
+    reverse_order:
+      type: boolean
+      title: Reverse image/body order
+      description: Place the image after the body (uses flex order for horizontal).
+      default: false
+    image_rounding:
+      type: string
+      title: Image rounding class
+      description: Bootstrap card image class for rounded corners (top/bottom). Does not control order.
+      default: card-img-top
+      enum:
+        - card-img-top
+        - card-img-bottom
+      meta:enum:
+        card-img-top: Top corners rounded
+        card-img-bottom: Bottom corners rounded
+    image_wrapper_class:
+      type: string
+      title: Image wrapper classes
+      description: Additional classes for the card image wrapper.
+      default: ''
+      examples: ["card-img-top"]
+    position:
+      type: string
+      title: Position
+      description: Position utility class for the card.
+      default: static
+      enum:
+        - static
+        - relative
+        - absolute
+      meta:enum:
+        static: "Static"
+        relative: "Relative"
+        absolute: "Absolute"
+    shadow:
+      type: string
+      title: Shadow
+      description: Bootstrap shadow utility.
+      default: none
+      enum:
+        - none
+        - shadow-sm
+        - shadow
+        - shadow-lg
+      meta:enum:
+        none: "None"
+        shadow-sm: "Small"
+        shadow: "Default"
+        shadow-lg: "Large"
+    card_rounding:
+      type: string
+      title: Card rounding
+      description: Choose a Bootstrap rounded class.
+      default: none
+      enum:
+        - rounded-0
+        - rounded-1
+        - rounded-2
+        - rounded-3
+        - rounded-4
+        - rounded-5
+        - rounded-pill
+      meta:enum:
+        rounded-0: "Rounded-0"
+        rounded-1: "Rounded-1"
+        rounded-2: "Rounded-2"
+        rounded-3: "Rounded-3"
+        rounded-4: "Rounded-4"
+        rounded-5: "Rounded-5"
+        rounded-pill: "Rounded-pill"
+    border_color:
+      type: string
+      title: Border color
+      description: Bootstrap border color utility class.
+      default: none
+      enum:
+        - border-primary
+        - border-secondary
+        - border-success
+        - border-danger
+        - border-warning
+        - border-info
+        - border-light
+        - border-dark
+        - border-white
+      meta:enum:
+        border-primary: "Border-primary"
+        border-secondary: "Border-secondary"
+        border-success: "Border-success"
+        border-danger: "Border-danger"
+        border-warning: "Border-warning"
+        border-info: "Border-info"
+        border-light: "Border-light"
+        border-dark: "Border-dark"
+        border-white: "Border-white"
+    bg_color:
+      type: string
+      title: Background color
+      description: Bootstrap background utility class.
+      default: none
+      enum:
+        - bg-primary
+        - bg-secondary
+        - bg-success
+        - bg-danger
+        - bg-warning
+        - bg-info
+        - bg-light
+        - bg-dark
+        - bg-body
+        - bg-white
+        - bg-transparent
+      meta:enum:
+        bg-primary: "Bg-primary"
+        bg-secondary: "Bg-secondary"
+        bg-success: "Bg-success"
+        bg-danger: "Bg-danger"
+        bg-warning: "Bg-warning"
+        bg-info: "Bg-info"
+        bg-light: "Bg-light"
+        bg-dark: "Bg-dark"
+        bg-body: "Bg-body"
+        bg-white: "Bg-white"
+        bg-transparent: "Bg-transparent"
+    card_class:
+      type: string
+      title: Card classes
+      description: Additional classes for the card wrapper.
+      default: ''
+    header_class:
+      type: string
+      title: Header classes
+      description: Additional classes for the card header.
+      default: ''
+    body_class:
+      type: string
+      title: Body classes
+      description: Additional classes for the card body.
+      default: ''
+    footer_class:
+      type: string
+      title: Footer classes
+      description: Additional classes for the card footer.
+      default: ''
+    body_orientation:
+      type: string
+      title: Card orientation
+      description: Horizontal or vertical layout for the card image/body region.
+      default: none
+      enum:
+        - vertical
+        - horizontal
+      meta:enum:
+        vertical: "Vertical"
+        horizontal: "Horizontal"
+    body_orientation_sm:
+      type: string
+      title: Card orientation (sm)
+      default: none
+      enum:
+        - vertical
+        - horizontal
+      meta:enum:
+        vertical: "Vertical"
+        horizontal: "Horizontal"
+    body_orientation_md:
+      type: string
+      title: Card orientation (md)
+      default: none
+      enum:
+        - vertical
+        - horizontal
+      meta:enum:
+        vertical: "Vertical"
+        horizontal: "Horizontal"
+    body_orientation_lg:
+      type: string
+      title: Card orientation (lg)
+      default: none
+      enum:
+        - vertical
+        - horizontal
+      meta:enum:
+        vertical: "Vertical"
+        horizontal: "Horizontal"
+    body_orientation_xl:
+      type: string
+      title: Card orientation (xl)
+      default: none
+      enum:
+        - vertical
+        - horizontal
+      meta:enum:
+        vertical: "Vertical"
+        horizontal: "Horizontal"
+    body_orientation_xxl:
+      type: string
+      title: Card orientation (xxl)
+      default: none
+      enum:
+        - vertical
+        - horizontal
+      meta:enum:
+        vertical: "Vertical"
+        horizontal: "Horizontal"
+    body_justify_content:
+      type: string
+      title: Justify content
+      default: none
+      enum:
+        - justify-content-start
+        - justify-content-end
+        - justify-content-center
+        - justify-content-between
+        - justify-content-around
+        - justify-content-evenly
+      meta:enum:
+        justify-content-start: "Justify-content-start"
+        justify-content-end: "Justify-content-end"
+        justify-content-center: "Justify-content-center"
+        justify-content-between: "Justify-content-between"
+        justify-content-around: "Justify-content-around"
+        justify-content-evenly: "Justify-content-evenly"
+    body_justify_content_sm:
+      type: string
+      title: Justify content (sm)
+      default: none
+      enum:
+        - justify-content-sm-start
+        - justify-content-sm-end
+        - justify-content-sm-center
+        - justify-content-sm-between
+        - justify-content-sm-around
+        - justify-content-sm-evenly
+      meta:enum:
+        justify-content-sm-start: "Justify-content-sm-start"
+        justify-content-sm-end: "Justify-content-sm-end"
+        justify-content-sm-center: "Justify-content-sm-center"
+        justify-content-sm-between: "Justify-content-sm-between"
+        justify-content-sm-around: "Justify-content-sm-around"
+        justify-content-sm-evenly: "Justify-content-sm-evenly"
+    body_justify_content_md:
+      type: string
+      title: Justify content (md)
+      default: none
+      enum:
+        - justify-content-md-start
+        - justify-content-md-end
+        - justify-content-md-center
+        - justify-content-md-between
+        - justify-content-md-around
+        - justify-content-md-evenly
+      meta:enum:
+        justify-content-md-start: "Justify-content-md-start"
+        justify-content-md-end: "Justify-content-md-end"
+        justify-content-md-center: "Justify-content-md-center"
+        justify-content-md-between: "Justify-content-md-between"
+        justify-content-md-around: "Justify-content-md-around"
+        justify-content-md-evenly: "Justify-content-md-evenly"
+    body_justify_content_lg:
+      type: string
+      title: Justify content (lg)
+      default: none
+      enum:
+        - justify-content-lg-start
+        - justify-content-lg-end
+        - justify-content-lg-center
+        - justify-content-lg-between
+        - justify-content-lg-around
+        - justify-content-lg-evenly
+      meta:enum:
+        justify-content-lg-start: "Justify-content-lg-start"
+        justify-content-lg-end: "Justify-content-lg-end"
+        justify-content-lg-center: "Justify-content-lg-center"
+        justify-content-lg-between: "Justify-content-lg-between"
+        justify-content-lg-around: "Justify-content-lg-around"
+        justify-content-lg-evenly: "Justify-content-lg-evenly"
+    body_justify_content_xl:
+      type: string
+      title: Justify content (xl)
+      default: none
+      enum:
+        - justify-content-xl-start
+        - justify-content-xl-end
+        - justify-content-xl-center
+        - justify-content-xl-between
+        - justify-content-xl-around
+        - justify-content-xl-evenly
+      meta:enum:
+        justify-content-xl-start: "Justify-content-xl-start"
+        justify-content-xl-end: "Justify-content-xl-end"
+        justify-content-xl-center: "Justify-content-xl-center"
+        justify-content-xl-between: "Justify-content-xl-between"
+        justify-content-xl-around: "Justify-content-xl-around"
+        justify-content-xl-evenly: "Justify-content-xl-evenly"
+    body_justify_content_xxl:
+      type: string
+      title: Justify content (xxl)
+      default: none
+      enum:
+        - justify-content-xxl-start
+        - justify-content-xxl-end
+        - justify-content-xxl-center
+        - justify-content-xxl-between
+        - justify-content-xxl-around
+        - justify-content-xxl-evenly
+      meta:enum:
+        justify-content-xxl-start: "Justify-content-xxl-start"
+        justify-content-xxl-end: "Justify-content-xxl-end"
+        justify-content-xxl-center: "Justify-content-xxl-center"
+        justify-content-xxl-between: "Justify-content-xxl-between"
+        justify-content-xxl-around: "Justify-content-xxl-around"
+        justify-content-xxl-evenly: "Justify-content-xxl-evenly"
+    body_align_items:
+      type: string
+      title: Align items
+      default: none
+      enum:
+        - align-items-start
+        - align-items-end
+        - align-items-center
+        - align-items-baseline
+        - align-items-stretch
+      meta:enum:
+        align-items-start: "Align-items-start"
+        align-items-end: "Align-items-end"
+        align-items-center: "Align-items-center"
+        align-items-baseline: "Align-items-baseline"
+        align-items-stretch: "Align-items-stretch"
+    body_align_items_sm:
+      type: string
+      title: Align items (sm)
+      default: none
+      enum:
+        - align-items-sm-start
+        - align-items-sm-end
+        - align-items-sm-center
+        - align-items-sm-baseline
+        - align-items-sm-stretch
+      meta:enum:
+        align-items-sm-start: "Align-items-sm-start"
+        align-items-sm-end: "Align-items-sm-end"
+        align-items-sm-center: "Align-items-sm-center"
+        align-items-sm-baseline: "Align-items-sm-baseline"
+        align-items-sm-stretch: "Align-items-sm-stretch"
+    body_align_items_md:
+      type: string
+      title: Align items (md)
+      default: none
+      enum:
+        - align-items-md-start
+        - align-items-md-end
+        - align-items-md-center
+        - align-items-md-baseline
+        - align-items-md-stretch
+      meta:enum:
+        align-items-md-start: "Align-items-md-start"
+        align-items-md-end: "Align-items-md-end"
+        align-items-md-center: "Align-items-md-center"
+        align-items-md-baseline: "Align-items-md-baseline"
+        align-items-md-stretch: "Align-items-md-stretch"
+    body_align_items_lg:
+      type: string
+      title: Align items (lg)
+      default: none
+      enum:
+        - align-items-lg-start
+        - align-items-lg-end
+        - align-items-lg-center
+        - align-items-lg-baseline
+        - align-items-lg-stretch
+      meta:enum:
+        align-items-lg-start: "Align-items-lg-start"
+        align-items-lg-end: "Align-items-lg-end"
+        align-items-lg-center: "Align-items-lg-center"
+        align-items-lg-baseline: "Align-items-lg-baseline"
+        align-items-lg-stretch: "Align-items-lg-stretch"
+    body_align_items_xl:
+      type: string
+      title: Align items (xl)
+      default: none
+      enum:
+        - align-items-xl-start
+        - align-items-xl-end
+        - align-items-xl-center
+        - align-items-xl-baseline
+        - align-items-xl-stretch
+      meta:enum:
+        align-items-xl-start: "Align-items-xl-start"
+        align-items-xl-end: "Align-items-xl-end"
+        align-items-xl-center: "Align-items-xl-center"
+        align-items-xl-baseline: "Align-items-xl-baseline"
+        align-items-xl-stretch: "Align-items-xl-stretch"
+    body_align_items_xxl:
+      type: string
+      title: Align items (xxl)
+      default: none
+      enum:
+        - align-items-xxl-start
+        - align-items-xxl-end
+        - align-items-xxl-center
+        - align-items-xxl-baseline
+        - align-items-xxl-stretch
+      meta:enum:
+        align-items-xxl-start: "Align-items-xxl-start"
+        align-items-xxl-end: "Align-items-xxl-end"
+        align-items-xxl-center: "Align-items-xxl-center"
+        align-items-xxl-baseline: "Align-items-xxl-baseline"
+        align-items-xxl-stretch: "Align-items-xxl-stretch"
+slots:
+  card_header:
+    title: Card header
+    description: Card header content slot.
+    required: false
+  card_image:
+    title: Card image
+    description: Card image slot (uses card-img-top/card-img-bottom in vertical layout).
+    required: false
+  card_body:
+    title: Card body
+    description: Card body content slot.
+    required: false
+  card_footer:
+    title: Card footer
+    description: Card footer content slot.
+    required: false
+
+canvas_bootstrap:
+  ui_groups:
+    Card:
+      weight: 10
+      groups:
+        Structure:
+          weight: 0
+          fields:
+            - image_rounding
+            - image_wrapper_class
+            - reverse_order
+            - show_header
+            - show_image
+            - show_footer
+            - body_orientation
+            - body_orientation_sm
+            - body_orientation_md
+            - body_orientation_lg
+            - body_orientation_xl
+            - body_orientation_xxl
+        Style:
+          weight: 10
+          fields:
+            - shadow
+            - position
+            - card_rounding
+            - border_color
+            - bg_color
+            - card_class
+    Header:
+      weight: 30
+      groups:
+        Header:
+          weight: 0
+          fields:
+            - header_class
+    Body:
+      weight: 40
+      groups:
+        Body:
+          weight: 0
+          fields:
+            - body_class
+        Flex:
+          weight: 20
+          fields:
+            - body_justify_content
+            - body_justify_content_sm
+            - body_justify_content_md
+            - body_justify_content_lg
+            - body_justify_content_xl
+            - body_justify_content_xxl
+            - body_align_items
+            - body_align_items_sm
+            - body_align_items_md
+            - body_align_items_lg
+            - body_align_items_xl
+            - body_align_items_xxl
+    Footer:
+      weight: 50
+      groups:
+        Footer:
+          weight: 0
+          fields:
+            - footer_class

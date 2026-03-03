@@ -1,0 +1,27 @@
+uuid: c57da085-ed5c-42ae-9c8b-d3966b310f00
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: VBXGE9vlAVoucACpdoikKSyCHE72s4w2lfw6VvdYm0Q
+id: alchemize_forge_main_menu
+theme: alchemize_forge
+region: none
+weight: -2
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

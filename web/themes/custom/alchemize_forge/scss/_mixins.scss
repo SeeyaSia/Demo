@@ -1,0 +1,33 @@
+// _mixins.scss
+
+// Elevation mixins using semantic shadow tokens
+@mixin elevation-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+@mixin elevation-md {
+  box-shadow: var(--shadow-md);
+}
+
+@mixin elevation-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+// Transition mixins using motion tokens.
+// Uses rest parameter syntax ($properties...) — valid Dart Sass ^1.77.6.
+// All callers must pass at least one argument.
+@mixin transition-fast($properties...) {
+  $value: ();
+  @each $prop in $properties {
+    $value: append($value, $prop var(--transition-fast), comma);
+  }
+  transition: $value;
+}
+
+@mixin transition-base($properties...) {
+  $value: ();
+  @each $prop in $properties {
+    $value: append($value, $prop var(--transition-base), comma);
+  }
+  transition: $value;
+}

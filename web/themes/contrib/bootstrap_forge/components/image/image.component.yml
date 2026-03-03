@@ -1,0 +1,1834 @@
+"$schema": "https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json"
+name: Image
+description: 'A responsive image component leveraging Bootstrap utility classes for aspect-ratio cropping, configurable corner rounding, and integrated link/caption support.'
+type: component
+status: stable
+group: Canvas Bootstrap
+
+props:
+  type: object
+  properties:
+    media:
+      $ref: json-schema-definitions://canvas.module/image
+      title: Image
+      description: 'The source image file. Uses object-fit: cover to ensure the image fills the selected aspect ratio container.'
+      type: object
+      examples:
+        - src: "assets/pexels-alyona-nagel.jpg"
+          alt: "Image alt text"
+          width: 1920
+          height: 1014
+    size:
+      title: Aspect ratio
+      description: 'Sets the container proportions using Bootstrap "ratio" classes. The image will be cropped to fit these dimensions.'
+      type: string
+      enum:
+        - 16:9
+        - 4:3
+        - 1:1
+      meta:enum:
+        16:9: "16:9 Widescreen"
+        4:3: "4:3 Standard"
+        1:1: "1:1 Square"
+      default: "4:3"
+      examples:
+        - "4:3"
+    width_class:
+      type: string
+      title: Width
+      description: Bootstrap width utility class for the image container.
+      default: w-100
+      enum:
+        - w-25
+        - w-50
+        - w-75
+        - w-100
+        - w-auto
+        - mw-100
+      meta:enum:
+        w-25: "W-25"
+        w-50: "W-50"
+        w-75: "W-75"
+        w-100: "W-100"
+        w-auto: "W-auto"
+        mw-100: "Mw-100"
+    height_class:
+      type: string
+      title: Height
+      description: Bootstrap height utility class for the image container.
+      default: none
+      enum:
+        - h-25
+        - h-50
+        - h-75
+        - h-100
+        - h-auto
+        - mh-100
+      meta:enum:
+        h-25: "H-25"
+        h-50: "H-50"
+        h-75: "H-75"
+        h-100: "H-100"
+        h-auto: "H-auto"
+        mh-100: "Mh-100"
+    radius:
+      type: string
+      title: Corner radius
+      description: 'Applies Bootstrap "rounded" classes and overflow-hidden to the image container.'
+      default: rounded-0
+      enum:
+        - rounded-0
+        - small
+        - large
+        - extra-large
+      meta:enum:
+        rounded-0: Not rounded
+        small: "Small (rounded-1)"
+        large: "Large (rounded-3)"
+        extra-large: "Extra Large (rounded-4)"
+      examples: ["rounded-0"]
+    caption:
+      title: Caption
+      description: 'Text displayed in a figcaption element below the image using Bootstrap text-muted styling.'
+      type: string
+    url:
+      type: string
+      title: Link URL
+      description: 'If provided, wraps the image in an anchor tag. Leave empty to display as a static image.'
+    custom_class:
+      type: string
+      title: Custom classes
+      description: Additional classes to add to the image figure.
+      default: ''
+    margin_all:
+      type: string
+      title: Margin
+      description: Bootstrap margin class for the figure.
+      default: m-0
+      enum:
+        - m-0
+        - m-1
+        - m-2
+        - m-3
+        - m-4
+        - m-5
+      meta:enum:
+        m-0: "M-0"
+        m-1: "M-1"
+        m-2: "M-2"
+        m-3: "M-3"
+        m-4: "M-4"
+        m-5: "M-5"
+    margin_top:
+      type: string
+      title: Margin top
+      description: Bootstrap margin-top class for the figure.
+      default: mt-0
+      enum:
+        - mt-0
+        - mt-1
+        - mt-2
+        - mt-3
+        - mt-4
+        - mt-5
+      meta:enum:
+        mt-0: "Mt-0"
+        mt-1: "Mt-1"
+        mt-2: "Mt-2"
+        mt-3: "Mt-3"
+        mt-4: "Mt-4"
+        mt-5: "Mt-5"
+    margin_bottom:
+      type: string
+      title: Margin bottom
+      description: Bootstrap margin-bottom class for the figure.
+      default: mb-0
+      enum:
+        - mb-0
+        - mb-1
+        - mb-2
+        - mb-3
+        - mb-4
+        - mb-5
+      meta:enum:
+        mb-0: "Mb-0"
+        mb-1: "Mb-1"
+        mb-2: "Mb-2"
+        mb-3: "Mb-3"
+        mb-4: "Mb-4"
+        mb-5: "Mb-5"
+      examples: ["mb-0"]
+    margin_start:
+      type: string
+      title: Margin start
+      description: Bootstrap margin-start class for the figure.
+      default: ms-0
+      enum:
+        - ms-0
+        - ms-1
+        - ms-2
+        - ms-3
+        - ms-4
+        - ms-5
+      meta:enum:
+        ms-0: "Ms-0"
+        ms-1: "Ms-1"
+        ms-2: "Ms-2"
+        ms-3: "Ms-3"
+        ms-4: "Ms-4"
+        ms-5: "Ms-5"
+    margin_end:
+      type: string
+      title: Margin end
+      description: Bootstrap margin-end class for the figure.
+      default: me-0
+      enum:
+        - me-0
+        - me-1
+        - me-2
+        - me-3
+        - me-4
+        - me-5
+      meta:enum:
+        me-0: "Me-0"
+        me-1: "Me-1"
+        me-2: "Me-2"
+        me-3: "Me-3"
+        me-4: "Me-4"
+        me-5: "Me-5"
+    margin_x:
+      type: string
+      title: Margin X
+      description: Bootstrap horizontal margin class for the figure.
+      default: mx-0
+      enum:
+        - mx-0
+        - mx-1
+        - mx-2
+        - mx-3
+        - mx-4
+        - mx-5
+      meta:enum:
+        mx-0: "Mx-0"
+        mx-1: "Mx-1"
+        mx-2: "Mx-2"
+        mx-3: "Mx-3"
+        mx-4: "Mx-4"
+        mx-5: "Mx-5"
+    margin_y:
+      type: string
+      title: Margin Y
+      description: Bootstrap vertical margin class for the figure.
+      default: my-0
+      enum:
+        - my-0
+        - my-1
+        - my-2
+        - my-3
+        - my-4
+        - my-5
+      meta:enum:
+        my-0: "My-0"
+        my-1: "My-1"
+        my-2: "My-2"
+        my-3: "My-3"
+        my-4: "My-4"
+        my-5: "My-5"
+    padding_all:
+      type: string
+      title: Padding
+      description: Bootstrap padding class for the figure.
+      default: p-0
+      enum:
+        - p-0
+        - p-1
+        - p-2
+        - p-3
+        - p-4
+        - p-5
+      meta:enum:
+        p-0: "P-0"
+        p-1: "P-1"
+        p-2: "P-2"
+        p-3: "P-3"
+        p-4: "P-4"
+        p-5: "P-5"
+    padding_top:
+      type: string
+      title: Padding top
+      description: Bootstrap padding-top class for the figure.
+      default: pt-0
+      enum:
+        - pt-0
+        - pt-1
+        - pt-2
+        - pt-3
+        - pt-4
+        - pt-5
+      meta:enum:
+        pt-0: "Pt-0"
+        pt-1: "Pt-1"
+        pt-2: "Pt-2"
+        pt-3: "Pt-3"
+        pt-4: "Pt-4"
+        pt-5: "Pt-5"
+    padding_bottom:
+      type: string
+      title: Padding bottom
+      description: Bootstrap padding-bottom class for the figure.
+      default: pb-0
+      enum:
+        - pb-0
+        - pb-1
+        - pb-2
+        - pb-3
+        - pb-4
+        - pb-5
+      meta:enum:
+        pb-0: "Pb-0"
+        pb-1: "Pb-1"
+        pb-2: "Pb-2"
+        pb-3: "Pb-3"
+        pb-4: "Pb-4"
+        pb-5: "Pb-5"
+    padding_start:
+      type: string
+      title: Padding start
+      description: Bootstrap padding-start class for the figure.
+      default: ps-0
+      enum:
+        - ps-0
+        - ps-1
+        - ps-2
+        - ps-3
+        - ps-4
+        - ps-5
+      meta:enum:
+        ps-0: "Ps-0"
+        ps-1: "Ps-1"
+        ps-2: "Ps-2"
+        ps-3: "Ps-3"
+        ps-4: "Ps-4"
+        ps-5: "Ps-5"
+    padding_end:
+      type: string
+      title: Padding end
+      description: Bootstrap padding-end class for the figure.
+      default: pe-0
+      enum:
+        - pe-0
+        - pe-1
+        - pe-2
+        - pe-3
+        - pe-4
+        - pe-5
+      meta:enum:
+        pe-0: "Pe-0"
+        pe-1: "Pe-1"
+        pe-2: "Pe-2"
+        pe-3: "Pe-3"
+        pe-4: "Pe-4"
+        pe-5: "Pe-5"
+    padding_x:
+      type: string
+      title: Padding X
+      description: Bootstrap horizontal padding class for the figure.
+      default: px-0
+      enum:
+        - px-0
+        - px-1
+        - px-2
+        - px-3
+        - px-4
+        - px-5
+      meta:enum:
+        px-0: "Px-0"
+        px-1: "Px-1"
+        px-2: "Px-2"
+        px-3: "Px-3"
+        px-4: "Px-4"
+        px-5: "Px-5"
+    padding_y:
+      type: string
+      title: Padding Y
+      description: Bootstrap vertical padding class for the figure.
+      default: py-0
+      enum:
+        - py-0
+        - py-1
+        - py-2
+        - py-3
+        - py-4
+        - py-5
+      meta:enum:
+        py-0: "Py-0"
+        py-1: "Py-1"
+        py-2: "Py-2"
+        py-3: "Py-3"
+        py-4: "Py-4"
+        py-5: "Py-5"
+    margin_all_sm:
+      default: none
+      description: Bootstrap margin class (sm).
+      enum:
+        - m-sm-0
+        - m-sm-1
+        - m-sm-2
+        - m-sm-3
+        - m-sm-4
+        - m-sm-5
+      meta:enum:
+        m-sm-0: "M-sm-0"
+        m-sm-1: "M-sm-1"
+        m-sm-2: "M-sm-2"
+        m-sm-3: "M-sm-3"
+        m-sm-4: "M-sm-4"
+        m-sm-5: "M-sm-5"
+      title: Margin (sm)
+      type: string
+    margin_top_sm:
+      default: none
+      description: Bootstrap margin-top class (sm).
+      enum:
+        - mt-sm-0
+        - mt-sm-1
+        - mt-sm-2
+        - mt-sm-3
+        - mt-sm-4
+        - mt-sm-5
+      meta:enum:
+        mt-sm-0: "Mt-sm-0"
+        mt-sm-1: "Mt-sm-1"
+        mt-sm-2: "Mt-sm-2"
+        mt-sm-3: "Mt-sm-3"
+        mt-sm-4: "Mt-sm-4"
+        mt-sm-5: "Mt-sm-5"
+      title: Margin top (sm)
+      type: string
+    margin_bottom_sm:
+      default: none
+      description: Bootstrap margin-bottom class (sm).
+      enum:
+        - mb-sm-0
+        - mb-sm-1
+        - mb-sm-2
+        - mb-sm-3
+        - mb-sm-4
+        - mb-sm-5
+      meta:enum:
+        mb-sm-0: "Mb-sm-0"
+        mb-sm-1: "Mb-sm-1"
+        mb-sm-2: "Mb-sm-2"
+        mb-sm-3: "Mb-sm-3"
+        mb-sm-4: "Mb-sm-4"
+        mb-sm-5: "Mb-sm-5"
+      title: Margin bottom (sm)
+      type: string
+    margin_start_sm:
+      default: none
+      description: Bootstrap margin-start class (sm).
+      enum:
+        - ms-sm-0
+        - ms-sm-1
+        - ms-sm-2
+        - ms-sm-3
+        - ms-sm-4
+        - ms-sm-5
+      meta:enum:
+        ms-sm-0: "Ms-sm-0"
+        ms-sm-1: "Ms-sm-1"
+        ms-sm-2: "Ms-sm-2"
+        ms-sm-3: "Ms-sm-3"
+        ms-sm-4: "Ms-sm-4"
+        ms-sm-5: "Ms-sm-5"
+      title: Margin start (sm)
+      type: string
+    margin_end_sm:
+      default: none
+      description: Bootstrap margin-end class (sm).
+      enum:
+        - me-sm-0
+        - me-sm-1
+        - me-sm-2
+        - me-sm-3
+        - me-sm-4
+        - me-sm-5
+      meta:enum:
+        me-sm-0: "Me-sm-0"
+        me-sm-1: "Me-sm-1"
+        me-sm-2: "Me-sm-2"
+        me-sm-3: "Me-sm-3"
+        me-sm-4: "Me-sm-4"
+        me-sm-5: "Me-sm-5"
+      title: Margin end (sm)
+      type: string
+    margin_x_sm:
+      default: none
+      description: Bootstrap horizontal margin class (sm).
+      enum:
+        - mx-sm-0
+        - mx-sm-1
+        - mx-sm-2
+        - mx-sm-3
+        - mx-sm-4
+        - mx-sm-5
+      meta:enum:
+        mx-sm-0: "Mx-sm-0"
+        mx-sm-1: "Mx-sm-1"
+        mx-sm-2: "Mx-sm-2"
+        mx-sm-3: "Mx-sm-3"
+        mx-sm-4: "Mx-sm-4"
+        mx-sm-5: "Mx-sm-5"
+      title: Margin X (sm)
+      type: string
+    margin_y_sm:
+      default: none
+      description: Bootstrap vertical margin class (sm).
+      enum:
+        - my-sm-0
+        - my-sm-1
+        - my-sm-2
+        - my-sm-3
+        - my-sm-4
+        - my-sm-5
+      meta:enum:
+        my-sm-0: "My-sm-0"
+        my-sm-1: "My-sm-1"
+        my-sm-2: "My-sm-2"
+        my-sm-3: "My-sm-3"
+        my-sm-4: "My-sm-4"
+        my-sm-5: "My-sm-5"
+      title: Margin Y (sm)
+      type: string
+    margin_all_md:
+      default: none
+      description: Bootstrap margin class (md).
+      enum:
+        - m-md-0
+        - m-md-1
+        - m-md-2
+        - m-md-3
+        - m-md-4
+        - m-md-5
+      meta:enum:
+        m-md-0: "M-md-0"
+        m-md-1: "M-md-1"
+        m-md-2: "M-md-2"
+        m-md-3: "M-md-3"
+        m-md-4: "M-md-4"
+        m-md-5: "M-md-5"
+      title: Margin (md)
+      type: string
+    margin_top_md:
+      default: none
+      description: Bootstrap margin-top class (md).
+      enum:
+        - mt-md-0
+        - mt-md-1
+        - mt-md-2
+        - mt-md-3
+        - mt-md-4
+        - mt-md-5
+      meta:enum:
+        mt-md-0: "Mt-md-0"
+        mt-md-1: "Mt-md-1"
+        mt-md-2: "Mt-md-2"
+        mt-md-3: "Mt-md-3"
+        mt-md-4: "Mt-md-4"
+        mt-md-5: "Mt-md-5"
+      title: Margin top (md)
+      type: string
+    margin_bottom_md:
+      default: none
+      description: Bootstrap margin-bottom class (md).
+      enum:
+        - mb-md-0
+        - mb-md-1
+        - mb-md-2
+        - mb-md-3
+        - mb-md-4
+        - mb-md-5
+      meta:enum:
+        mb-md-0: "Mb-md-0"
+        mb-md-1: "Mb-md-1"
+        mb-md-2: "Mb-md-2"
+        mb-md-3: "Mb-md-3"
+        mb-md-4: "Mb-md-4"
+        mb-md-5: "Mb-md-5"
+      title: Margin bottom (md)
+      type: string
+    margin_start_md:
+      default: none
+      description: Bootstrap margin-start class (md).
+      enum:
+        - ms-md-0
+        - ms-md-1
+        - ms-md-2
+        - ms-md-3
+        - ms-md-4
+        - ms-md-5
+      meta:enum:
+        ms-md-0: "Ms-md-0"
+        ms-md-1: "Ms-md-1"
+        ms-md-2: "Ms-md-2"
+        ms-md-3: "Ms-md-3"
+        ms-md-4: "Ms-md-4"
+        ms-md-5: "Ms-md-5"
+      title: Margin start (md)
+      type: string
+    margin_end_md:
+      default: none
+      description: Bootstrap margin-end class (md).
+      enum:
+        - me-md-0
+        - me-md-1
+        - me-md-2
+        - me-md-3
+        - me-md-4
+        - me-md-5
+      meta:enum:
+        me-md-0: "Me-md-0"
+        me-md-1: "Me-md-1"
+        me-md-2: "Me-md-2"
+        me-md-3: "Me-md-3"
+        me-md-4: "Me-md-4"
+        me-md-5: "Me-md-5"
+      title: Margin end (md)
+      type: string
+    margin_x_md:
+      default: none
+      description: Bootstrap horizontal margin class (md).
+      enum:
+        - mx-md-0
+        - mx-md-1
+        - mx-md-2
+        - mx-md-3
+        - mx-md-4
+        - mx-md-5
+      meta:enum:
+        mx-md-0: "Mx-md-0"
+        mx-md-1: "Mx-md-1"
+        mx-md-2: "Mx-md-2"
+        mx-md-3: "Mx-md-3"
+        mx-md-4: "Mx-md-4"
+        mx-md-5: "Mx-md-5"
+      title: Margin X (md)
+      type: string
+    margin_y_md:
+      default: none
+      description: Bootstrap vertical margin class (md).
+      enum:
+        - my-md-0
+        - my-md-1
+        - my-md-2
+        - my-md-3
+        - my-md-4
+        - my-md-5
+      meta:enum:
+        my-md-0: "My-md-0"
+        my-md-1: "My-md-1"
+        my-md-2: "My-md-2"
+        my-md-3: "My-md-3"
+        my-md-4: "My-md-4"
+        my-md-5: "My-md-5"
+      title: Margin Y (md)
+      type: string
+    margin_all_lg:
+      default: none
+      description: Bootstrap margin class (lg).
+      enum:
+        - m-lg-0
+        - m-lg-1
+        - m-lg-2
+        - m-lg-3
+        - m-lg-4
+        - m-lg-5
+      meta:enum:
+        m-lg-0: "M-lg-0"
+        m-lg-1: "M-lg-1"
+        m-lg-2: "M-lg-2"
+        m-lg-3: "M-lg-3"
+        m-lg-4: "M-lg-4"
+        m-lg-5: "M-lg-5"
+      title: Margin (lg)
+      type: string
+    margin_top_lg:
+      default: none
+      description: Bootstrap margin-top class (lg).
+      enum:
+        - mt-lg-0
+        - mt-lg-1
+        - mt-lg-2
+        - mt-lg-3
+        - mt-lg-4
+        - mt-lg-5
+      meta:enum:
+        mt-lg-0: "Mt-lg-0"
+        mt-lg-1: "Mt-lg-1"
+        mt-lg-2: "Mt-lg-2"
+        mt-lg-3: "Mt-lg-3"
+        mt-lg-4: "Mt-lg-4"
+        mt-lg-5: "Mt-lg-5"
+      title: Margin top (lg)
+      type: string
+    margin_bottom_lg:
+      default: none
+      description: Bootstrap margin-bottom class (lg).
+      enum:
+        - mb-lg-0
+        - mb-lg-1
+        - mb-lg-2
+        - mb-lg-3
+        - mb-lg-4
+        - mb-lg-5
+      meta:enum:
+        mb-lg-0: "Mb-lg-0"
+        mb-lg-1: "Mb-lg-1"
+        mb-lg-2: "Mb-lg-2"
+        mb-lg-3: "Mb-lg-3"
+        mb-lg-4: "Mb-lg-4"
+        mb-lg-5: "Mb-lg-5"
+      title: Margin bottom (lg)
+      type: string
+    margin_start_lg:
+      default: none
+      description: Bootstrap margin-start class (lg).
+      enum:
+        - ms-lg-0
+        - ms-lg-1
+        - ms-lg-2
+        - ms-lg-3
+        - ms-lg-4
+        - ms-lg-5
+      meta:enum:
+        ms-lg-0: "Ms-lg-0"
+        ms-lg-1: "Ms-lg-1"
+        ms-lg-2: "Ms-lg-2"
+        ms-lg-3: "Ms-lg-3"
+        ms-lg-4: "Ms-lg-4"
+        ms-lg-5: "Ms-lg-5"
+      title: Margin start (lg)
+      type: string
+    margin_end_lg:
+      default: none
+      description: Bootstrap margin-end class (lg).
+      enum:
+        - me-lg-0
+        - me-lg-1
+        - me-lg-2
+        - me-lg-3
+        - me-lg-4
+        - me-lg-5
+      meta:enum:
+        me-lg-0: "Me-lg-0"
+        me-lg-1: "Me-lg-1"
+        me-lg-2: "Me-lg-2"
+        me-lg-3: "Me-lg-3"
+        me-lg-4: "Me-lg-4"
+        me-lg-5: "Me-lg-5"
+      title: Margin end (lg)
+      type: string
+    margin_x_lg:
+      default: none
+      description: Bootstrap horizontal margin class (lg).
+      enum:
+        - mx-lg-0
+        - mx-lg-1
+        - mx-lg-2
+        - mx-lg-3
+        - mx-lg-4
+        - mx-lg-5
+      meta:enum:
+        mx-lg-0: "Mx-lg-0"
+        mx-lg-1: "Mx-lg-1"
+        mx-lg-2: "Mx-lg-2"
+        mx-lg-3: "Mx-lg-3"
+        mx-lg-4: "Mx-lg-4"
+        mx-lg-5: "Mx-lg-5"
+      title: Margin X (lg)
+      type: string
+    margin_y_lg:
+      default: none
+      description: Bootstrap vertical margin class (lg).
+      enum:
+        - my-lg-0
+        - my-lg-1
+        - my-lg-2
+        - my-lg-3
+        - my-lg-4
+        - my-lg-5
+      meta:enum:
+        my-lg-0: "My-lg-0"
+        my-lg-1: "My-lg-1"
+        my-lg-2: "My-lg-2"
+        my-lg-3: "My-lg-3"
+        my-lg-4: "My-lg-4"
+        my-lg-5: "My-lg-5"
+      title: Margin Y (lg)
+      type: string
+    margin_all_xl:
+      default: none
+      description: Bootstrap margin class (xl).
+      enum:
+        - m-xl-0
+        - m-xl-1
+        - m-xl-2
+        - m-xl-3
+        - m-xl-4
+        - m-xl-5
+      meta:enum:
+        m-xl-0: "M-xl-0"
+        m-xl-1: "M-xl-1"
+        m-xl-2: "M-xl-2"
+        m-xl-3: "M-xl-3"
+        m-xl-4: "M-xl-4"
+        m-xl-5: "M-xl-5"
+      title: Margin (xl)
+      type: string
+    margin_top_xl:
+      default: none
+      description: Bootstrap margin-top class (xl).
+      enum:
+        - mt-xl-0
+        - mt-xl-1
+        - mt-xl-2
+        - mt-xl-3
+        - mt-xl-4
+        - mt-xl-5
+      meta:enum:
+        mt-xl-0: "Mt-xl-0"
+        mt-xl-1: "Mt-xl-1"
+        mt-xl-2: "Mt-xl-2"
+        mt-xl-3: "Mt-xl-3"
+        mt-xl-4: "Mt-xl-4"
+        mt-xl-5: "Mt-xl-5"
+      title: Margin top (xl)
+      type: string
+    margin_bottom_xl:
+      default: none
+      description: Bootstrap margin-bottom class (xl).
+      enum:
+        - mb-xl-0
+        - mb-xl-1
+        - mb-xl-2
+        - mb-xl-3
+        - mb-xl-4
+        - mb-xl-5
+      meta:enum:
+        mb-xl-0: "Mb-xl-0"
+        mb-xl-1: "Mb-xl-1"
+        mb-xl-2: "Mb-xl-2"
+        mb-xl-3: "Mb-xl-3"
+        mb-xl-4: "Mb-xl-4"
+        mb-xl-5: "Mb-xl-5"
+      title: Margin bottom (xl)
+      type: string
+    margin_start_xl:
+      default: none
+      description: Bootstrap margin-start class (xl).
+      enum:
+        - ms-xl-0
+        - ms-xl-1
+        - ms-xl-2
+        - ms-xl-3
+        - ms-xl-4
+        - ms-xl-5
+      meta:enum:
+        ms-xl-0: "Ms-xl-0"
+        ms-xl-1: "Ms-xl-1"
+        ms-xl-2: "Ms-xl-2"
+        ms-xl-3: "Ms-xl-3"
+        ms-xl-4: "Ms-xl-4"
+        ms-xl-5: "Ms-xl-5"
+      title: Margin start (xl)
+      type: string
+    margin_end_xl:
+      default: none
+      description: Bootstrap margin-end class (xl).
+      enum:
+        - me-xl-0
+        - me-xl-1
+        - me-xl-2
+        - me-xl-3
+        - me-xl-4
+        - me-xl-5
+      meta:enum:
+        me-xl-0: "Me-xl-0"
+        me-xl-1: "Me-xl-1"
+        me-xl-2: "Me-xl-2"
+        me-xl-3: "Me-xl-3"
+        me-xl-4: "Me-xl-4"
+        me-xl-5: "Me-xl-5"
+      title: Margin end (xl)
+      type: string
+    margin_x_xl:
+      default: none
+      description: Bootstrap horizontal margin class (xl).
+      enum:
+        - mx-xl-0
+        - mx-xl-1
+        - mx-xl-2
+        - mx-xl-3
+        - mx-xl-4
+        - mx-xl-5
+      meta:enum:
+        mx-xl-0: "Mx-xl-0"
+        mx-xl-1: "Mx-xl-1"
+        mx-xl-2: "Mx-xl-2"
+        mx-xl-3: "Mx-xl-3"
+        mx-xl-4: "Mx-xl-4"
+        mx-xl-5: "Mx-xl-5"
+      title: Margin X (xl)
+      type: string
+    margin_y_xl:
+      default: none
+      description: Bootstrap vertical margin class (xl).
+      enum:
+        - my-xl-0
+        - my-xl-1
+        - my-xl-2
+        - my-xl-3
+        - my-xl-4
+        - my-xl-5
+      meta:enum:
+        my-xl-0: "My-xl-0"
+        my-xl-1: "My-xl-1"
+        my-xl-2: "My-xl-2"
+        my-xl-3: "My-xl-3"
+        my-xl-4: "My-xl-4"
+        my-xl-5: "My-xl-5"
+      title: Margin Y (xl)
+      type: string
+    margin_all_xxl:
+      default: none
+      description: Bootstrap margin class (xxl).
+      enum:
+        - m-xxl-0
+        - m-xxl-1
+        - m-xxl-2
+        - m-xxl-3
+        - m-xxl-4
+        - m-xxl-5
+      meta:enum:
+        m-xxl-0: "M-xxl-0"
+        m-xxl-1: "M-xxl-1"
+        m-xxl-2: "M-xxl-2"
+        m-xxl-3: "M-xxl-3"
+        m-xxl-4: "M-xxl-4"
+        m-xxl-5: "M-xxl-5"
+      title: Margin (xxl)
+      type: string
+    margin_top_xxl:
+      default: none
+      description: Bootstrap margin-top class (xxl).
+      enum:
+        - mt-xxl-0
+        - mt-xxl-1
+        - mt-xxl-2
+        - mt-xxl-3
+        - mt-xxl-4
+        - mt-xxl-5
+      meta:enum:
+        mt-xxl-0: "Mt-xxl-0"
+        mt-xxl-1: "Mt-xxl-1"
+        mt-xxl-2: "Mt-xxl-2"
+        mt-xxl-3: "Mt-xxl-3"
+        mt-xxl-4: "Mt-xxl-4"
+        mt-xxl-5: "Mt-xxl-5"
+      title: Margin top (xxl)
+      type: string
+    margin_bottom_xxl:
+      default: none
+      description: Bootstrap margin-bottom class (xxl).
+      enum:
+        - mb-xxl-0
+        - mb-xxl-1
+        - mb-xxl-2
+        - mb-xxl-3
+        - mb-xxl-4
+        - mb-xxl-5
+      meta:enum:
+        mb-xxl-0: "Mb-xxl-0"
+        mb-xxl-1: "Mb-xxl-1"
+        mb-xxl-2: "Mb-xxl-2"
+        mb-xxl-3: "Mb-xxl-3"
+        mb-xxl-4: "Mb-xxl-4"
+        mb-xxl-5: "Mb-xxl-5"
+      title: Margin bottom (xxl)
+      type: string
+    margin_start_xxl:
+      default: none
+      description: Bootstrap margin-start class (xxl).
+      enum:
+        - ms-xxl-0
+        - ms-xxl-1
+        - ms-xxl-2
+        - ms-xxl-3
+        - ms-xxl-4
+        - ms-xxl-5
+      meta:enum:
+        ms-xxl-0: "Ms-xxl-0"
+        ms-xxl-1: "Ms-xxl-1"
+        ms-xxl-2: "Ms-xxl-2"
+        ms-xxl-3: "Ms-xxl-3"
+        ms-xxl-4: "Ms-xxl-4"
+        ms-xxl-5: "Ms-xxl-5"
+      title: Margin start (xxl)
+      type: string
+    margin_end_xxl:
+      default: none
+      description: Bootstrap margin-end class (xxl).
+      enum:
+        - me-xxl-0
+        - me-xxl-1
+        - me-xxl-2
+        - me-xxl-3
+        - me-xxl-4
+        - me-xxl-5
+      meta:enum:
+        me-xxl-0: "Me-xxl-0"
+        me-xxl-1: "Me-xxl-1"
+        me-xxl-2: "Me-xxl-2"
+        me-xxl-3: "Me-xxl-3"
+        me-xxl-4: "Me-xxl-4"
+        me-xxl-5: "Me-xxl-5"
+      title: Margin end (xxl)
+      type: string
+    margin_x_xxl:
+      default: none
+      description: Bootstrap horizontal margin class (xxl).
+      enum:
+        - mx-xxl-0
+        - mx-xxl-1
+        - mx-xxl-2
+        - mx-xxl-3
+        - mx-xxl-4
+        - mx-xxl-5
+      meta:enum:
+        mx-xxl-0: "Mx-xxl-0"
+        mx-xxl-1: "Mx-xxl-1"
+        mx-xxl-2: "Mx-xxl-2"
+        mx-xxl-3: "Mx-xxl-3"
+        mx-xxl-4: "Mx-xxl-4"
+        mx-xxl-5: "Mx-xxl-5"
+      title: Margin X (xxl)
+      type: string
+    margin_y_xxl:
+      default: none
+      description: Bootstrap vertical margin class (xxl).
+      enum:
+        - my-xxl-0
+        - my-xxl-1
+        - my-xxl-2
+        - my-xxl-3
+        - my-xxl-4
+        - my-xxl-5
+      meta:enum:
+        my-xxl-0: "My-xxl-0"
+        my-xxl-1: "My-xxl-1"
+        my-xxl-2: "My-xxl-2"
+        my-xxl-3: "My-xxl-3"
+        my-xxl-4: "My-xxl-4"
+        my-xxl-5: "My-xxl-5"
+      title: Margin Y (xxl)
+      type: string
+    padding_all_sm:
+      default: none
+      description: Bootstrap padding class (sm).
+      enum:
+        - p-sm-0
+        - p-sm-1
+        - p-sm-2
+        - p-sm-3
+        - p-sm-4
+        - p-sm-5
+      meta:enum:
+        p-sm-0: "P-sm-0"
+        p-sm-1: "P-sm-1"
+        p-sm-2: "P-sm-2"
+        p-sm-3: "P-sm-3"
+        p-sm-4: "P-sm-4"
+        p-sm-5: "P-sm-5"
+      title: Padding (sm)
+      type: string
+    padding_top_sm:
+      default: none
+      description: Bootstrap padding-top class (sm).
+      enum:
+        - pt-sm-0
+        - pt-sm-1
+        - pt-sm-2
+        - pt-sm-3
+        - pt-sm-4
+        - pt-sm-5
+      meta:enum:
+        pt-sm-0: "Pt-sm-0"
+        pt-sm-1: "Pt-sm-1"
+        pt-sm-2: "Pt-sm-2"
+        pt-sm-3: "Pt-sm-3"
+        pt-sm-4: "Pt-sm-4"
+        pt-sm-5: "Pt-sm-5"
+      title: Padding top (sm)
+      type: string
+    padding_bottom_sm:
+      default: none
+      description: Bootstrap padding-bottom class (sm).
+      enum:
+        - pb-sm-0
+        - pb-sm-1
+        - pb-sm-2
+        - pb-sm-3
+        - pb-sm-4
+        - pb-sm-5
+      meta:enum:
+        pb-sm-0: "Pb-sm-0"
+        pb-sm-1: "Pb-sm-1"
+        pb-sm-2: "Pb-sm-2"
+        pb-sm-3: "Pb-sm-3"
+        pb-sm-4: "Pb-sm-4"
+        pb-sm-5: "Pb-sm-5"
+      title: Padding bottom (sm)
+      type: string
+    padding_start_sm:
+      default: none
+      description: Bootstrap padding-start class (sm).
+      enum:
+        - ps-sm-0
+        - ps-sm-1
+        - ps-sm-2
+        - ps-sm-3
+        - ps-sm-4
+        - ps-sm-5
+      meta:enum:
+        ps-sm-0: "Ps-sm-0"
+        ps-sm-1: "Ps-sm-1"
+        ps-sm-2: "Ps-sm-2"
+        ps-sm-3: "Ps-sm-3"
+        ps-sm-4: "Ps-sm-4"
+        ps-sm-5: "Ps-sm-5"
+      title: Padding start (sm)
+      type: string
+    padding_end_sm:
+      default: none
+      description: Bootstrap padding-end class (sm).
+      enum:
+        - pe-sm-0
+        - pe-sm-1
+        - pe-sm-2
+        - pe-sm-3
+        - pe-sm-4
+        - pe-sm-5
+      meta:enum:
+        pe-sm-0: "Pe-sm-0"
+        pe-sm-1: "Pe-sm-1"
+        pe-sm-2: "Pe-sm-2"
+        pe-sm-3: "Pe-sm-3"
+        pe-sm-4: "Pe-sm-4"
+        pe-sm-5: "Pe-sm-5"
+      title: Padding end (sm)
+      type: string
+    padding_x_sm:
+      default: none
+      description: Bootstrap horizontal padding class (sm).
+      enum:
+        - px-sm-0
+        - px-sm-1
+        - px-sm-2
+        - px-sm-3
+        - px-sm-4
+        - px-sm-5
+      meta:enum:
+        px-sm-0: "Px-sm-0"
+        px-sm-1: "Px-sm-1"
+        px-sm-2: "Px-sm-2"
+        px-sm-3: "Px-sm-3"
+        px-sm-4: "Px-sm-4"
+        px-sm-5: "Px-sm-5"
+      title: Padding X (sm)
+      type: string
+    padding_y_sm:
+      default: none
+      description: Bootstrap vertical padding class (sm).
+      enum:
+        - py-sm-0
+        - py-sm-1
+        - py-sm-2
+        - py-sm-3
+        - py-sm-4
+        - py-sm-5
+      meta:enum:
+        py-sm-0: "Py-sm-0"
+        py-sm-1: "Py-sm-1"
+        py-sm-2: "Py-sm-2"
+        py-sm-3: "Py-sm-3"
+        py-sm-4: "Py-sm-4"
+        py-sm-5: "Py-sm-5"
+      title: Padding Y (sm)
+      type: string
+    padding_all_md:
+      default: none
+      description: Bootstrap padding class (md).
+      enum:
+        - p-md-0
+        - p-md-1
+        - p-md-2
+        - p-md-3
+        - p-md-4
+        - p-md-5
+      meta:enum:
+        p-md-0: "P-md-0"
+        p-md-1: "P-md-1"
+        p-md-2: "P-md-2"
+        p-md-3: "P-md-3"
+        p-md-4: "P-md-4"
+        p-md-5: "P-md-5"
+      title: Padding (md)
+      type: string
+    padding_top_md:
+      default: none
+      description: Bootstrap padding-top class (md).
+      enum:
+        - pt-md-0
+        - pt-md-1
+        - pt-md-2
+        - pt-md-3
+        - pt-md-4
+        - pt-md-5
+      meta:enum:
+        pt-md-0: "Pt-md-0"
+        pt-md-1: "Pt-md-1"
+        pt-md-2: "Pt-md-2"
+        pt-md-3: "Pt-md-3"
+        pt-md-4: "Pt-md-4"
+        pt-md-5: "Pt-md-5"
+      title: Padding top (md)
+      type: string
+    padding_bottom_md:
+      default: none
+      description: Bootstrap padding-bottom class (md).
+      enum:
+        - pb-md-0
+        - pb-md-1
+        - pb-md-2
+        - pb-md-3
+        - pb-md-4
+        - pb-md-5
+      meta:enum:
+        pb-md-0: "Pb-md-0"
+        pb-md-1: "Pb-md-1"
+        pb-md-2: "Pb-md-2"
+        pb-md-3: "Pb-md-3"
+        pb-md-4: "Pb-md-4"
+        pb-md-5: "Pb-md-5"
+      title: Padding bottom (md)
+      type: string
+    padding_start_md:
+      default: none
+      description: Bootstrap padding-start class (md).
+      enum:
+        - ps-md-0
+        - ps-md-1
+        - ps-md-2
+        - ps-md-3
+        - ps-md-4
+        - ps-md-5
+      meta:enum:
+        ps-md-0: "Ps-md-0"
+        ps-md-1: "Ps-md-1"
+        ps-md-2: "Ps-md-2"
+        ps-md-3: "Ps-md-3"
+        ps-md-4: "Ps-md-4"
+        ps-md-5: "Ps-md-5"
+      title: Padding start (md)
+      type: string
+    padding_end_md:
+      default: none
+      description: Bootstrap padding-end class (md).
+      enum:
+        - pe-md-0
+        - pe-md-1
+        - pe-md-2
+        - pe-md-3
+        - pe-md-4
+        - pe-md-5
+      meta:enum:
+        pe-md-0: "Pe-md-0"
+        pe-md-1: "Pe-md-1"
+        pe-md-2: "Pe-md-2"
+        pe-md-3: "Pe-md-3"
+        pe-md-4: "Pe-md-4"
+        pe-md-5: "Pe-md-5"
+      title: Padding end (md)
+      type: string
+    padding_x_md:
+      default: none
+      description: Bootstrap horizontal padding class (md).
+      enum:
+        - px-md-0
+        - px-md-1
+        - px-md-2
+        - px-md-3
+        - px-md-4
+        - px-md-5
+      meta:enum:
+        px-md-0: "Px-md-0"
+        px-md-1: "Px-md-1"
+        px-md-2: "Px-md-2"
+        px-md-3: "Px-md-3"
+        px-md-4: "Px-md-4"
+        px-md-5: "Px-md-5"
+      title: Padding X (md)
+      type: string
+    padding_y_md:
+      default: none
+      description: Bootstrap vertical padding class (md).
+      enum:
+        - py-md-0
+        - py-md-1
+        - py-md-2
+        - py-md-3
+        - py-md-4
+        - py-md-5
+      meta:enum:
+        py-md-0: "Py-md-0"
+        py-md-1: "Py-md-1"
+        py-md-2: "Py-md-2"
+        py-md-3: "Py-md-3"
+        py-md-4: "Py-md-4"
+        py-md-5: "Py-md-5"
+      title: Padding Y (md)
+      type: string
+    padding_all_lg:
+      default: none
+      description: Bootstrap padding class (lg).
+      enum:
+        - p-lg-0
+        - p-lg-1
+        - p-lg-2
+        - p-lg-3
+        - p-lg-4
+        - p-lg-5
+      meta:enum:
+        p-lg-0: "P-lg-0"
+        p-lg-1: "P-lg-1"
+        p-lg-2: "P-lg-2"
+        p-lg-3: "P-lg-3"
+        p-lg-4: "P-lg-4"
+        p-lg-5: "P-lg-5"
+      title: Padding (lg)
+      type: string
+    padding_top_lg:
+      default: none
+      description: Bootstrap padding-top class (lg).
+      enum:
+        - pt-lg-0
+        - pt-lg-1
+        - pt-lg-2
+        - pt-lg-3
+        - pt-lg-4
+        - pt-lg-5
+      meta:enum:
+        pt-lg-0: "Pt-lg-0"
+        pt-lg-1: "Pt-lg-1"
+        pt-lg-2: "Pt-lg-2"
+        pt-lg-3: "Pt-lg-3"
+        pt-lg-4: "Pt-lg-4"
+        pt-lg-5: "Pt-lg-5"
+      title: Padding top (lg)
+      type: string
+    padding_bottom_lg:
+      default: none
+      description: Bootstrap padding-bottom class (lg).
+      enum:
+        - pb-lg-0
+        - pb-lg-1
+        - pb-lg-2
+        - pb-lg-3
+        - pb-lg-4
+        - pb-lg-5
+      meta:enum:
+        pb-lg-0: "Pb-lg-0"
+        pb-lg-1: "Pb-lg-1"
+        pb-lg-2: "Pb-lg-2"
+        pb-lg-3: "Pb-lg-3"
+        pb-lg-4: "Pb-lg-4"
+        pb-lg-5: "Pb-lg-5"
+      title: Padding bottom (lg)
+      type: string
+    padding_start_lg:
+      default: none
+      description: Bootstrap padding-start class (lg).
+      enum:
+        - ps-lg-0
+        - ps-lg-1
+        - ps-lg-2
+        - ps-lg-3
+        - ps-lg-4
+        - ps-lg-5
+      meta:enum:
+        ps-lg-0: "Ps-lg-0"
+        ps-lg-1: "Ps-lg-1"
+        ps-lg-2: "Ps-lg-2"
+        ps-lg-3: "Ps-lg-3"
+        ps-lg-4: "Ps-lg-4"
+        ps-lg-5: "Ps-lg-5"
+      title: Padding start (lg)
+      type: string
+    padding_end_lg:
+      default: none
+      description: Bootstrap padding-end class (lg).
+      enum:
+        - pe-lg-0
+        - pe-lg-1
+        - pe-lg-2
+        - pe-lg-3
+        - pe-lg-4
+        - pe-lg-5
+      meta:enum:
+        pe-lg-0: "Pe-lg-0"
+        pe-lg-1: "Pe-lg-1"
+        pe-lg-2: "Pe-lg-2"
+        pe-lg-3: "Pe-lg-3"
+        pe-lg-4: "Pe-lg-4"
+        pe-lg-5: "Pe-lg-5"
+      title: Padding end (lg)
+      type: string
+    padding_x_lg:
+      default: none
+      description: Bootstrap horizontal padding class (lg).
+      enum:
+        - px-lg-0
+        - px-lg-1
+        - px-lg-2
+        - px-lg-3
+        - px-lg-4
+        - px-lg-5
+      meta:enum:
+        px-lg-0: "Px-lg-0"
+        px-lg-1: "Px-lg-1"
+        px-lg-2: "Px-lg-2"
+        px-lg-3: "Px-lg-3"
+        px-lg-4: "Px-lg-4"
+        px-lg-5: "Px-lg-5"
+      title: Padding X (lg)
+      type: string
+    padding_y_lg:
+      default: none
+      description: Bootstrap vertical padding class (lg).
+      enum:
+        - py-lg-0
+        - py-lg-1
+        - py-lg-2
+        - py-lg-3
+        - py-lg-4
+        - py-lg-5
+      meta:enum:
+        py-lg-0: "Py-lg-0"
+        py-lg-1: "Py-lg-1"
+        py-lg-2: "Py-lg-2"
+        py-lg-3: "Py-lg-3"
+        py-lg-4: "Py-lg-4"
+        py-lg-5: "Py-lg-5"
+      title: Padding Y (lg)
+      type: string
+    padding_all_xl:
+      default: none
+      description: Bootstrap padding class (xl).
+      enum:
+        - p-xl-0
+        - p-xl-1
+        - p-xl-2
+        - p-xl-3
+        - p-xl-4
+        - p-xl-5
+      meta:enum:
+        p-xl-0: "P-xl-0"
+        p-xl-1: "P-xl-1"
+        p-xl-2: "P-xl-2"
+        p-xl-3: "P-xl-3"
+        p-xl-4: "P-xl-4"
+        p-xl-5: "P-xl-5"
+      title: Padding (xl)
+      type: string
+    padding_top_xl:
+      default: none
+      description: Bootstrap padding-top class (xl).
+      enum:
+        - pt-xl-0
+        - pt-xl-1
+        - pt-xl-2
+        - pt-xl-3
+        - pt-xl-4
+        - pt-xl-5
+      meta:enum:
+        pt-xl-0: "Pt-xl-0"
+        pt-xl-1: "Pt-xl-1"
+        pt-xl-2: "Pt-xl-2"
+        pt-xl-3: "Pt-xl-3"
+        pt-xl-4: "Pt-xl-4"
+        pt-xl-5: "Pt-xl-5"
+      title: Padding top (xl)
+      type: string
+    padding_bottom_xl:
+      default: none
+      description: Bootstrap padding-bottom class (xl).
+      enum:
+        - pb-xl-0
+        - pb-xl-1
+        - pb-xl-2
+        - pb-xl-3
+        - pb-xl-4
+        - pb-xl-5
+      meta:enum:
+        pb-xl-0: "Pb-xl-0"
+        pb-xl-1: "Pb-xl-1"
+        pb-xl-2: "Pb-xl-2"
+        pb-xl-3: "Pb-xl-3"
+        pb-xl-4: "Pb-xl-4"
+        pb-xl-5: "Pb-xl-5"
+      title: Padding bottom (xl)
+      type: string
+    padding_start_xl:
+      default: none
+      description: Bootstrap padding-start class (xl).
+      enum:
+        - ps-xl-0
+        - ps-xl-1
+        - ps-xl-2
+        - ps-xl-3
+        - ps-xl-4
+        - ps-xl-5
+      meta:enum:
+        ps-xl-0: "Ps-xl-0"
+        ps-xl-1: "Ps-xl-1"
+        ps-xl-2: "Ps-xl-2"
+        ps-xl-3: "Ps-xl-3"
+        ps-xl-4: "Ps-xl-4"
+        ps-xl-5: "Ps-xl-5"
+      title: Padding start (xl)
+      type: string
+    padding_end_xl:
+      default: none
+      description: Bootstrap padding-end class (xl).
+      enum:
+        - pe-xl-0
+        - pe-xl-1
+        - pe-xl-2
+        - pe-xl-3
+        - pe-xl-4
+        - pe-xl-5
+      meta:enum:
+        pe-xl-0: "Pe-xl-0"
+        pe-xl-1: "Pe-xl-1"
+        pe-xl-2: "Pe-xl-2"
+        pe-xl-3: "Pe-xl-3"
+        pe-xl-4: "Pe-xl-4"
+        pe-xl-5: "Pe-xl-5"
+      title: Padding end (xl)
+      type: string
+    padding_x_xl:
+      default: none
+      description: Bootstrap horizontal padding class (xl).
+      enum:
+        - px-xl-0
+        - px-xl-1
+        - px-xl-2
+        - px-xl-3
+        - px-xl-4
+        - px-xl-5
+      meta:enum:
+        px-xl-0: "Px-xl-0"
+        px-xl-1: "Px-xl-1"
+        px-xl-2: "Px-xl-2"
+        px-xl-3: "Px-xl-3"
+        px-xl-4: "Px-xl-4"
+        px-xl-5: "Px-xl-5"
+      title: Padding X (xl)
+      type: string
+    padding_y_xl:
+      default: none
+      description: Bootstrap vertical padding class (xl).
+      enum:
+        - py-xl-0
+        - py-xl-1
+        - py-xl-2
+        - py-xl-3
+        - py-xl-4
+        - py-xl-5
+      meta:enum:
+        py-xl-0: "Py-xl-0"
+        py-xl-1: "Py-xl-1"
+        py-xl-2: "Py-xl-2"
+        py-xl-3: "Py-xl-3"
+        py-xl-4: "Py-xl-4"
+        py-xl-5: "Py-xl-5"
+      title: Padding Y (xl)
+      type: string
+    padding_all_xxl:
+      default: none
+      description: Bootstrap padding class (xxl).
+      enum:
+        - p-xxl-0
+        - p-xxl-1
+        - p-xxl-2
+        - p-xxl-3
+        - p-xxl-4
+        - p-xxl-5
+      meta:enum:
+        p-xxl-0: "P-xxl-0"
+        p-xxl-1: "P-xxl-1"
+        p-xxl-2: "P-xxl-2"
+        p-xxl-3: "P-xxl-3"
+        p-xxl-4: "P-xxl-4"
+        p-xxl-5: "P-xxl-5"
+      title: Padding (xxl)
+      type: string
+    padding_top_xxl:
+      default: none
+      description: Bootstrap padding-top class (xxl).
+      enum:
+        - pt-xxl-0
+        - pt-xxl-1
+        - pt-xxl-2
+        - pt-xxl-3
+        - pt-xxl-4
+        - pt-xxl-5
+      meta:enum:
+        pt-xxl-0: "Pt-xxl-0"
+        pt-xxl-1: "Pt-xxl-1"
+        pt-xxl-2: "Pt-xxl-2"
+        pt-xxl-3: "Pt-xxl-3"
+        pt-xxl-4: "Pt-xxl-4"
+        pt-xxl-5: "Pt-xxl-5"
+      title: Padding top (xxl)
+      type: string
+    padding_bottom_xxl:
+      default: none
+      description: Bootstrap padding-bottom class (xxl).
+      enum:
+        - pb-xxl-0
+        - pb-xxl-1
+        - pb-xxl-2
+        - pb-xxl-3
+        - pb-xxl-4
+        - pb-xxl-5
+      meta:enum:
+        pb-xxl-0: "Pb-xxl-0"
+        pb-xxl-1: "Pb-xxl-1"
+        pb-xxl-2: "Pb-xxl-2"
+        pb-xxl-3: "Pb-xxl-3"
+        pb-xxl-4: "Pb-xxl-4"
+        pb-xxl-5: "Pb-xxl-5"
+      title: Padding bottom (xxl)
+      type: string
+    padding_start_xxl:
+      default: none
+      description: Bootstrap padding-start class (xxl).
+      enum:
+        - ps-xxl-0
+        - ps-xxl-1
+        - ps-xxl-2
+        - ps-xxl-3
+        - ps-xxl-4
+        - ps-xxl-5
+      meta:enum:
+        ps-xxl-0: "Ps-xxl-0"
+        ps-xxl-1: "Ps-xxl-1"
+        ps-xxl-2: "Ps-xxl-2"
+        ps-xxl-3: "Ps-xxl-3"
+        ps-xxl-4: "Ps-xxl-4"
+        ps-xxl-5: "Ps-xxl-5"
+      title: Padding start (xxl)
+      type: string
+    padding_end_xxl:
+      default: none
+      description: Bootstrap padding-end class (xxl).
+      enum:
+        - pe-xxl-0
+        - pe-xxl-1
+        - pe-xxl-2
+        - pe-xxl-3
+        - pe-xxl-4
+        - pe-xxl-5
+      meta:enum:
+        pe-xxl-0: "Pe-xxl-0"
+        pe-xxl-1: "Pe-xxl-1"
+        pe-xxl-2: "Pe-xxl-2"
+        pe-xxl-3: "Pe-xxl-3"
+        pe-xxl-4: "Pe-xxl-4"
+        pe-xxl-5: "Pe-xxl-5"
+      title: Padding end (xxl)
+      type: string
+    padding_x_xxl:
+      default: none
+      description: Bootstrap horizontal padding class (xxl).
+      enum:
+        - px-xxl-0
+        - px-xxl-1
+        - px-xxl-2
+        - px-xxl-3
+        - px-xxl-4
+        - px-xxl-5
+      meta:enum:
+        px-xxl-0: "Px-xxl-0"
+        px-xxl-1: "Px-xxl-1"
+        px-xxl-2: "Px-xxl-2"
+        px-xxl-3: "Px-xxl-3"
+        px-xxl-4: "Px-xxl-4"
+        px-xxl-5: "Px-xxl-5"
+      title: Padding X (xxl)
+      type: string
+    padding_y_xxl:
+      default: none
+      description: Bootstrap vertical padding class (xxl).
+      enum:
+        - py-xxl-0
+        - py-xxl-1
+        - py-xxl-2
+        - py-xxl-3
+        - py-xxl-4
+        - py-xxl-5
+      meta:enum:
+        py-xxl-0: "Py-xxl-0"
+        py-xxl-1: "Py-xxl-1"
+        py-xxl-2: "Py-xxl-2"
+        py-xxl-3: "Py-xxl-3"
+        py-xxl-4: "Py-xxl-4"
+        py-xxl-5: "Py-xxl-5"
+      title: Padding Y (xxl)
+      type: string
+
+canvas_bootstrap:
+  ui_groups:
+    Image:
+      weight: 10
+      fields:
+        - size
+        - radius
+        - caption
+        - url
+        - width_class
+        - height_class
+    Spacing:
+      weight: 20
+      groups:
+        Margin:
+          weight: 0
+          fields:
+            - margin_all
+            - margin_top
+            - margin_bottom
+            - margin_start
+            - margin_end
+            - margin_x
+            - margin_y
+        Padding:
+          weight: 10
+          fields:
+            - padding_all
+            - padding_top
+            - padding_bottom
+            - padding_start
+            - padding_end
+            - padding_x
+            - padding_y
+        Margin (sm):
+          weight: 20
+          fields:
+            - margin_all_sm
+            - margin_top_sm
+            - margin_bottom_sm
+            - margin_start_sm
+            - margin_end_sm
+            - margin_x_sm
+            - margin_y_sm
+        Padding (sm):
+          weight: 30
+          fields:
+            - padding_all_sm
+            - padding_top_sm
+            - padding_bottom_sm
+            - padding_start_sm
+            - padding_end_sm
+            - padding_x_sm
+            - padding_y_sm
+        Margin (md):
+          weight: 40
+          fields:
+            - margin_all_md
+            - margin_top_md
+            - margin_bottom_md
+            - margin_start_md
+            - margin_end_md
+            - margin_x_md
+            - margin_y_md
+        Padding (md):
+          weight: 50
+          fields:
+            - padding_all_md
+            - padding_top_md
+            - padding_bottom_md
+            - padding_start_md
+            - padding_end_md
+            - padding_x_md
+            - padding_y_md
+        Margin (lg):
+          weight: 60
+          fields:
+            - margin_all_lg
+            - margin_top_lg
+            - margin_bottom_lg
+            - margin_start_lg
+            - margin_end_lg
+            - margin_x_lg
+            - margin_y_lg
+        Padding (lg):
+          weight: 70
+          fields:
+            - padding_all_lg
+            - padding_top_lg
+            - padding_bottom_lg
+            - padding_start_lg
+            - padding_end_lg
+            - padding_x_lg
+            - padding_y_lg
+        Margin (xl):
+          weight: 80
+          fields:
+            - margin_all_xl
+            - margin_top_xl
+            - margin_bottom_xl
+            - margin_start_xl
+            - margin_end_xl
+            - margin_x_xl
+            - margin_y_xl
+        Padding (xl):
+          weight: 90
+          fields:
+            - padding_all_xl
+            - padding_top_xl
+            - padding_bottom_xl
+            - padding_start_xl
+            - padding_end_xl
+            - padding_x_xl
+            - padding_y_xl
+        Margin (xxl):
+          weight: 100
+          fields:
+            - margin_all_xxl
+            - margin_top_xxl
+            - margin_bottom_xxl
+            - margin_start_xxl
+            - margin_end_xxl
+            - margin_x_xxl
+            - margin_y_xxl
+        Padding (xxl):
+          weight: 110
+          fields:
+            - padding_all_xxl
+            - padding_top_xxl
+            - padding_bottom_xxl
+            - padding_start_xxl
+            - padding_end_xxl
+            - padding_x_xxl
+            - padding_y_xxl

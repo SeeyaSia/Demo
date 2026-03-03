@@ -1,0 +1,32 @@
+{% set row_classes = [
+  'row',
+  gap ? gap : '',
+  gap_sm ? gap_sm : '',
+  gap_md ? gap_md : '',
+  gap_lg ? gap_lg : '',
+  gap_xl ? gap_xl : '',
+  gap_xxl ? gap_xxl : '',
+  gap_x ? gap_x : '',
+  gap_x_sm ? gap_x_sm : '',
+  gap_x_md ? gap_x_md : '',
+  gap_x_lg ? gap_x_lg : '',
+  gap_x_xl ? gap_x_xl : '',
+  gap_x_xxl ? gap_x_xxl : '',
+  gap_y ? gap_y : '',
+  gap_y_sm ? gap_y_sm : '',
+  gap_y_md ? gap_y_md : '',
+  gap_y_lg ? gap_y_lg : '',
+  gap_y_xl ? gap_y_xl : '',
+  gap_y_xxl ? gap_y_xxl : '',
+  row_cols ? row_cols : '',
+  row_cols_sm ? row_cols_sm : '',
+  row_cols_md ? row_cols_md : '',
+  row_cols_lg ? row_cols_lg : '',
+  row_cols_xl ? row_cols_xl : '',
+  row_cols_xxl ? row_cols_xxl : '',
+  custom_class|default(''),
+]|filter(v => v) %}
+
+<div class="{{ row_classes|join(' ') }}">
+  {% block row %}{% endblock %}
+</div>

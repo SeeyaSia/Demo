@@ -1,0 +1,17 @@
+{
+  "name": "canvas-test-per-content-editing",
+  "description": "Tests per-content editing workflow: exposed slot configuration, field_component_tree on articles, slot component injection, getMergedComponentTree (template + slot content), merged tree rendering, SlotTreeExtractor UUID mapping, and empty-slot fallback behavior.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "ContentTemplate 'node.article.full' exists with exposed_slots configured",
+    "Article content type has field_component_tree",
+    "Active default theme SDC components are available",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_developer",
+  "created_date": "2026-02-14",
+  "deprecated": false,
+  "deprecated_reason": null
+}

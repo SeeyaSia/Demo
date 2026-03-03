@@ -1,0 +1,8 @@
+// paragraph.scss
+// Overrides for the Paragraph SDC component.
+
+@import "component-base";
+
+p * {
+  color: inherit;
+}

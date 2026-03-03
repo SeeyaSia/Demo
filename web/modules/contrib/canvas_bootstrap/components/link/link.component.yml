@@ -1,0 +1,129 @@
+"$schema": "https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json"
+name: Link
+description: General link component with optional stretched-link and button styles.
+type: component
+status: stable
+group: Canvas Bootstrap
+
+props:
+  type: object
+  required:
+    - url
+    - text
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+      title: Attributes
+      description: Link attributes.
+    url:
+      type: string
+      format: uri-reference
+      examples: 
+        - https://example.com
+      title: Link URL
+      description: URL for the card link.
+
+    text:
+      type: string
+      title: Link text
+      description: Text for the card link.
+      examples: ['Learn more']
+    aria_label:
+      type: string
+      title: Aria label
+      description: Optional aria-label for the link.
+      default: ''
+    target:
+      type: string
+      title: Link target
+      description: Choose whether the link opens in the same or a new window.
+      default: same
+      enum:
+        - same
+        - new
+      meta:enum:
+        same: Same window
+        new: New window
+    stretched_link:
+      type: boolean
+      title: Stretched link
+      description: Make the link cover the nearest positioned container.
+      default: false
+    as_button:
+      type: boolean
+      title: Link as button
+      description: Render the link with Bootstrap button classes.
+      default: false
+    button_variant:
+      type: string
+      title: Button variant
+      description: Bootstrap button style when rendering as a button.
+      default: primary
+      enum:
+        - primary
+        - secondary
+        - success
+        - danger
+        - warning
+        - info
+        - light
+        - dark
+      meta:enum:
+        primary: "Primary"
+        secondary: "Secondary"
+        success: "Success"
+        danger: "Danger"
+        warning: "Warning"
+        info: "Info"
+        light: "Light"
+        dark: "Dark"
+    width_class:
+      type: string
+      title: Width
+      description: Bootstrap width utility class for the link.
+      default: none
+      enum:
+        - w-25
+        - w-50
+        - w-75
+        - w-100
+        - w-auto
+        - mw-100
+      meta:enum:
+        w-25: "W-25"
+        w-50: "W-50"
+        w-75: "W-75"
+        w-100: "W-100"
+        w-auto: "W-auto"
+        mw-100: "Mw-100"
+    link_classes:
+      type: string
+      title: Link classes
+      description: Classes for a regular link.
+      default: ''
+    button_classes:
+      type: string
+      title: Additional button classes
+      description: Additional classes when rendering the link as a button.
+      default: ''
+    custom_class:
+      type: string
+      title: Custom classes
+      description: Additional classes to add to the link.
+      default: ''
+
+canvas_bootstrap:
+  ui_groups:
+    Link:
+      weight: 10
+      fields:
+        - url
+        - text
+        - aria_label
+        - target
+        - stretched_link
+        - as_button
+        - button_variant
+        - width_class
+        - link_classes
+        - button_classes

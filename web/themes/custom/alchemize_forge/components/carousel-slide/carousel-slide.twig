@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Template for a Carousel Slide component.
+ *
+ * Renders a full-bleed background image with metadata exposed via data
+ * attributes. The parent Hero Carousel reads these attributes to populate
+ * the bottom info bar.
+ *
+ * Available variables:
+ * - title: (string) Slide title displayed in the carousel info bar.
+ * - stat: (string) Optional metric/statistic for this slide.
+ * - background_image: (object) Image with src, alt, width, height.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div{{ attributes.addClass('carousel-slide') }}
+  data-slide-title="{{ title }}"
+  {% if stat %}data-slide-stat="{{ stat }}"{% endif %}
+>
+  {% if background_image and background_image.src %}
+    {% include 'canvas:image' ignore missing with {
+      src: background_image.src,
+      alt: background_image.alt|default(''),
+      class: 'carousel-slide__image',
+      width: background_image.width,
+      height: background_image.height
+    } only %}
+  {% endif %}
+  <div class="carousel-slide__overlay"></div>
+</div>

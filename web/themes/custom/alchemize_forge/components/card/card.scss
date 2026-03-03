@@ -1,0 +1,186 @@
+// card.scss
+// Responsive orientation and image-rounding overrides for the Card SDC component.
+
+@import "component-base";
+
+.card .card-image-wrapper {
+  --card-image-radius: var(--bs-card-inner-border-radius, var(--bs-border-radius));
+}
+
+.card.card-orient-base-horizontal .card-image-wrapper.card-image-rounding-top {
+  border-top-left-radius: var(--card-image-radius);
+  border-bottom-left-radius: var(--card-image-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card.card-orient-base-horizontal .card-image-wrapper.card-image-rounding-bottom {
+  border-top-right-radius: var(--card-image-radius);
+  border-bottom-right-radius: var(--card-image-radius);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.card.card-orient-base-vertical .card-image-wrapper.card-image-rounding-top {
+  border-top-left-radius: var(--card-image-radius);
+  border-top-right-radius: var(--card-image-radius);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card.card-orient-base-vertical .card-image-wrapper.card-image-rounding-bottom {
+  border-bottom-left-radius: var(--card-image-radius);
+  border-bottom-right-radius: var(--card-image-radius);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+@media (min-width: 576px) {
+  .card.card-orient-sm-horizontal .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-bottom-left-radius: var(--card-image-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-sm-horizontal .card-image-wrapper.card-image-rounding-bottom {
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .card.card-orient-sm-vertical .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-sm-vertical .card-image-wrapper.card-image-rounding-bottom {
+    border-bottom-left-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .card.card-orient-md-horizontal .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-bottom-left-radius: var(--card-image-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-md-horizontal .card-image-wrapper.card-image-rounding-bottom {
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .card.card-orient-md-vertical .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-md-vertical .card-image-wrapper.card-image-rounding-bottom {
+    border-bottom-left-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .card.card-orient-lg-horizontal .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-bottom-left-radius: var(--card-image-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-lg-horizontal .card-image-wrapper.card-image-rounding-bottom {
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .card.card-orient-lg-vertical .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-lg-vertical .card-image-wrapper.card-image-rounding-bottom {
+    border-bottom-left-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card.card-orient-xl-horizontal .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-bottom-left-radius: var(--card-image-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-xl-horizontal .card-image-wrapper.card-image-rounding-bottom {
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .card.card-orient-xl-vertical .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-xl-vertical .card-image-wrapper.card-image-rounding-bottom {
+    border-bottom-left-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+@media (min-width: 1400px) {
+  .card.card-orient-xxl-horizontal .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-bottom-left-radius: var(--card-image-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-xxl-horizontal .card-image-wrapper.card-image-rounding-bottom {
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .card.card-orient-xxl-vertical .card-image-wrapper.card-image-rounding-top {
+    border-top-left-radius: var(--card-image-radius);
+    border-top-right-radius: var(--card-image-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card.card-orient-xxl-vertical .card-image-wrapper.card-image-rounding-bottom {
+    border-bottom-left-radius: var(--card-image-radius);
+    border-bottom-right-radius: var(--card-image-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}

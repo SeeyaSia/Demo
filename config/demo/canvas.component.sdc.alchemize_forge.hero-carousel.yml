@@ -1,0 +1,45 @@
+uuid: 54b90f74-caf6-4965-a534-a61492bf486c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alchemize_forge
+active_version: ef2e4d995d7fd392
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        heading:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        subheading:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        auto_rotate_interval:
+          required: false
+          field_type: integer
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: number
+          default_value: null
+          expression: ℹ︎integer␟value
+    fallback_metadata:
+      slot_definitions:
+        slides:
+          title: Slides
+          description: 'Add Carousel Slide components here. Each slide provides a background image, title, and stat.'
+label: 'Hero carousel'
+id: sdc.alchemize_forge.hero-carousel
+provider: alchemize_forge
+source: sdc
+source_local_id: 'alchemize_forge:hero-carousel'

@@ -1,0 +1,15 @@
+{
+  "name": "canvas-build-page",
+  "description": "Builds the ExampleHomepage Canvas Page with a hero section and 4-card product grid using preset-based design system patterns. Demonstrates: wrapper presets (hero-dark), heading presets (hero, card-title), paragraph presets (lead, caption), card presets (dark), inherited text color from dark sections, and individual prop overrides. Creates 27 components programmatically.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "Active default theme has SDC components registered in Canvas",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-09",
+  "deprecated": false,
+  "deprecated_reason": null
+}

@@ -1,0 +1,19 @@
+{
+  "name": "add-canvas-field",
+  "description": "Adds a Canvas component_tree field to a content type with form display (canvas widget), view display (canvas renderer), and teaser (hidden). All operations are idempotent.",
+  "parameters": [
+    {"name": "CONTENT_TYPE", "description": "Machine name of the content type", "default": "page"},
+    {"name": "FIELD_NAME", "description": "Machine name of the field", "default": "field_canvas_body"},
+    {"name": "FIELD_LABEL", "description": "Human-readable label", "default": "Canvas Body"}
+  ],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running",
+    "Content type exists"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-16",
+  "deprecated": false,
+  "deprecated_reason": null
+}

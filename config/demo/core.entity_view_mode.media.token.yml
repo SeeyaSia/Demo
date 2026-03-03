@@ -1,0 +1,11 @@
+uuid: 8789f441-2688-408b-b263-6b627c21ed73
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.token
+label: Token
+description: null
+targetEntityType: media
+cache: true

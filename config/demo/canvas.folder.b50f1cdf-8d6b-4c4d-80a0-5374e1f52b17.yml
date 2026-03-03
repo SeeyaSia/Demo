@@ -1,0 +1,34 @@
+uuid: b50f1cdf-8d6b-4c4d-80a0-5374e1f52b17
+langcode: en
+status: true
+dependencies: {  }
+name: 'Canvas Bootstrap'
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.alchemize_forge.accordion
+  - sdc.alchemize_forge.accordion-container
+  - sdc.alchemize_forge.blockquote
+  - sdc.alchemize_forge.button
+  - sdc.alchemize_forge.card
+  - sdc.alchemize_forge.carousel-slide
+  - sdc.alchemize_forge.column
+  - sdc.alchemize_forge.heading
+  - sdc.alchemize_forge.hero-carousel
+  - sdc.alchemize_forge.image
+  - sdc.alchemize_forge.link
+  - sdc.alchemize_forge.paragraph
+  - sdc.alchemize_forge.row
+  - sdc.alchemize_forge.wrapper
+  - sdc.canvas_bootstrap.accordion
+  - sdc.canvas_bootstrap.accordion-container
+  - sdc.canvas_bootstrap.blockquote
+  - sdc.canvas_bootstrap.button
+  - sdc.canvas_bootstrap.card
+  - sdc.canvas_bootstrap.column
+  - sdc.canvas_bootstrap.heading
+  - sdc.canvas_bootstrap.image
+  - sdc.canvas_bootstrap.link
+  - sdc.canvas_bootstrap.paragraph
+  - sdc.canvas_bootstrap.row
+  - sdc.canvas_bootstrap.wrapper

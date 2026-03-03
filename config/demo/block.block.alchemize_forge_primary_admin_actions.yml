@@ -1,0 +1,20 @@
+uuid: 972512ea-a0e1-4df5-b5f4-9943b4750caf
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: ypXKFcyBsisZjH9EtdX7UtAcj-fxNsQCji8llzmtULs
+id: alchemize_forge_primary_admin_actions
+theme: alchemize_forge
+region: none
+weight: 1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

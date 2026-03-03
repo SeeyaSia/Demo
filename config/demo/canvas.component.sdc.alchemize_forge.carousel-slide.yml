@@ -1,0 +1,57 @@
+uuid: 9a7368e8-1b92-441a-b6fc-e60b0724dc14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image.field_media_image
+    - image.style.canvas_parametrized_width
+    - media.type.image
+  module:
+    - file
+    - media
+    - media_library
+  theme:
+    - alchemize_forge
+active_version: 44dc767510b962ad
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        title:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Digital Transformation'
+          expression: ℹ︎string␟value
+        stat:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        background_image:
+          required: false
+          field_type: entity_reference
+          field_storage_settings:
+            target_type: media
+          field_instance_settings:
+            handler: 'default:media'
+            handler_settings:
+              target_bundles:
+                image: image
+          field_widget: media_library_widget
+          default_value: {  }
+          expression: 'ℹ︎entity_reference␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'Carousel slide'
+id: sdc.alchemize_forge.carousel-slide
+provider: alchemize_forge
+source: sdc
+source_local_id: 'alchemize_forge:carousel-slide'

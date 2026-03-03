@@ -1,0 +1,111 @@
+---
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: Blockquote
+status: experimental
+group: Canvas Bootstrap
+description: Bootstrap blockquote with optional footer and citation.
+
+type: component
+
+props:
+  type: object
+  required:
+    - text
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+      title: Attributes
+      description: Wrapper attributes.
+    text:
+      type: string
+      title: Quote text
+      pattern: (.|\r?\n)*
+      examples:
+        - 'A well-known quote, contained in a blockquote element.'
+    footer:
+      type: string
+      title: Footer text
+      description: Attribution text shown in the footer.
+      default: ''
+    cite:
+      type: string
+      title: Cite
+      description: Citation source for the quote.
+      default: ''
+    alignment:
+      type: string
+      title: Alignment
+      description: Text alignment for the blockquote.
+      default: text-start
+      enum:
+        - text-start
+        - text-center
+        - text-end
+      meta:enum:
+        text-start: "Text-start"
+        text-center: "Text-center"
+        text-end: "Text-end"
+    italic:
+      type: boolean
+      title: Italic
+      description: Render the blockquote text in italic.
+      default: false
+    opacity:
+      type: string
+      title: Opacity
+      description: Text opacity for the blockquote.
+      default: none
+      enum:
+        - opacity-25
+        - opacity-50
+        - opacity-75
+        - opacity-100
+      meta:enum:
+        opacity-25: "Opacity-25"
+        opacity-50: "Opacity-50"
+        opacity-75: "Opacity-75"
+        opacity-100: "Opacity-100"
+    text_color:
+      type: string
+      title: Text color
+      description: Text color utility class for the blockquote.
+      default: none
+      enum:
+        - text-muted
+        - text-secondary
+        - text-body-secondary
+        - text-body
+        - text-dark
+        - text-light
+        - text-white
+      meta:enum:
+        text-muted: "Text-muted"
+        text-secondary: "Text-secondary"
+        text-body-secondary: "Text-body-secondary"
+        text-body: "Text-body"
+        text-dark: "Text-dark"
+        text-light: "Text-light"
+        text-white: "Text-white"
+    blockquote_class:
+      type: string
+      title: Blockquote classes
+      description: Additional classes for the blockquote element.
+      default: ''
+    footer_class:
+      type: string
+      title: Footer classes
+      description: Additional classes for the footer.
+      default: ''
+
+canvas_bootstrap:
+  ui_groups:
+    Blockquote:
+      weight: 10
+      fields:
+        - alignment
+        - italic
+        - opacity
+        - text_color
+        - blockquote_class
+        - footer_class

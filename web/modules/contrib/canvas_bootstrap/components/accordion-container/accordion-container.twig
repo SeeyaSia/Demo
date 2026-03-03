@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Template for a Bootstrap 5 Accordion wrapper.
+ *
+ * This template provides the outer container for accordion items.
+ *
+ * Available variables:
+ * - flush: (boolean) Whether to remove the default background-color, 
+ * some borders, and some rounded corners to render accordions edge-to-edge.
+ * - accordion_id: (optional) A unique ID for the accordion container. 
+ * If not provided, a random one will be generated.
+ *
+ * Available blocks:
+ * - accordion_content: The area where accordion items (individual cards) 
+ * should be rendered.
+ *
+ * @see template_preprocess_accordion()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Generate a unique ID if one isn't already provided via the preprocess function. #}
+{% set accordion_id = accordion_id ?: 'accordion-' ~ random() %}
+
+{% set classes = [
+  'accordion',
+  flush ? 'accordion-flush',
+  custom_class|default(''),
+] %}
+
+<div{{ attributes.addClass(classes).setAttribute('id', accordion_id) }}>
+  {% block accordion_content %}
+    {# Render the individual accordion items here. #}
+  {% endblock %}
+</div>

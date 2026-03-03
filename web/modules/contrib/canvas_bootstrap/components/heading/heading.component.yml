@@ -1,0 +1,91 @@
+"$schema": "https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json"
+name: Heading
+description: A Bootstrap heading component with configurable level, alignment, and text color.
+type: component
+status: stable
+group: Canvas Bootstrap
+
+props:
+  type: object
+  required:
+    - text
+    - level
+  properties:
+    text:
+      type: string
+      title: Text
+      examples:
+        - 'This is a heading'
+
+    level:
+      type: string
+      title: Heading level
+      default: h2
+      enum:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      meta:enum:
+        h1: "H1"
+        h2: "H2"
+        h3: "H3"
+        h4: "H4"
+        h5: "H5"
+        h6: "H6"
+      examples:
+        - h1
+        - h2
+        - h3
+    
+    alinment:
+      type: string
+      title: Alinment
+      default: text-start
+      enum:
+        - text-start
+        - text-center
+        - text-end
+      meta:enum:
+        text-start: "Text-start"
+        text-center: "Text-center"
+        text-end: "Text-end"
+      examples:
+        - text-start
+        - text-center
+        - text-end
+    text_color:
+      type: string
+      title: Text color
+      default: none
+      enum:
+        - text-primary
+        - text-secondary
+        - text-success
+        - text-danger
+        - text-warning
+        - text-info
+        - text-light
+        - text-dark
+        - text-body
+        - text-muted
+        - text-white
+      meta:enum:
+        text-primary: "Text-primary"
+        text-secondary: "Text-secondary"
+        text-success: "Text-success"
+        text-danger: "Text-danger"
+        text-warning: "Text-warning"
+        text-info: "Text-info"
+        text-light: "Text-light"
+        text-dark: "Text-dark"
+        text-body: "Text-body"
+        text-muted: "Text-muted"
+        text-white: "Text-white"
+    custom_class:
+      default: ''
+      description: Additional classes to add to the heading.
+      title: Custom classes
+      type: string

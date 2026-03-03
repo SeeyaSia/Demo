@@ -1,0 +1,243 @@
+// style.scss
+// Token-driven theme overrides for Alchemize Forge.
+
+@import "default";
+
+// ============================================================
+// DESIGN SYSTEM LAYERS
+// ============================================================
+// These are compiled ONCE here. SDC component SCSS does NOT import these
+// directly — SDC components use the same tokens/variables via
+// @import "component-base" (which emits zero CSS).
+//
+// 1. Typography roles — semantic text identity
+//    .role-heading-hero, .role-text-lead, .role-label, etc.
+// 2. Layout presets — section/card composition
+//    .preset-section-hero-dark, .preset-card-elevated, etc.
+@import "typography-roles";
+@import "layout-presets";
+
+// Global theme chrome (header, footer)
+@import "global/header";
+@import "global/footer";
+
+// ============================================================
+// GLOBAL STYLES
+// ============================================================
+
+body {
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-brand-primary);
+  @include transition-fast(color);
+
+  &:hover {
+    color: var(--color-brand-hover);
+  }
+}
+
+::selection {
+  background-color: var(--color-brand-muted);
+  color: var(--color-text-primary);
+}
+
+// ============================================================
+// CARDS (global Bootstrap override)
+// ============================================================
+
+.card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.75rem;
+  @include elevation-sm;
+  @include transition-base(box-shadow, border-color);
+
+  &:hover {
+    @include elevation-md;
+    border-color: var(--color-border-default);
+  }
+}
+
+.card-header {
+  background-color: var(--color-bg-elevated);
+  border-bottom-color: var(--color-border-subtle);
+}
+
+.card-footer {
+  background-color: var(--color-bg-elevated);
+  border-top-color: var(--color-border-subtle);
+}
+
+// ============================================================
+// ACCORDION (global Bootstrap override)
+// ============================================================
+
+.accordion-item {
+  background-color: var(--color-bg-surface);
+  border-color: var(--color-border-subtle);
+}
+
+.accordion-button {
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font-weight: 500;
+
+  &:not(.collapsed) {
+    background-color: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba($brand-500, 0.25);
+  }
+}
+
+// ============================================================
+// BUTTONS (global Bootstrap override)
+// ============================================================
+
+.btn-primary {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-contrast);
+
+  &:hover {
+    background-color: var(--color-brand-hover);
+    border-color: var(--color-brand-hover);
+  }
+}
+
+.btn-outline-secondary {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-default);
+
+  &:hover {
+    background-color: var(--color-bg-elevated);
+    border-color: var(--color-border-strong);
+    color: var(--color-text-primary);
+  }
+}
+
+// ============================================================
+// FORMS (global Bootstrap override)
+// ============================================================
+
+.form-control,
+.form-select {
+  background-color: var(--color-bg-surface);
+  border-color: var(--color-border-default);
+  color: var(--color-text-primary);
+  @include transition-fast(border-color, box-shadow);
+
+  &:focus {
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 0 0 0.25rem rgba($brand-500, 0.15);
+  }
+}
+
+// ============================================================
+// TABLES (global Bootstrap override)
+// ============================================================
+
+.table {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-subtle);
+}
+
+// ============================================================
+// ADMIN ELEMENTS — Drupal local task tabs (View / Edit / Revisions)
+// ============================================================
+
+.nav-tabs.primary {
+  position: absolute;
+  z-index: 3;
+  padding: 5px 0 0;
+  margin: 0;
+  gap: 0.25rem;
+  border: none;
+  background: transparent;
+
+  .nav-item {
+    margin-bottom: 0;
+  }
+
+  .nav-link {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba($neutral-0, 0.8);
+    padding: 0.5rem 1.25rem;
+    border: 1px solid rgba($neutral-0, 0.2);
+    border-radius: $border-radius;
+    background-color: rgba($brand-900, 0.6);
+    backdrop-filter: blur(8px);
+    @include transition-fast(color, background-color, border-color);
+
+    &:hover {
+      color: $neutral-0;
+      background-color: rgba($brand-900, 0.8);
+      border-color: rgba($neutral-0, 0.35);
+    }
+
+    &.active {
+      color: $neutral-0;
+      background-color: var(--color-brand-primary);
+      border-color: var(--color-brand-primary);
+      font-weight: 600;
+    }
+  }
+}
+
+// ============================================================
+// DARK MODE: Component-level refinements
+// ============================================================
+
+@include color-mode(dark) {
+  .alert {
+    border-color: var(--color-border-default);
+  }
+
+  .list-group-item {
+    background-color: var(--color-bg-surface);
+    border-color: var(--color-border-subtle);
+  }
+}
+
+// ============================================================
+// FULL-BLEED UTILITY (preserved for Canvas layouts)
+// ============================================================
+
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+// ============================================================
+// MISC
+// ============================================================
+
+.card-group img {
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.card-group .field--type-image {
+  margin: 0;
+}
+
+// ============================================================
+// SECTION UTILITIES
+// ============================================================
+
+// Section alternate background
+.section-alt {
+  background-color: var(--color-section-alt);
+}

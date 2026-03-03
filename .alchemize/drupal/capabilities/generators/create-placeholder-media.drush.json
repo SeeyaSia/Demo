@@ -1,0 +1,21 @@
+{
+  "name": "create-placeholder-media",
+  "description": "Downloads random images from picsum.photos and saves them as Drupal Media entities (type: image). Creates persistent placeholder images for demo content, capability scripts, and agent-generated content. Images are downloaded once and stored permanently in the media library.",
+  "parameters": [
+    {"name": "COUNT", "description": "Number of placeholder images to create", "default": "6"},
+    {"name": "WIDTH", "description": "Image width in pixels", "default": "1200"},
+    {"name": "HEIGHT", "description": "Image height in pixels", "default": "800"},
+    {"name": "PREFIX", "description": "Name prefix for media entities (e.g., 'Hero banner', 'Card image')", "default": "Placeholder"}
+  ],
+  "preconditions": [
+    "The 'media' module is enabled",
+    "The 'image' media type exists",
+    "DDEV is running",
+    "Internet access is available (downloads from picsum.photos)"
+  ],
+  "idempotent": false,
+  "created_by": "documentation_specialist",
+  "created_date": "2026-02-27",
+  "deprecated": false,
+  "deprecated_reason": null
+}

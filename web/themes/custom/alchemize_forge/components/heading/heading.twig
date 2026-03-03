@@ -1,0 +1,30 @@
+{% set _preset = preset|default('none') %}
+
+{# Preset class maps — each preset references a single typography role class
+   defined in scss/_typography-roles.scss. Sizes and weights come from the
+   brand type scale ($type-scale in _typography.scss), not Bootstrap defaults.
+   Fixes broken letter-spacing-1 reference (now defined in .role-label SCSS). #}
+{% set preset_classes = {
+  'hero':            ['role-heading-hero'],
+  'section-title':   ['role-heading-section'],
+  'card-title':      ['role-heading-card'],
+  'subtle':          ['role-heading-subtle'],
+  'uppercase-label': ['role-label'],
+} %}
+
+{% set _preset_list = preset_classes[_preset]|default([]) %}
+
+{# Individual props override preset values when explicitly set #}
+{% set classes = [
+    'heading',
+    'heading--' ~ level,
+    alignment|default(alinment|default('text-start')),
+    display_size is defined and display_size != 'none' ? display_size : '',
+    font_weight is defined and font_weight != 'none' ? font_weight : '',
+    text_transform is defined and text_transform != 'none' ? text_transform : '',
+    text_color != 'none' ? text_color : '',
+]|merge(_preset_list) %}
+
+<{{ level }}{{ attributes.addClass(classes|filter(v => v)) }}>
+  {{ text }}
+</{{ level }}>

@@ -1,0 +1,10 @@
+name: Rabbit Hole
+type: module
+description: Basic functionality that is shared among the different Rabbit Hole modules.
+core_version_requirement: ^9.5 || ^10 || ^11
+package: Other
+
+# Information added by Drupal.org packaging script on 2026-01-13
+version: '8.x-1.1'
+project: 'rabbit_hole'
+datestamp: 1768284686

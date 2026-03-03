@@ -1,0 +1,97 @@
+// scss/global/_footer.scss
+// Global styles for the dark footer chrome
+
+.site-footer {
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  padding: 2rem 0;
+
+  a {
+    color: var(--color-text-secondary);
+
+    &:hover {
+      color: var(--color-text-primary);
+    }
+  }
+}
+
+// Dark variant
+.site-footer--dark {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  padding: 3rem 0 1.5rem;
+  border-top: none;
+
+  a {
+    color: var(--color-footer-text);
+    text-decoration: none;
+    &:hover {
+      color: var(--color-text-inverse);
+    }
+  }
+}
+
+// Footer top divider line
+.site-footer__top {
+  margin-bottom: 2rem;
+}
+
+.site-footer__divider {
+  height: 1px;
+  background-color: rgba($neutral-0, 0.15);
+}
+
+// Footer nav — multi-column grid layout
+.site-footer__nav {
+  .navbar-nav,
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 3rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link {
+    color: var(--color-footer-text);
+    padding: 0.25rem 0;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    &:hover { color: var(--color-text-inverse); }
+  }
+}
+
+// Footer logo sizing
+.site-footer__logo {
+  height: 40px;
+  width: auto;
+  max-width: 180px;
+}
+
+.site-footer__logo-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.site-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  padding-top: 0;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: 1.5rem;
+  a { color: var(--color-text-muted); &:hover { color: var(--color-text-inverse); } }
+}
+
+.site-footer__social {
+  font-weight: 500;
+  font-size: 0.9375rem;
+}

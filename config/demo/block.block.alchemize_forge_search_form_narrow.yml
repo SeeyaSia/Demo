@@ -1,0 +1,23 @@
+uuid: 6b6f889b-5d59-4b55-9c49-8da89ba4cc6f
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: JcuJcGWIzdXxy0L2PetGNd48TN-crns9YL71GM_aX2w
+id: alchemize_forge_search_form_narrow
+theme: alchemize_forge
+region: none
+weight: -3
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (narrow)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

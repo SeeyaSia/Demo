@@ -1,0 +1,19 @@
+{
+  "name": "canvas-oauth-create",
+  "description": "Creates an OAuth consumer for Canvas CLI with client_credentials grant type and Canvas-specific scopes (canvas_js_component, canvas_asset_library). Idempotent — skips if consumer with same client_id exists.",
+  "parameters": [
+    {"name": "CLIENT_ID", "description": "OAuth client ID", "default": "canvas_cli"},
+    {"name": "CLIENT_SECRET", "description": "OAuth client secret (required)", "default": null},
+    {"name": "CLIENT_LABEL", "description": "Human-readable consumer label", "default": "Canvas CLI"}
+  ],
+  "preconditions": [
+    "simple_oauth module is enabled",
+    "canvas_oauth module is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-16",
+  "deprecated": false,
+  "deprecated_reason": null
+}

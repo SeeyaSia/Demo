@@ -1,0 +1,18 @@
+{
+  "name": "create-page-regions",
+  "description": "Creates Canvas PageRegion entities with empty component trees for a theme. Required for CanvasPageVariant to activate. Accepts comma-separated region names.",
+  "parameters": [
+    {"name": "THEME", "description": "Theme machine name", "default": "alchemize_forge"},
+    {"name": "REGIONS", "description": "Comma-separated region names", "default": "none,breadcrumb,highlighted"}
+  ],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running",
+    "Theme is installed"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-16",
+  "deprecated": false,
+  "deprecated_reason": null
+}

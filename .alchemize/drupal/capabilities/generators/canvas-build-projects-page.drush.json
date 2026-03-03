@@ -1,0 +1,16 @@
+{
+  "name": "canvas-build-projects-page",
+  "description": "Builds a 'Projects' Canvas Page with a hero section and Views block listing. Uses preset-based design system: wrapper presets (hero-dark, content-section), heading preset (hero), paragraph preset (lead). Also demonstrates block component integration with label/label_display inputs.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "Project content type exists",
+    "Active default theme SDC components are available",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-10",
+  "deprecated": false,
+  "deprecated_reason": null
+}

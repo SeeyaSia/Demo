@@ -1,0 +1,84 @@
+// _typography-roles.scss
+// Typography role classes — SINGLE SOURCE OF TRUTH for text treatments.
+//
+// These define semantic text identity: what "hero heading" or "lead text" means
+// for this brand. They set font-size, font-weight, letter-spacing, line-height.
+//
+// Rules:
+//   - NO layout properties (no padding, flex, gap, alignment)
+//   - Text color ONLY when it's part of the role's identity (label = muted)
+//   - All sizes reference $type-scale from _typography.scss
+//   - All weights reference $font-weight-* from _typography.scss
+//
+// Used by:
+//   - Canvas Twig preset maps (heading, paragraph presets → single class)
+//   - SDC Twig templates (can apply role class directly on elements)
+//   - Anywhere consistent brand typography is needed
+//
+// NOT used by:
+//   - SDC SCSS files (they use $type-scale and $font-weight-* variables directly
+//     via @import "component-base" — emitting CSS classes in component SCSS
+//     would duplicate them in every component's compiled CSS)
+//
+// These classes use normal specificity (no !important), so Bootstrap utility
+// overrides (e.g., editor sets text_color) reliably win when applied alongside.
+
+// ============================================================
+// HEADING ROLES
+// ============================================================
+
+.role-heading-hero {
+  @include font-size(map-get($type-scale, hero));
+  font-weight: $font-weight-bold;
+  line-height: $headings-line-height;
+}
+
+.role-heading-section {
+  @include font-size(map-get($type-scale, section));
+  font-weight: $font-weight-semibold;
+  text-align: center;
+  line-height: $headings-line-height;
+}
+
+.role-heading-card {
+  @include font-size(map-get($type-scale, card));
+  font-weight: $font-weight-semibold;
+  line-height: $headings-line-height;
+}
+
+.role-heading-subtle {
+  font-weight: $font-weight-light;
+  color: var(--color-text-muted);
+}
+
+// ============================================================
+// TEXT ROLES
+// ============================================================
+
+.role-text-lead {
+  @include font-size(map-get($type-scale, lead));
+  font-weight: $lead-font-weight;
+}
+
+.role-text-caption {
+  @include font-size(map-get($type-scale, caption));
+  color: var(--color-text-muted);
+}
+
+.role-text-fine-print {
+  @include font-size(map-get($type-scale, fine-print));
+  font-weight: $font-weight-light;
+  color: var(--color-text-secondary);
+}
+
+// ============================================================
+// LABEL ROLE
+// ============================================================
+
+.role-label {
+  text-transform: uppercase;
+  @include font-size(map-get($type-scale, label));
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}

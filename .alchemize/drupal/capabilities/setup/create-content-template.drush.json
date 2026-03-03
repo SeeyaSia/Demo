@@ -1,0 +1,21 @@
+{
+  "name": "create-content-template",
+  "description": "Creates a Canvas ContentTemplate with a root wrapper component and exposed slot for per-entity editing. Fixes the empty-template bug that causes downstream generators to fail.",
+  "parameters": [
+    {"name": "CONTENT_TYPE", "description": "Machine name of the content type", "default": "page"},
+    {"name": "VIEW_MODE", "description": "View mode", "default": "full"},
+    {"name": "FIELD_NAME", "description": "Field name for exposed slot key", "default": "field_canvas_body"},
+    {"name": "SLOT_LABEL", "description": "Human-readable label for exposed slot", "default": "Page content"}
+  ],
+  "preconditions": [
+    "Canvas module is enabled",
+    "DDEV is running",
+    "Canvas components have been regenerated",
+    "Content type exists with canvas field"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-02-16",
+  "deprecated": false,
+  "deprecated_reason": null
+}

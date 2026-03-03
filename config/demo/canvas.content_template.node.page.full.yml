@@ -1,0 +1,25 @@
+uuid: dd489aff-eb35-431d-a43a-e7d46c53f934
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.alchemize_forge.wrapper
+    - core.entity_view_mode.node.full
+  module:
+    - options
+id: node.page.full
+content_entity_type_id: node
+content_entity_type_bundle: page
+content_entity_type_view_mode: full
+component_tree:
+  -
+    uuid: a2d79261-1e71-480c-9d4d-682f2f50d464
+    component_id: sdc.alchemize_forge.wrapper
+    component_version: 9f843c69ab2d91d9
+    inputs:
+      html_tag: section
+exposed_slots:
+  field_canvas_body:
+    component_uuid: a2d79261-1e71-480c-9d4d-682f2f50d464
+    slot_name: content
+    label: 'Page content'

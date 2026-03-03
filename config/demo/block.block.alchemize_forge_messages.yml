@@ -1,0 +1,22 @@
+uuid: e04cb8bd-c258-4542-ba38-cd0f2b1aac82
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alchemize_forge
+_core:
+  default_config_hash: jBFW96jWcYPmTiMgfu6YWDbM06pkgle5lVs0DbxeGF0
+id: alchemize_forge_messages
+theme: alchemize_forge
+region: content
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }
