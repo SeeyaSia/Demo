@@ -52,11 +52,11 @@ lerna-debug.log*
 
 # UI
 /ui/logs
-!/ui/dist
+/ui/dist
 /ui/dist-ssr
 /ui/*.local
 /ui/*storybook.log
-!/packages/astro-hydration/dist
+/packages/astro-hydration/dist
 /packages/astro-hydration/.astro
 
 # Playwright

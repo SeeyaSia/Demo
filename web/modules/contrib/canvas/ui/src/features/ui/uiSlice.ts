@@ -66,6 +66,7 @@ export interface TemplateContext {
   hasExposedSlots: boolean;
   exposedSlots: Record<string, ExposedSlotConfig>;
 }
+
 export interface uiSliceState {
   pending: boolean;
   zooming: boolean;

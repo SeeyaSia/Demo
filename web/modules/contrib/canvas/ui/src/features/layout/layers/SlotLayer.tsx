@@ -71,10 +71,12 @@ const SlotLayer: React.FC<SlotLayerProps> = ({
   // Exposed slot override: slot is inside a locked parent but marked exposed
   const isExposedSlotOverride = templateContext != null && isSlotExposed && parentNode?.editable === false;
 
-  // In template mode, disable drops on exposed slots; in per-content mode, disable drops into non-exposed slots
-  const slotDisableDrop = disableDrop
-    || (isTemplateMode && isSlotExposedInEditing)
-    || (templateContext != null && !isSlotExposed);
+  // Combined slotDisableDrop from both branches:
+  // - expose-slot-dialog-ui: disable when in template mode and slot is exposed in editing
+  // - per-content-editing-frontend: disable non-exposed slots; reset inherited disableDrop for exposed slots
+  const slotDisableDrop = (disableDrop && !(templateContext != null && isSlotExposed))
+      || (isTemplateMode && isSlotExposedInEditing)
+      || (templateContext != null && !isSlotExposed);
   const slotId = slot.id;
   const isCollapsed = collapsedLayers.includes(slotId);
 

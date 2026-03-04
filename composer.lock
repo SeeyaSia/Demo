@@ -1344,12 +1344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SeeyaSia/AlchemizeCanvas.git",
-                "reference": "dfb826b34caaf7b6246641824e8dcc18a1f4f784"
+                "reference": "efc2416f9d0c92e6da559ba4b4be826c8ba1fd12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SeeyaSia/AlchemizeCanvas/zipball/dfb826b34caaf7b6246641824e8dcc18a1f4f784",
-                "reference": "dfb826b34caaf7b6246641824e8dcc18a1f4f784",
+                "url": "https://api.github.com/repos/SeeyaSia/AlchemizeCanvas/zipball/efc2416f9d0c92e6da559ba4b4be826c8ba1fd12",
+                "reference": "efc2416f9d0c92e6da559ba4b4be826c8ba1fd12",
                 "shasum": ""
             },
             "require": {
@@ -1402,7 +1402,7 @@
                 "source": "https://github.com/SeeyaSia/AlchemizeCanvas/tree/local/integration",
                 "issues": "https://github.com/SeeyaSia/AlchemizeCanvas/issues"
             },
-            "time": "2026-03-03T01:22:02+00:00"
+            "time": "2026-03-04T02:48:58+00:00"
         },
         {
             "name": "drupal/canvas_bootstrap",
@@ -1764,6 +1764,7 @@
                     "Drupal\\Composer\\Plugin\\ProjectMessage\\": "."
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -1771,7 +1772,11 @@
             "homepage": "https://www.drupal.org/project/drupal",
             "keywords": [
                 "drupal"
-            ]
+            ],
+            "support": {
+                "source": "https://github.com/drupal/core-project-message/tree/11.3.3"
+            },
+            "time": "2025-02-03T10:59:29+00:00"
         },
         {
             "name": "drupal/core-recipe-unpack",
@@ -1803,6 +1808,7 @@
                     "Drupal\\Composer\\Plugin\\RecipeUnpack\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -1810,7 +1816,11 @@
             "homepage": "https://www.drupal.org/project/drupal",
             "keywords": [
                 "drupal"
-            ]
+            ],
+            "support": {
+                "source": "https://github.com/drupal/core-recipe-unpack/tree/11.3.3"
+            },
+            "time": "2025-10-28T11:20:22+00:00"
         },
         {
             "name": "drupal/core-recommended",
@@ -1886,10 +1896,15 @@
                 "webflo/drupal-core-strict": "*"
             },
             "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core."
+            "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
+            "support": {
+                "source": "https://github.com/drupal/core-recommended/tree/11.3.3"
+            },
+            "time": "2026-02-05T08:05:30+00:00"
         },
         {
             "name": "drupal/ctools",

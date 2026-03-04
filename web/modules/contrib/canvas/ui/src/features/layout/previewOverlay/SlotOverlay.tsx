@@ -102,10 +102,12 @@ const SlotOverlay: React.FC<SlotOverlayProps> = (props) => {
   // Exposed slot override: slot is inside a locked parent but marked exposed
   const isExposedSlotOverride = templateContext != null && isSlotExposed && parentComponent.editable === false;
 
-  // In template mode, disable drops on exposed slots; in per-content mode, disable drops into non-exposed slots
-  const slotDisableDrop = disableDrop
-    || (isTemplateMode && isSlotExposedInEditing)
-    || (templateContext != null && !isSlotExposed);
+  // Combined slotDisableDrop from both branches:
+  // - expose-slot-dialog-ui: disable when in template mode and slot is exposed in editing
+  // - per-content-editing-frontend: disable non-exposed slots; reset inherited disableDrop for exposed slots
+  const slotDisableDrop = (disableDrop && !(templateContext != null && isSlotExposed))
+      || (isTemplateMode && isSlotExposedInEditing)
+      || (templateContext != null && !isSlotExposed);
 
   // Whether this slot should have pointer events enabled in per-content mode
   const isExposedInPerContentEditing = templateContext != null && isSlotExposed;
@@ -206,6 +208,7 @@ const SlotOverlay: React.FC<SlotOverlayProps> = (props) => {
         [styles.dropTarget]: slotId === targetSlot,
         [styles.exposed]: isTemplateMode && isSlotExposedInEditing,
         [styles.exposedPerContent]: isExposedInPerContentEditing,
+        [styles.exposedPerContentOutline]: isExposedSlotOverride,
       })}
       data-canvas-type="slot"
       style={style}
