@@ -53,13 +53,22 @@ if (!$template) {
 }
 
 $exposed_slots = $template->getExposedSlots();
-if (!isset($exposed_slots['field_canvas_body'])) {
-  echo "ERROR: No 'field_canvas_body' exposed slot!\n";
+// Find the first available canvas slot — supports both field_canvas_body and field_canvas.
+$slot_field = NULL;
+foreach (['field_canvas_body', 'field_canvas'] as $candidate) {
+  if (isset($exposed_slots[$candidate])) {
+    $slot_field = $candidate;
+    break;
+  }
+}
+if (!$slot_field) {
+  echo "ERROR: No canvas exposed slot found! Available: " . implode(', ', array_keys($exposed_slots)) . "\n";
   return;
 }
 
-$slot_uuid = $exposed_slots['field_canvas_body']['component_uuid'];
-$slot = $exposed_slots['field_canvas_body']['slot_name'];
+$slot_uuid = $exposed_slots[$slot_field]['component_uuid'];
+$slot = $exposed_slots[$slot_field]['slot_name'];
+echo "Using slot field: $slot_field\n";
 echo "Slot target: component=$slot_uuid, slot=$slot\n\n";
 
 // ============================================================
@@ -672,7 +681,7 @@ foreach ($presets as $pr) {
 
 echo "Built tree with " . count($tree) . " components.\n";
 
-$node->set('field_canvas_body', $tree);
+$node->set($slot_field, $tree);
 try {
   $node->save();
   echo "Saved Card Layout Designs page (node/$node_id)\n";
@@ -688,8 +697,8 @@ catch (\Exception $e) {
 // ============================================================
 
 $reloaded = $node_storage->load($node_id);
-$saved_tree = $reloaded->get('field_canvas_body')->getValue();
-echo "Verified: " . count($saved_tree) . " components saved to field_canvas_body\n";
+$saved_tree = $reloaded->get($slot_field)->getValue();
+echo "Verified: " . count($saved_tree) . " components saved to $slot_field\n";
 
 // Render check
 try {
