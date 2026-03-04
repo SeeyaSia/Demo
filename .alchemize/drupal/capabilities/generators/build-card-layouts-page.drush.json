@@ -1,0 +1,16 @@
+{
+  "name": "build-card-layouts-page",
+  "description": "Builds a Card Layout Designs page showcasing 7+ different card composition patterns for design review. Demonstrates all 5 card presets (elevated, bordered, dark, flat, glass) in real-world layouts: feature cards (3-col), pricing cards (header/footer), testimonials (2-col glass), service cards (4-col flat), dark showcase (glass on dark bg), hero+supporting (asymmetric grid), colored CTA cards (manual bg overrides), and a preset reference section.",
+  "parameters": [],
+  "preconditions": [
+    "Canvas module is enabled",
+    "Basic page content type exists with field_canvas_body",
+    "ContentTemplate node.page.full exists and is enabled",
+    "DDEV is running"
+  ],
+  "idempotent": true,
+  "created_by": "drupal_capability_writer",
+  "created_date": "2026-03-03",
+  "deprecated": false,
+  "deprecated_reason": null
+}

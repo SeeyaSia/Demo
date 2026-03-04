@@ -7,8 +7,6 @@ status: experimental
 group: Canvas Bootstrap
 props:
   type: object
-  required:
-    - text
   properties:
     text:
       type: string
